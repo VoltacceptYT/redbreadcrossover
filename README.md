@@ -7,9 +7,16 @@ You can find Cookie Valley on the [Steam Workshop!](https://steamcommunity.com/s
 
 You can also just copy and paste this into the console
 ```js
+fetch('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/main.js')
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+        // You can also execute the script if needed
         var script = document.createElement('script');
-        script.src = 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/main.js';
-        document.head.appendChild(script);
+        script.textContent = data;
+        document.body.appendChild(script);
+    })
+    .catch(error => console.error('Error fetching the script:', error));
 ```
 
 If you have any issues, comments, or suggestions, please feel free to post on the Steam Workshop or contact me at charlie.doom.dev@gmail.com :)
