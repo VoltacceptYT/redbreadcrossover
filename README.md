@@ -32,7 +32,7 @@ Game.registerMod("sns cookie valley",{
 					this.assets[assets[i]]=img;
 					this.assetsLoading.push(assets[i]);
 					if (imgSrc.indexOf('/')!=-1) img.src=imgSrc;
-					else img.src=this.domain+imgSrc;
+					else img.src='https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/'+imgSrc;
 				}
 			}
 		}
@@ -43,7 +43,7 @@ Game.registerMod("sns cookie valley",{
 			var img=new Image();
 			if (!Game.local) img.crossOrigin='anonymous';
 			if (newer.indexOf('/')!=-1)/*newer.indexOf('http')!=-1 || newer.indexOf('https')!=-1)*/ img.src=newer;
-			else img.src=this.domain+newer;
+			else img.src='https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/'+newer;
 			img.alt=newer;
 			img.onload=bind(this,this.onLoad);
 			this.assets[old]=img;
