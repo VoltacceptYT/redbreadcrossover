@@ -3434,3 +3434,5 @@ ModLanguage('EN',{
 			"\"It is my opinion that you make really good cookies,\" says news ticker anchor."
 ]
 });
+
+Game.LoadMod('CookieValley Web');
