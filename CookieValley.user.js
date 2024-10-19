@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cookie Valley Userscript
 // @namespace    https://github.com/VoltacceptYT/cookievalley
-// @version      v0.2
+// @version      v0.3
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://raw.githubusercontent.com/VoltacceptYT/cookievalley/refs/heads/main/img/modicon.png
@@ -10,38 +10,43 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
-    'use strict';
+(function () {
+	'use strict';
 
-    if (CCSE && CCSE.isLoaded) {
-        CCSE.customOptions.push(() => {
-            CCSE.AppendCollapsibleOptionsMenu('CookieValley Web', 'Cookie Valley');
-            CCSE.AppendOptionsMenu('CookieValley Web', 'Enable Cookie Valley', 'Toggle This [ON] to Enable the Cookie Valley Mod', () => {
-                const mod = Game.mods['CookieValley Web'];
-                mod.enabled = !mod.enabled;
+	Game.registerMod('CookieValley Web Enabler', {
+		init: function () {
+			Game.UpdateMenu = function () {
+				if (Game.onMenu === 'prefs') {
+					let str = '<div class="listing"><a class="option" onclick="Game.mods[\'CookieValley Web\'].toggle()">Toggle Cookie Valley Mod</a></div>';
+					l('menu').innerHTML += str;
+				}
+			};
 
-                if (mod.enabled) {
-                    if (!document.getElementById('cookie_valley')) {
-                        fetch('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/main.js')
-                            .then(response => response.text())
-                            .then(data => {
-                                const script = document.createElement('script');
-                                script.textContent = data;
-                                script.id = 'cookie_valley';
-                                document.body.appendChild(script);
-                            })
-                            .catch(error => console.error('Error Fetching Mod:', error));
-                    }
-                } else {
-                    const script = document.getElementById('cookie_valley');
-                    if (script) {
-                        document.body.removeChild(script);
-                    }
-                }
-            });
-        });
-    } else {
-        Game.LoadMod('https://klattmose.github.io/CookieClicker/CCSE.js');
-    }
+			this.enabled = false;
+		},
+		toggle: function () {
+			this.enabled = !this.enabled;
 
+			if (this.enabled) {
+				if (!document.getElementById('cookie_valley')) {
+					fetch('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/main.js')
+						.then(response => response.text())
+						.then(data => {
+							const script = document.createElement('script');
+							script.textContent = data;
+							script.id = 'cookie_valley';
+							document.body.appendChild(script);
+						})
+						.catch(error => console.error('Error Fetching Mod:', error));
+				}
+			} else {
+				const script = document.getElementById('cookie_valley');
+				if (script) {
+					document.body.removeChild(script);
+				}
+			}
+		}
+	});
+
+	Game.LoadMod('CookieValley Web Enabler');
 })();
