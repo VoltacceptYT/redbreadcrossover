@@ -10,8 +10,6 @@ You can also just copy and paste this into the console
 fetch('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/main.js')
     .then(response => response.text())
     .then(data => {
-        console.log(data);
-        // You can also execute the script if needed
         var script = document.createElement('script');
         script.textContent = data;
         document.body.appendChild(script);
