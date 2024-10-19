@@ -5,6 +5,8 @@ CV is currently only available in English, and may conflict with other mods that
 
 You can find Cookie Valley on the [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3125868777) by [Samantha Stahlke](https://github.com/samanthastahlke)!
 
+You can also install the [Cookie Valley Userscript](https://github.com/VoltacceptYT/cookievalley/raw/refs/heads/main/CookieValley.user.js)!
+
 You can also just copy and paste this into the console!
 ```js
 fetch('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/main.js')
@@ -16,7 +18,6 @@ fetch('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/ma
     })
     .catch(error => console.error('Error fetching the script:', error));
 ```
-You can also install the [Cookie Valley Userscript](https://github.com/VoltacceptYT/cookievalley/raw/refs/heads/main/CookieValley.user.js)!
 
 If you have any issues, comments, or suggestions, please feel free to post on the Steam Workshop or contact me at charlie.doom.dev@gmail.com :)
 
