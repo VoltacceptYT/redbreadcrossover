@@ -795,16 +795,16 @@ Game.registerMod("sns cookie valley",{
 		}
 
 		var css_prompt=document.createElement('style');
-		css_prompt.innerHTML=`#promptContentSpendLump .icon {background-image:url('${this.dir}/img/icons.png')!important;}`;
+		css_prompt.innerHTML=`#promptContentSpendLump .icon {background-image:url(''https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/icons.png')!important;}`;
 		document.head.appendChild(css_prompt);
 
 		var css_new=document.createElement('style');
-		css_new.innerHTML=`.icon,body .icon,body .crate,body .usesIcon{background-image:url('${this.dir}/img/icons.png')}`+
-		`.product .icon,.product .icon.off,.tinyProductIcon{background-image:url('${this.dir}/img/buildings.png')}`;
+		css_new.innerHTML=`.icon,body .icon,body .crate,body .usesIcon{background-image:url(''https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/icons.png')}`+
+		`.product .icon,.product .icon.off,.tinyProductIcon{background-image:url(''https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/buildings.png')}`;
 		document.head.appendChild(css_new);
 
 		var css_currency=document.createElement('style');
-		css_currency.innerHTML=`.heavenly.price:before{background:url('${this.dir}/img/golden_walnut.png');}`+`.lump.price:before{background:url('${this.dir}/img/stardrop.png');}`;
+		css_currency.innerHTML=`.heavenly.price:before{background:url(''https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/golden_walnut.png');}`+`.lump.price:before{background:url(''https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/stardrop.png');}`;
 		document.body.appendChild(css_currency);
 
 		Game.registerHook('create', function(){
