@@ -5,11 +5,16 @@ CV is currently only available in English, and may conflict with other mods that
 
 You can find Cookie Valley on the [Steam Workshop!](https://steamcommunity.com/sharedfiles/filedetails/?id=3125868777)
 
-You can also just copy and paste this into the console ```Game.LoadMod('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/main.js')```
+You can also just copy and paste this into the console
+```
+var script = document.createElement('script');
+script.src = 'https://example.com/your-script.js';
+document.head.appendChild(script);
+```
 
 If you have any issues, comments, or suggestions, please feel free to post on the Steam Workshop or contact me at charlie.doom.dev@gmail.com :)
 
-![baner-features](https://github.com/samanthastahlke/cookievalley/assets/10996959/866a7c2c-fcd3-429a-9efa-b0a8264d93ff)
+![banner-features](https://github.com/samanthastahlke/cookievalley/assets/10996959/866a7c2c-fcd3-429a-9efa-b0a8264d93ff)
 
 - Reskins for all 20 default buildings, from cursors (junimos) to temples (skull caverns) and beyond, including store and mini building/background sprites
 - Reskins for building upgrade/achievement icons
