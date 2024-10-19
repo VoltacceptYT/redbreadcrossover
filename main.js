@@ -1,5 +1,3 @@
-//const Game = require("steamapi/src/structures/Game");
-
 Game.registerMod("sns cookie valley",{
 	init:function(){
 
