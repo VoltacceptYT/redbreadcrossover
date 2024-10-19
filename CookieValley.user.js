@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cookie Valley Userscript
 // @namespace    https://github.com/VoltacceptYT/cookievalley
-// @version      v0.2.5
+// @version      v0.2.3
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://raw.githubusercontent.com/VoltacceptYT/cookievalley/refs/heads/main/img/modicon.png
@@ -31,29 +31,19 @@
 							lastSubsection.insertAdjacentElement('afterend', section);
 						}
 						if (!document.getElementById('cookie_valley_enabler')) {
-							const str = '<div id="cookie_valley_enabler" class="listing"><a class="smallFancyButton prefButton option" onclick="Game.ToggleCV();Game.ToggleUseCV();">Cookie Valley</a></div>';
+							const str = '<div id="cookie_valley_enabler" class="listing"><a class="smallFancyButton prefButton option off" onclick="Game.mods[\'CookieValley Web Enabler\'].toggle()">Toggle Cookie Valley Mod</a></div>';
 							section.insertAdjacentHTML('beforeend', str);
 						}
 					}
 				};
 
-				Game.prefs.hasCV = 0;
+				this.CookieClickerHTML = document.body.getHTML();
+				Game.prefs.hasCV = false;
 			}
 		},
-	});
-	if (Game.mods['CookieValley Web Enabler']) {
-		const cookie_valley_enabler = document.getElementById('cookie_valley_enabler')
-		Game.ToggleCV = function () {
-			if (Game.prefs.hasCV) {
-				cookie_valley_enabler.children[0].classList.add('off')
-				Game.prefs.hasCV = 0;
-			}
-			else {
-				cookie_valley_enabler.children[0].classList.remove('off')
-				Game.prefs.hasCV = 1;
-			}
-		}
-		Game.ToggleUseCV = function () {
+		toggle: function () {
+			Game.prefs.hasCV = !Game.prefs.hasCV;
+
 			if (Game.prefs.hasCV) {
 				if (!document.getElementById('cookie_valley')) {
 					fetch('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/main.js')
@@ -66,22 +56,16 @@
 						})
 						.catch(error => console.error('Error Fetching Mod:', error));
 				}
-			} else if (!Game.prefs.hasCV) {
+			} else {
 				const script = document.getElementById('cookie_valley');
 				if (script) {
 					Game.toSave = true;
 					setTimeout(function () {
 						document.body.removeChild(script);
-
-						fetch('https://orteil.dashnet.org/cookieclicker/index.html')
-							.then(response => response.text())
-							.then(data => {
-								document.innerHTML = data
-							})
-							.catch(error => console.error('Unable to Reload:', error));
+						document.body.innerHTML = this.CookieClickerHTML
 					}, 500);
 				}
 			}
 		}
-	}
+	});
 })();
