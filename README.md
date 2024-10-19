@@ -32,22 +32,9 @@ Game.registerMod("sns cookie valley",{
 					this.assets[assets[i]]=img;
 					this.assetsLoading.push(assets[i]);
 					if (imgSrc.indexOf('/')!=-1) img.src=imgSrc;
-					else img.src='https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/'+imgSrc;
+					else img.src=this.domain+imgSrc;
 				}
 			}
-		}
-
-		Game.Loader.Replace=function(old,newer)
-		{
-			if (!this.assets[old]) this.Load([old]);
-			var img=new Image();
-			if (!Game.local) img.crossOrigin='anonymous';
-			if (newer.indexOf('/')!=-1)/*newer.indexOf('http')!=-1 || newer.indexOf('https')!=-1)*/ img.src=newer;
-			else img.src='https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/'+newer;
-			img.alt=newer;
-			img.onload=bind(this,this.onLoad);
-			this.assets[old]=img;
-			this.replaced[old]=newer;
 		}
 
 		Game.grandmaNames = ["Abigail", "Alex", "Birdie", "Caroline", "Clint", "Demetrius", "Elliott", "Emily", "Evelyn", "George", "Gil", "Governor", "Gunther", "Gus", "Haley", "Harvey", "Jas", "Jodi", "Kent", "Krobus", "Leah", "Leo", "Lewis", "Linus", "Marlon", "Marnie", "Maru", "Mona", "Morris", "Pam", "Penny", "Pierre", "Rasmodius", "Robin", "Sam", "Sandy", "Sebastian", "Shane", "Vincent", "Willy"];
