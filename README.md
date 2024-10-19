@@ -4,6 +4,7 @@ Cookie Valley is a Stardew Valley-themed crossover mod for Cookie Clicker. Build
 CV is currently only available in English, and may conflict with other mods that modify the news ticker or texture replacement functionality. If you have another mod that replaces any building sprites or the icons.png file, you may experience some inconsistencies or undesired graphical behaviour. Depending on the conflict, these issues might be fixable by adjusting the loading order of mods in the game's settings.
 
 You can find Cookie Valley on the [Steam Workshop!](https://steamcommunity.com/sharedfiles/filedetails/?id=3125868777)
+You can also just copy and paste this into the console ```Game.LoadMod('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/main.js')```
 
 If you have any issues, comments, or suggestions, please feel free to post on the Steam Workshop or contact me at charlie.doom.dev@gmail.com :)
 
