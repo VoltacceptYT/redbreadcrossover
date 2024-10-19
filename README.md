@@ -7,18 +7,6 @@ You can find Cookie Valley on the [Steam Workshop](https://steamcommunity.com/sh
 
 You can also install the [Cookie Valley Userscript](https://github.com/VoltacceptYT/cookievalley/raw/refs/heads/main/CookieValley.user.js)!
 
-You can also just copy and paste this into the console!
-```js
-fetch('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/main.js')
-    .then(response => response.text())
-    .then(data => {
-        var script = document.createElement('script');
-        script.textContent = data;
-        document.body.appendChild(script);
-    })
-    .catch(error => console.error('Error fetching the script:', error));
-```
-
 If you have any issues, comments, or suggestions, please feel free to post on the Steam Workshop or contact me at charlie.doom.dev@gmail.com :)
 
 ![banner-features](https://github.com/samanthastahlke/cookievalley/assets/10996959/866a7c2c-fcd3-429a-9efa-b0a8264d93ff)
