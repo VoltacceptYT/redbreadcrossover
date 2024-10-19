@@ -10,33 +10,6 @@ You can also just copy and paste this into the console
 Game.registerMod("sns cookie valley",{
 	init:function(){
 
-		Game.Loader.replaced = [];
-
-		Game.Loader.Load=function(assets)
-		{
-			for (var i in assets)
-			{
-				this.loadingN++;
-				this.assetsN++;
-				if (this.assetsLoading.indexOf(assets[i])==-1 && this.assetsLoaded.indexOf(assets[i])==-1)
-				{
-					var imgSrc = assets[i];
-
-					if(this.replaced[assets[i]])
-						imgSrc = this.replaced[assets[i]];
-
-					var img=new Image();
-					if (!Game.local) img.crossOrigin='anonymous';
-					img.alt=imgSrc;
-					img.onload=bind(this,this.onLoad);
-					this.assets[assets[i]]=img;
-					this.assetsLoading.push(assets[i]);
-					if (imgSrc.indexOf('/')!=-1) img.src=imgSrc;
-					else img.src=this.domain+imgSrc;
-				}
-			}
-		}
-
 		Game.grandmaNames = ["Abigail", "Alex", "Birdie", "Caroline", "Clint", "Demetrius", "Elliott", "Emily", "Evelyn", "George", "Gil", "Governor", "Gunther", "Gus", "Haley", "Harvey", "Jas", "Jodi", "Kent", "Krobus", "Leah", "Leo", "Lewis", "Linus", "Marlon", "Marnie", "Maru", "Mona", "Morris", "Pam", "Penny", "Pierre", "Rasmodius", "Robin", "Sam", "Sandy", "Sebastian", "Shane", "Vincent", "Willy"];
 
 		var greetingName = Game.grandmaNames[Math.floor(Math.random() * Game.grandmaNames.length)];
