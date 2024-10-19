@@ -8,7 +8,7 @@ You can find Cookie Valley on the [Steam Workshop!](https://steamcommunity.com/s
 You can also just copy and paste this into the console
 ```
 var script = document.createElement('script');
-script.src = 'https://example.com/your-script.js';
+script.src = 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/main.js';
 document.head.appendChild(script);
 ```
 
