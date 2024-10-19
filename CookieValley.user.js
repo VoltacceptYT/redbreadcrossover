@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cookie Valley Userscript
 // @namespace    https://github.com/VoltacceptYT/cookievalley/
-// @version      v0.1
+// @version      v0.2
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://raw.githubusercontent.com/VoltacceptYT/cookievalley/refs/heads/main/img/modicon.png
