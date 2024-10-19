@@ -32,7 +32,7 @@ Game.registerMod("sns cookie valley",{
 					this.assets[assets[i]]=img;
 					this.assetsLoading.push(assets[i]);
 					if (imgSrc.indexOf('/')!=-1) img.src=imgSrc;
-					else img.src=this.domain+imgSrc;
+					else img.src='https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/'+imgSrc;
 				}
 			}
 		}
