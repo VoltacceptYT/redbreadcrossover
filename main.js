@@ -24,7 +24,7 @@ Game.registerMod("CookieValley Web", {
         Game.AchievementsById[advancementIndex].dname = newName;
         Game.AchievementsById[advancementIndex].displayName = newName;
         Game.AchievementsById[advancementIndex].name = newName;
-        Game.AchievementsById[advancementIndex].desc = newDesc;
+        Game.AchievementsById[advancementIndex].baseDesc = newDesc;
         console.log(`Advancement name changed to ${newName}`);
       } else {
         console.log('Invalid advancement index');
@@ -93,7 +93,7 @@ Game.registerMod("CookieValley Web", {
     Game.Loader.RenameBuilding(18, 'Crossoverer', "Hybridizes universes to produce cookies from other IPs.")
 
     Game.Loader.RenameAdvancement(539, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.")
-    Game.Loader.RenameAdvancement(539, "Red Bread Redemption II", "An epic tale of life in America's unforgiving heartland in 1899. Follow outlaw Arthur Baguette and the Van der Loafa gang as they navigate the decline of the Wild West, facing federal agents, bounty hunters, and internal conflicts.")
+    Game.Loader.RenameAdvancement(540, "Red Bread Redemption II", "An epic tale of life in America's unforgiving heartland in 1899. Follow outlaw Arthur Baguette and the Van der Loafa gang as they navigate the decline of the Wild West, facing federal agents, bounty hunters, and internal conflicts.")
 
     Game.Loader.Replace('icons.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/icons.png');
     Game.Loader.Replace('cursor.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/cursor.png');
