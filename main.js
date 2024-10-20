@@ -25,6 +25,8 @@ Game.registerMod("CookieValley Web", {
         Game.AchievementsById[advancementIndex].displayName = newName;
         Game.AchievementsById[advancementIndex].name = newName;
         Game.AchievementsById[advancementIndex].baseDesc = newDesc;
+        Game.AchievementsById[advancementIndex].ddesc = newDesc;
+        Game.AchievementsById[advancementIndex].desc = newDesc;
         console.log(`Advancement name changed to ${newName}`);
       } else {
         console.log('Invalid advancement index');
