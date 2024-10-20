@@ -73,7 +73,7 @@ Game.registerMod("CookieValley Web", {
     var greeting = greetingName + ' was waiting for you.';
 
     Game.Notify(`Welcome to Cookie Valley!`, greeting, [16, 5, 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/modicon.png']);
-
+z
     Game.Loader.RenameBuilding(0, 'Junimo', "Look at them. They're just little guys.")
     Game.Loader.RenameBuilding(1, 'Villager', "A stand-up citizen to stand up and bake some cookies.")
     Game.Loader.RenameBuilding(2, 'Farmland', "The sprinklers are full of chocolate.")
@@ -96,6 +96,7 @@ Game.registerMod("CookieValley Web", {
 
     Game.Loader.RenameAdvancement(539, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.")
     Game.Loader.RenameAdvancement(540, "Red Bread Redemption II", "An epic tale of life in America's unforgiving heartland in 1899. Follow outlaw Arthur Baguette and the Van der Loaf gang as they navigate the decline of the Wild West, facing federal agents, bounty hunters, and internal conflicts.")
+    Game.Loader.RenameAdvancement(541, "Red Bread Revolver", "A western-themed third-person shooter game set in the 1880s. Follow bounty hunter Bread Harlow on his quest for revenge after the murder of his parents.")
 
     Game.Loader.Replace('icons.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/icons.png');
     Game.Loader.Replace('cursor.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/cursor.png');
