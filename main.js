@@ -6,7 +6,7 @@ Game.registerMod("CookieValley Web", {
     Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
       if (Game.ObjectsById[buildingIndex]) {
         Game.ObjectsById[buildingIndex].dname = newName;
-        Game.ObjectsById[buildingIndex].displayname = newName;
+        Game.ObjectsById[buildingIndex].displayName = newName;
         Game.ObjectsById[buildingIndex].bsingle = newName;
         Game.ObjectsById[buildingIndex].single = newName;
         Game.ObjectsById[buildingIndex].name = newName;
