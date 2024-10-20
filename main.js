@@ -1,6 +1,3 @@
-changeBuildingName(0, 'Clicker');
-
-
 Game.registerMod("CookieValley Web", {
   init: function () {
 
