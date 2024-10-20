@@ -73,7 +73,7 @@ Game.registerMod("CookieValley Web", {
     var greeting = greetingName + ' was waiting for you.';
 
     Game.Notify(`Welcome to Cookie Valley!`, greeting, [16, 5, 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/modicon.png']);
-z
+
     Game.Loader.RenameBuilding(0, 'Junimo', "Look at them. They're just little guys.")
     Game.Loader.RenameBuilding(1, 'Villager', "A stand-up citizen to stand up and bake some cookies.")
     Game.Loader.RenameBuilding(2, 'Farmland', "The sprinklers are full of chocolate.")
