@@ -1,29 +1,48 @@
+changeBuildingName(0, 'Clicker');
+
+
 Game.registerMod("CookieValley Web", {
   init: function () {
 
     Game.Loader.replaced = [];
 
-    Game.Loader.Load = function (assets) {
-      for (var i in assets) {
-        this.loadingN++;
-        this.assetsN++;
-        if (this.assetsLoading.indexOf(assets[i]) == -1 && this.assetsLoaded.indexOf(assets[i]) == -1) {
-          var imgSrc = assets[i];
+    Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
+      if (Game.ObjectsById[buildingIndex]) {
+        Game.ObjectsById[buildingIndex].dname = newName;
+        Game.ObjectsById[buildingIndex].displayname = newName;
+        Game.ObjectsById[buildingIndex].bsingle = newName;
+        Game.ObjectsById[buildingIndex].single = newName;
+        Game.ObjectsById[buildingIndex].name = newName;
+        Game.ObjectsById[buildingIndex].plural = newName + 's';
+        Game.ObjectsById[buildingIndex].bplural = newName + 's';
+        Game.ObjectsById[buildingIndex].desc = newDesc;
+        console.log(`Building name changed to ${newName}`);
+      } else {
+        console.log('Invalid building index');
+      }
+    },
 
-          if (this.replaced[assets[i]])
-            imgSrc = this.replaced[assets[i]];
+      Game.Loader.Load = function (assets) {
+        for (var i in assets) {
+          this.loadingN++;
+          this.assetsN++;
+          if (this.assetsLoading.indexOf(assets[i]) == -1 && this.assetsLoaded.indexOf(assets[i]) == -1) {
+            var imgSrc = assets[i];
 
-          var img = new Image();
-          if (!Game.local) img.crossOrigin = 'anonymous';
-          img.alt = imgSrc;
-          img.onload = bind(this, this.onLoad);
-          this.assets[assets[i]] = img;
-          this.assetsLoading.push(assets[i]);
-          if (imgSrc.indexOf('/') != -1) img.src = imgSrc;
-          else img.src = this.domain + imgSrc;
+            if (this.replaced[assets[i]])
+              imgSrc = this.replaced[assets[i]];
+
+            var img = new Image();
+            if (!Game.local) img.crossOrigin = 'anonymous';
+            img.alt = imgSrc;
+            img.onload = bind(this, this.onLoad);
+            this.assets[assets[i]] = img;
+            this.assetsLoading.push(assets[i]);
+            if (imgSrc.indexOf('/') != -1) img.src = imgSrc;
+            else img.src = this.domain + imgSrc;
+          }
         }
       }
-    }
 
     Game.Loader.Replace = function (old, newer) {
       if (!this.assets[old]) this.Load([old]);
@@ -43,6 +62,26 @@ Game.registerMod("CookieValley Web", {
     var greeting = greetingName + ' was waiting for you.';
 
     Game.Notify(`Welcome to Cookie Valley!`, greeting, [16, 5, 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/modicon.png']);
+
+    Game.Loader.RenameBulding(0, 'Junimo', "Look at them. They're just little guys.")
+    Game.Loader.RenameBulding(1, 'Villager', "A stand-up citizen to stand up and bake some cookies.")
+    Game.Loader.RenameBulding(2, 'Farmland', "The sprinklers are full of chocolate.")
+    Game.Loader.RenameBulding(3, 'Mineshaft', "We need to go deeper. And chewier. And crispier.")
+    Game.Loader.RenameBulding(4, 'Coop', "t's simple. We raise cookie chickens, hatched from chocolate eggs, to lay regular eggs, to bake cookies with!")
+    Game.Loader.RenameBulding(5, 'Barn', "The premier source of fresh milk, and the premier site of kitten raids.")
+    Game.Loader.RenameBulding(6, 'Skull Canvern', "Like the mines, but spookier, and with darker chocolate.")
+    Game.Loader.RenameBulding(7, 'Wizard Tower', "Rasmodius finally got that building permit.")
+    Game.Loader.RenameBulding(8, 'Fish Pnd', "Do these cookies feel a little...soggy...to you?")
+    Game.Loader.RenameBulding(9, 'Greenhouse', "We are free cookies, unshackled by your barbarous climate.")
+    Game.Loader.RenameBulding(10, 'Obelisk', "You could always use cookie totems for your teleportation needs, but that gets pretty expensive.")
+    Game.Loader.RenameBulding(11, 'Gold Clock', "Keeps cookies fresh indefinitely, even after consumption.")
+    Game.Loader.RenameBulding(12, 'Sewer', "Full of shadow bakeries and gooey cookies.")
+    Game.Loader.RenameBulding(13, 'Museum', "Supports cookie archaeology through the acquisition and auction of chocolate artifacts.")
+    Game.Loader.RenameBulding(14, 'Comm. Center', "Creates ingredient bundles for more efficient baking.")
+    Game.Loader.RenameBulding(15, 'Cabin', "\"Borrow\" cookies from other friends playing Cookie Valley.")
+    Game.Loader.RenameBulding(16, 'Island', "You archipela-go, girl.")
+    Game.Loader.RenameBulding(17, 'C# console', "Wait...this game isn't even written in C#.")
+    Game.Loader.RenameBulding(18, 'Crossoverer', "Hybridizes universes to produce cookies from other IPs.")
 
     Game.Loader.Replace('icons.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/icons.png');
     Game.Loader.Replace('cursor.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/cursor.png');
