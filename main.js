@@ -68,7 +68,7 @@ Game.registerMod("CookieValley Web", {
     Game.Loader.RenameBuilding(5, 'Barn', "The premier source of fresh milk, and the premier site of kitten raids.")
     Game.Loader.RenameBuilding(6, 'Skull Canvern', "Like the mines, but spookier, and with darker chocolate.")
     Game.Loader.RenameBuilding(7, 'Wizard Tower', "Rasmodius finally got that building permit.")
-    Game.Loader.RenameBuilding(8, 'Fish Pnd', "Do these cookies feel a little...soggy...to you?")
+    Game.Loader.RenameBuilding(8, 'Fish Pond', "Do these cookies feel a little...soggy...to you?")
     Game.Loader.RenameBuilding(9, 'Greenhouse', "We are free cookies, unshackled by your barbarous climate.")
     Game.Loader.RenameBuilding(10, 'Obelisk', "You could always use cookie totems for your teleportation needs, but that gets pretty expensive.")
     Game.Loader.RenameBuilding(11, 'Gold Clock', "Keeps cookies fresh indefinitely, even after consumption.")
@@ -165,6 +165,8 @@ Game.registerMod("CookieValley Web", {
     Game.Loader.Replace('wrinklerBlink.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/blank.png');
     Game.Loader.Replace('wrinklerGooglies.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/blank.png');
     Game.Loader.Replace('youLight.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/blank.png');
+
+    Game.storeToRefresh = 1
 
     var farmObj = Game.Objects["Farm"];
     farmObj.art.rows = 2;
