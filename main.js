@@ -799,17 +799,13 @@ Game.registerMod("CookieValley Web", {
       Game.TickerDraw();
     }
 
-    var css_prompt = document.createElement('style');
-    css_prompt.innerHTML = `.lumpsIcon .lympsIcon2 {background-image:url(''https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/icons.png')!important;}`;
-    document.head.appendChild(css_prompt);
-
     var css_new = document.createElement('style');
     css_new.innerHTML = `.product .icon, .tinyProductIcon{background-image:url(''https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/buildings.png')}`;
     document.head.appendChild(css_new);
 
     var css_currency = document.createElement('style');
     css_currency.innerHTML = `.heavenly.price:before{background:url(''https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/golden_walnut.png');}` + `.lump.price:before{background:url(''https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/stardrop.png');}`;
-    document.body.appendChild(css_currency);
+    document.head.appendChild(css_currency);
 
     Game.registerHook('create', function () {
       //Never forgetti, code injetti.
