@@ -3548,12 +3548,3 @@ ModLanguage('EN', {
     "\"It is my opinion that you make really good cookies,\" says news ticker anchor."
   ]
 });
-
-
-
-if (Game.onMenu == 'prefs') {
-  if (!document.querySelector('#CookieValleyAchivements')) {
-      Game.CookieValleyAchievementsHook();
-      Game.UpdateMenu();
-  }
-}
