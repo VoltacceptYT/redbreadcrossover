@@ -1,7 +1,7 @@
 Game.registerMod("CookieValley Web", {
   init: function () {
 
-    Game.Loader.replaced = [];
+    Game.Loader.replaced = []
 
     Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
       if (Game.ObjectsById[buildingIndex]) {
@@ -19,17 +19,120 @@ Game.registerMod("CookieValley Web", {
       }
     }
 
-    Game.Loader.RenameAdvancement = function (advancementIndex, newName, newDesc) {
-      if (Game.AchievementsById[advancementIndex]) {
-        Game.AchievementsById[advancementIndex].dname = newName;
-        Game.AchievementsById[advancementIndex].displayName = newName;
-        Game.AchievementsById[advancementIndex].name = newName;
-        Game.AchievementsById[advancementIndex].ddesc = newDesc;
-        Game.AchievementsById[advancementIndex].desc = newDesc;
-        Game.AchievementsById[advancementIndex].baseDesc = newDesc;
-        console.log(`Advancement name changed to ${newName}`);
+    Game.Loader.RenameAchievement = function (AchievementIndex, newName, newDesc) {
+      if (Game.AchievementsById[AchievementIndex]) {
+        Game.AchievementsById[AchievementIndex].dname = newName;
+        Game.AchievementsById[AchievementIndex].displayName = newName;
+        Game.AchievementsById[AchievementIndex].name = newName;
+        Game.AchievementsById[AchievementIndex].ddesc = newDesc;
+        Game.AchievementsById[AchievementIndex].desc = newDesc;
+        Game.AchievementsById[AchievementIndex].baseDesc = newDesc;
+        console.log(`Achievement name changed to ${newName}`);
       } else {
-        console.log('Invalid advancement index');
+        console.log('Invalid Achievement index');
+      }
+    }
+
+    try {
+      Game.customAchievementsEnabled = Game.LoadModData('CookieValley Web', true);
+    } catch (e) {
+      Game.customAchievementsEnabled = true;
+    }
+
+     Game.updateAchievements = function () {
+      if (Game.customAchievementsEnabled) {
+        Game.Loader.RenameAchievement(413, "Red Bread Revolver", "A western-themed third-person shooter game set in the 1880s. Follow bounty hunter Bread Harlow on his quest for revenge after the murder of his parents.");
+        Game.Loader.RenameAchievement(414, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.");
+        Game.Loader.RenameAchievement(415, "Red Bread Redemption: Undead Rye-surrection", "Follow John Toaston as he battles a zombie plague that has ravaged the frontier, seeking a cure to save his family and the world from the undead.");
+        Game.Loader.RenameAchievement(416, "Red Bread Redemption II", "An epic tale of life in America's unforgiving heartland in 1899. Follow outlaw Arthur Baguette and the Van der Loaf gang as they navigate the decline of the Wild West, facing federal agents, bounty hunters, and internal conflicts.");
+      } else {
+        Game.Loader.RenameAchievement(413, "Self-contained", "Have <b>1 fractal engine</b>.");
+        Game.Loader.RenameAchievement(414, "Threw you for a loop", "Have <b>50 fractal engines</b>.");
+        Game.Loader.RenameAchievement(415, "The sum of its parts", "Have <b>100 fractal engines</b>.");
+        Game.Loader.RenameAchievement(416, "Bears repeating", "Have <b>150 fractal engines</b>.");
+      }
+    }
+
+    Game.toggleCookieValleyAchievements  = function () {
+      Game.customAchievementsEnabled = !Game.customAchievementsEnabled;
+      Game.SaveModData('CookieValley Web', Game.customAchievementsEnabled);
+      Game.updateAchievements();
+      Game.UpdateMenu();
+    }
+
+    
+
+    Game.CookieValleyAchievementsMenu = function () {
+      var str = '<div class="listing">';
+      str += '<a class="option ' + (Game.customAchievementsEnabled ? 'CookieValleyEnabled' : 'CookieValleyDisabled') + '" onclick="Game.toggleCookieValleyAchievements();">' +
+        (Game.customAchievementsEnabled ? 'Disable' : 'Enable') + ' Cookie Valley Achievements</a>';
+      str += '</div>';
+      return str;
+    };
+
+    Game.CookieValleyAchievementsHook = function () {
+      var menu = Game.CookieValleyAchievementsMenu();
+      l('menu').innerHTML += menu;
+    };
+
+    Game.CookieValleyAchievementsHook();
+    Game.UpdateMenu();
+    updateAchievements();
+
+    var style = document.createElement('style');
+    style.innerHTML = `
+    .CookieValleyEnabled, a.option.CookieValleyEnabled {
+      color: #0c0;
+      border-color: #0c0;
+    }
+    a.option.CookieValleyEnabled:hover {
+      border-color: #3f3;
+      color: #3f3;
+    }
+    a.option.CookieValleyEnabled:active {
+      background-color: #300;
+    }
+    .CookieValleyDisabled, a.option.CookieValleyDisabled {
+      color: #c00;
+      border-color: #c00;
+    }
+    a.option.CookieValleyDisabled:hover {
+      border-color: #f33;
+      color: #f33;
+    }
+    a.option.CookieValleyDisabled:active {
+      background-color: #300;
+    }`;
+    document.getElementsByTagName('head')[0].appendChild(style);
+
+
+    Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
+      if (Game.ObjectsById[buildingIndex]) {
+        Game.ObjectsById[buildingIndex].dname = newName;
+        Game.ObjectsById[buildingIndex].displayName = newName;
+        Game.ObjectsById[buildingIndex].bsingle = newName;
+        Game.ObjectsById[buildingIndex].single = newName;
+        Game.ObjectsById[buildingIndex].name = newName;
+        Game.ObjectsById[buildingIndex].plural = newName + 's';
+        Game.ObjectsById[buildingIndex].bplural = newName + 's';
+        Game.ObjectsById[buildingIndex].desc = newDesc;
+        console.log(`Building name changed to ${newName}`);
+      } else {
+        console.log('Invalid building index');
+      }
+    }
+
+    Game.Loader.RenameAchievement = function (AchievementIndex, newName, newDesc) {
+      if (Game.AchievementsById[AchievementIndex]) {
+        Game.AchievementsById[AchievementIndex].dname = newName;
+        Game.AchievementsById[AchievementIndex].displayName = newName;
+        Game.AchievementsById[AchievementIndex].name = newName;
+        Game.AchievementsById[AchievementIndex].ddesc = newDesc;
+        Game.AchievementsById[AchievementIndex].desc = newDesc;
+        Game.AchievementsById[AchievementIndex].baseDesc = newDesc;
+        console.log(`Achievement name changed to ${newName}`);
+      } else {
+        console.log('Invalid Achievement index');
       }
     }
 
@@ -94,9 +197,10 @@ Game.registerMod("CookieValley Web", {
     Game.Loader.RenameBuilding(17, 'C# console', "Wait...this game isn't even written in C#.")
     Game.Loader.RenameBuilding(18, 'Crossoverer', "Hybridizes universes to produce cookies from other IPs.")
 
-    Game.Loader.RenameAdvancement(539, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.")
-    Game.Loader.RenameAdvancement(540, "Red Bread Redemption II", "An epic tale of life in America's unforgiving heartland in 1899. Follow outlaw Arthur Baguette and the Van der Loaf gang as they navigate the decline of the Wild West, facing federal agents, bounty hunters, and internal conflicts.")
-    Game.Loader.RenameAdvancement(541, "Red Bread Revolver", "A western-themed third-person shooter game set in the 1880s. Follow bounty hunter Bread Harlow on his quest for revenge after the murder of his parents.")
+    Game.Loader.RenameAchievement(539, "Red Bread Revolver", "A western-themed third-person shooter game set in the 1880s. Follow bounty hunter Bread Harlow on his quest for revenge after the murder of his parents.")
+    Game.Loader.RenameAchievement(540, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.")
+    Game.Loader.RenameAchievement(541, "Red Bread Redemption: Undead Rye-surrection", "Follow John Toaston as he battles a zombie plague that has ravaged the frontier, seeking a cure to save his family and the world from the undead")
+    Game.Loader.RenameAchievement(542, "Red Bread Redemption II", "An epic tale of life in America's unforgiving heartland in 1899. Follow outlaw Arthur Baguette and the Van der Loaf gang as they navigate the decline of the Wild West, facing federal agents, bounty hunters, and internal conflicts.")
 
     Game.Loader.Replace('icons.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/icons.png');
     Game.Loader.Replace('cursor.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/cursor.png');
