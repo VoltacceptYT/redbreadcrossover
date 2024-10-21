@@ -34,14 +34,14 @@ Game.registerMod("CookieValley", {
     }
 
     try {
-      Game.customAchievementsEnabled = Game.loadModData('CookieValley', true);
+      Game.customAchievementsEnabled = JSON.parse(localStorage.getItem('RedBreadAchivements'));
     } catch (e) {
       Game.customAchievementsEnabled = true;
     }
 
     Game.toggleCookieValleyAchievements = function () {
       Game.customAchievementsEnabled = !Game.customAchievementsEnabled;
-      Game.saveModData('CookieValley', Game.customAchievementsEnabled);
+      localStorage.setItem('RedBreadAchivements', JSON.stringify(Game.customAchievementsEnabled));
       if (Game.customAchievementsEnabled) {
         Game.Loader.RenameAchievement(413, "Red Bread Revolver", "A western-themed third-person shooter game set in the 1880s. Follow bounty hunter Bread Harlow on his quest for revenge after the murder of his parents.");
         Game.Loader.RenameAchievement(414, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.");
