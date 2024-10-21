@@ -77,7 +77,7 @@ Game.registerMod("CookieValley Web", {
 
     Game.CookieValleyAchievementsHook();
     Game.UpdateMenu();
-    updateAchievements();
+    Game.updateAchievements();
 
     var style = document.createElement('style');
     style.innerHTML = `
