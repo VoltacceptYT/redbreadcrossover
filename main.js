@@ -81,14 +81,31 @@ Game.registerMod("CookieValley Web", {
       //if (what=='log') l('donateBox').className='on'; else l('donateBox').className='';
       Game.onMenu = what;
 
-      l('prefsButton').className = (Game.onMenu == 'prefs') ? 'panelButton selected' : 'panelButton';
-      l('statsButton').className = (Game.onMenu == 'stats') ? 'panelButton selected' : 'panelButton';
-      l('logButton').className = (Game.onMenu == 'log') ? 'panelButton selected' : 'panelButton';
-
+      var prefsButton = l('prefsButton');
       if (Game.onMenu == 'prefs') {
-        Game.CookieValleyAchievementsHook();
-        Game.UpdateMenu();
+        prefsButton.className = 'panelButton selected';
+        if (prefsButton.classList.contains('selected')) {
+          Game.CookieValleyAchievementsHook();
+          Game.UpdateMenu();
+        }
+      } else {
+        prefsButton.className = 'panelButton';
       }
+
+      var statsButton = l('statsButton');
+      if (Game.onMenu == 'stats') {
+        statsButton.className = 'panelButton selected';
+      } else {
+        statsButton.className = 'panelButton';
+      }
+
+      var logButton = l('logButton');
+      if (Game.onMenu == 'log') {
+        logButton.className = 'panelButton selected';
+      } else {
+        logButton.className = 'panelButton';
+      }
+
 
       if (Game.onMenu == '') PlaySound('snd/clickOff2.mp3');
       else PlaySound('snd/clickOn2.mp3');
