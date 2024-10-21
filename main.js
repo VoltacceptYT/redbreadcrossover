@@ -1,4 +1,4 @@
-Game.registerMod("CookieValley Web", {
+Game.registerMod("CookieValley", {
   init: function () {
 
     Game.Loader.replaced = []
@@ -34,14 +34,14 @@ Game.registerMod("CookieValley Web", {
     }
 
     try {
-      Game.customAchievementsEnabled = Game.loadModData('CookieValley Web', true);
+      Game.customAchievementsEnabled = Game.loadModData('CookieValley', true);
     } catch (e) {
       Game.customAchievementsEnabled = true;
     }
 
     Game.toggleCookieValleyAchievements = function () {
       Game.customAchievementsEnabled = !Game.customAchievementsEnabled;
-      Game.saveModData('CookieValley Web', Game.customAchievementsEnabled);
+      Game.saveModData('CookieValley', Game.customAchievementsEnabled);
       if (Game.customAchievementsEnabled) {
         Game.Loader.RenameAchievement(413, "Red Bread Revolver", "A western-themed third-person shooter game set in the 1880s. Follow bounty hunter Bread Harlow on his quest for revenge after the murder of his parents.");
         Game.Loader.RenameAchievement(414, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.");
@@ -62,7 +62,7 @@ Game.registerMod("CookieValley Web", {
         originalUpdateMenu();
         if (Game.onMenu === 'prefs') {
           const menu = document.getElementById('menu');
-          let section = Array.from(menu.getElementsByClassName('subsection')).find(subsection => subsection.innerText.includes('Cookie Valley Web'));
+          let section = Array.from(menu.getElementsByClassName('subsection')).find(subsection => subsection.innerText.includes('Cookie Valley'));
           if (!section) {
             section = document.createElement('div');
             section.className = 'block';
@@ -70,8 +70,8 @@ Game.registerMod("CookieValley Web", {
             section.style.margin = '8px 4px';
             section.innerHTML = `
               <div class="subsection">
-                <div class="title">Cookie Valley Web</div>
-                <div id="CookieValleyAchivements" class="listing">` + '<a class="option ' + (Game.customAchievementsEnabled ? 'CookieValleyEnabled' : 'CookieValleyDisabled') + '" onclick="Game.toggleCookieValleyAchievements();">' +
+                <div class="title">Cookie Valley</div>
+                <div id="CookieValleyAchivements" class="listing">` + '<a class="option ' + (Game.customAchievementsEnabled ? 'CookieValleyDisabled' : 'CookieValleyEnabled') + '" onclick="Game.toggleCookieValleyAchievements();">' +
               (Game.customAchievementsEnabled ? 'Disable' : 'Enable') + ' Cookie Valley Achievements</a>' + `
                 </div>
               </div>`;
