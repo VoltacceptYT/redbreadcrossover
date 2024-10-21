@@ -34,14 +34,14 @@ Game.registerMod("CookieValley Web", {
     }
 
     try {
-      Game.customAchievementsEnabled = Game.LoadModData('CookieValley Web', true);
+      Game.customAchievementsEnabled = Game.loadModData('CookieValley Web', true);
     } catch (e) {
       Game.customAchievementsEnabled = true;
     }
 
     Game.toggleCookieValleyAchievements = function () {
       Game.customAchievementsEnabled = !Game.customAchievementsEnabled;
-      Game.SaveModData('CookieValley Web', Game.customAchievementsEnabled);
+      Game.saveModData('CookieValley Web', Game.customAchievementsEnabled);
       if (Game.customAchievementsEnabled) {
         Game.Loader.RenameAchievement(413, "Red Bread Revolver", "A western-themed third-person shooter game set in the 1880s. Follow bounty hunter Bread Harlow on his quest for revenge after the murder of his parents.");
         Game.Loader.RenameAchievement(414, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.");
@@ -81,52 +81,6 @@ Game.registerMod("CookieValley Web", {
         }
       }
     }
-
-    Game.ShowMenu = function (what) {
-      if (!what || what == '') what = Game.onMenu;
-      if (Game.onMenu == '' && what != '') Game.addClass('onMenu');
-      else if (Game.onMenu != '' && what != Game.onMenu) Game.addClass('onMenu');
-      else if (what == Game.onMenu) { Game.removeClass('onMenu'); what = ''; }
-      //if (what=='log') l('donateBox').className='on'; else l('donateBox').className='';
-      Game.onMenu = what;
-
-      var prefsButton = l('prefsButton');
-      if (Game.onMenu == 'prefs') {
-        prefsButton.className = 'panelButton selected';
-        Game.CookieValleyAchievementsHook();
-        Game.UpdateMenu();
-      } else {
-        prefsButton.className = 'panelButton';
-      }
-
-      var statsButton = l('statsButton');
-      if (Game.onMenu == 'stats') {
-        statsButton.className = 'panelButton selected';
-      } else {
-        statsButton.className = 'panelButton';
-      }
-
-      var logButton = l('logButton');
-      if (Game.onMenu == 'log') {
-        logButton.className = 'panelButton selected';
-      } else {
-        logButton.className = 'panelButton';
-      }
-
-
-      if (Game.onMenu == '') PlaySound('snd/clickOff2.mp3');
-      else PlaySound('snd/clickOn2.mp3');
-
-      Game.UpdateMenu();
-
-      if (what == '') {
-        for (var i in Game.Objects) {
-          var me = Game.Objects[i];
-          if (me.minigame && me.minigame.onResize) me.minigame.onResize();
-        }
-      }
-    };
-
 
     var style = document.createElement('style');
     style.innerHTML = `
