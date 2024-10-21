@@ -12,7 +12,7 @@
 
 (function () {
 	'use strict';
-	fetch('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/main.js')
+	fetch('https://voltacceptyt.github.io/cookievalley/main.js')
 		.then(response => response.text())
 		.then(data => {
 			const script = document.createElement('script');
