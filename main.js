@@ -56,8 +56,6 @@ Game.registerMod("CookieValley Web", {
       Game.UpdateMenu();
     }
 
-    Game.ButtonAddedCookieValley = false
-
     Game.CookieValleyAchievementsMenu = function () {
       var str = '<div class="listing" id="CookieValleyAchivements">';
       str += '<a class="option ' + (Game.customAchievementsEnabled ? 'CookieValleyEnabled' : 'CookieValleyDisabled') + '" onclick="Game.toggleCookieValleyAchievements();">' +
@@ -68,8 +66,43 @@ Game.registerMod("CookieValley Web", {
 
     Game.CookieValleyAchievementsHook = function () {
       var menu = Game.CookieValleyAchievementsMenu();
-      l('menu').innerHTML += menu;
+      var menuElement = l('menu');
+      if (menuElement && !menuElement.innerHTML.includes(menu)) {
+        menuElement.innerHTML += menu;
+      }
     };
+
+
+    Game.ShowMenu = function (what) {
+      if (!what || what == '') what = Game.onMenu;
+      if (Game.onMenu == '' && what != '') Game.addClass('onMenu');
+      else if (Game.onMenu != '' && what != Game.onMenu) Game.addClass('onMenu');
+      else if (what == Game.onMenu) { Game.removeClass('onMenu'); what = ''; }
+      //if (what=='log') l('donateBox').className='on'; else l('donateBox').className='';
+      Game.onMenu = what;
+
+      l('prefsButton').className = (Game.onMenu == 'prefs') ? 'panelButton selected' : 'panelButton';
+      l('statsButton').className = (Game.onMenu == 'stats') ? 'panelButton selected' : 'panelButton';
+      l('logButton').className = (Game.onMenu == 'log') ? 'panelButton selected' : 'panelButton';
+
+      if (Game.onMenu == 'prefs') {
+        Game.CookieValleyAchievementsHook();
+        Game.UpdateMenu();
+      }
+
+      if (Game.onMenu == '') PlaySound('snd/clickOff2.mp3');
+      else PlaySound('snd/clickOn2.mp3');
+
+      Game.UpdateMenu();
+
+      if (what == '') {
+        for (var i in Game.Objects) {
+          var me = Game.Objects[i];
+          if (me.minigame && me.minigame.onResize) me.minigame.onResize();
+        }
+      }
+    };
+
 
     var style = document.createElement('style');
     style.innerHTML = `
