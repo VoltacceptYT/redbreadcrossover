@@ -17,7 +17,6 @@
 		.then(data => {
 			const script = document.createElement('script');
 			script.textContent = data;
-			script.id = 'cookie_valley';
 			document.body.appendChild(script);
 		});
 })();
