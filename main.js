@@ -59,7 +59,7 @@ Game.registerMod("CookieValley Web", {
 
 
     Game.CookieValleyAchievementsMenu = function () {
-      var str = '<div class="listing">';
+      var str = '<div class="listing" id="CookieValleyAchivements">';
       str += '<a class="option ' + (Game.customAchievementsEnabled ? 'CookieValleyEnabled' : 'CookieValleyDisabled') + '" onclick="Game.toggleCookieValleyAchievements();">' +
         (Game.customAchievementsEnabled ? 'Disable' : 'Enable') + ' Cookie Valley Achievements</a>';
       str += '</div>';
@@ -70,9 +70,6 @@ Game.registerMod("CookieValley Web", {
       var menu = Game.CookieValleyAchievementsMenu();
       l('menu').innerHTML += menu;
     };
-
-    Game.CookieValleyAchievementsHook();
-    Game.UpdateMenu();
 
     var style = document.createElement('style');
     style.innerHTML = `
@@ -191,11 +188,6 @@ Game.registerMod("CookieValley Web", {
     Game.Loader.RenameBuilding(16, 'Island', "You archipela-go, girl.")
     Game.Loader.RenameBuilding(17, 'C# console', "Wait...this game isn't even written in C#.")
     Game.Loader.RenameBuilding(18, 'Crossoverer', "Hybridizes universes to produce cookies from other IPs.")
-
-    Game.Loader.RenameAchievement(539, "Red Bread Revolver", "A western-themed third-person shooter game set in the 1880s. Follow bounty hunter Bread Harlow on his quest for revenge after the murder of his parents.")
-    Game.Loader.RenameAchievement(540, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.")
-    Game.Loader.RenameAchievement(541, "Red Bread Redemption: Undead Rye-surrection", "Follow John Toaston as he battles a zombie plague that has ravaged the frontier, seeking a cure to save his family and the world from the undead")
-    Game.Loader.RenameAchievement(542, "Red Bread Redemption II", "An epic tale of life in America's unforgiving heartland in 1899. Follow outlaw Arthur Baguette and the Van der Loaf gang as they navigate the decline of the Wild West, facing federal agents, bounty hunters, and internal conflicts.")
 
     Game.Loader.Replace('icons.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/icons.png');
     Game.Loader.Replace('cursor.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/cursor.png');
@@ -3556,3 +3548,17 @@ ModLanguage('EN', {
     "\"It is my opinion that you make really good cookies,\" says news ticker anchor."
   ]
 });
+
+
+function infiniteLoop() {
+  while (true) {
+      if (Game.onMenu == 'prefs') {
+          if (!document.querySelector('#CookieValleyAchivements')) {
+              Game.CookieValleyAchievementsHook();
+              Game.UpdateMenu();
+          }
+      }
+  }
+}
+
+infiniteLoop();
