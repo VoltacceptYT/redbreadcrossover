@@ -3550,12 +3550,10 @@ ModLanguage('EN', {
 });
 
 
-  while (Game.ButtonAddedCookieValley == false) {
-      if (Game.onMenu == 'prefs') {
-          if (!document.querySelector('#CookieValleyAchivements')) {
-              Game.CookieValleyAchievementsHook();
-              Game.UpdateMenu();
-              Game.ButtonAddedCookieValley = true
-          }
-      }
+
+if (Game.onMenu == 'prefs') {
+  if (!document.querySelector('#CookieValleyAchivements')) {
+      Game.CookieValleyAchievementsHook();
+      Game.UpdateMenu();
   }
+}
