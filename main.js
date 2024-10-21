@@ -1,4 +1,4 @@
-Game.registerMod("CookieValley", {
+Game.registerMod("RedBreadCrossover", {
   init: function () {
 
     Game.Loader.replaced = []
@@ -35,11 +35,33 @@ Game.registerMod("CookieValley", {
 
     try {
       Game.customAchievementsEnabled = JSON.parse(localStorage.getItem('RedBreadAchivements'));
+      if (Game.customAchievementsEnabled) {
+        Game.Loader.RenameAchievement(413, "Red Bread Revolver", "A western-themed third-person shooter game set in the 1880s. Follow bounty hunter Bread Harlow on his quest for revenge after the murder of his parents.");
+        Game.Loader.RenameAchievement(414, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.");
+        Game.Loader.RenameAchievement(415, "Red Bread Redemption: Undead Rye-surrection", "Follow John Toaston as he battles a zombie plague that has ravaged the frontier, seeking a cure to save his family and the world from the undead.");
+        Game.Loader.RenameAchievement(416, "Red Bread Redemption II", "An epic tale of life in America's unforgiving heartland in 1899. Follow outlaw Arthur Baguette and the Van der Loaf gang as they navigate the decline of the Wild West, facing federal agents, bounty hunters, and internal conflicts.");
+      } else {
+        Game.Loader.RenameAchievement(413, "Self-contained", "Have <b>1 fractal engine</b>.");
+        Game.Loader.RenameAchievement(414, "Threw you for a loop", "Have <b>50 fractal engines</b>.");
+        Game.Loader.RenameAchievement(415, "The sum of its parts", "Have <b>100 fractal engines</b>.");
+        Game.Loader.RenameAchievement(416, "Bears repeating", "Have <b>150 fractal engines</b>.");
+      }
     } catch (e) {
-      Game.customAchievementsEnabled = true;
+      Game.customAchievementsEnabled = false;
+      if (Game.customAchievementsEnabled) {
+        Game.Loader.RenameAchievement(413, "Red Bread Revolver", "A western-themed third-person shooter game set in the 1880s. Follow bounty hunter Bread Harlow on his quest for revenge after the murder of his parents.");
+        Game.Loader.RenameAchievement(414, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.");
+        Game.Loader.RenameAchievement(415, "Red Bread Redemption: Undead Rye-surrection", "Follow John Toaston as he battles a zombie plague that has ravaged the frontier, seeking a cure to save his family and the world from the undead.");
+        Game.Loader.RenameAchievement(416, "Red Bread Redemption II", "An epic tale of life in America's unforgiving heartland in 1899. Follow outlaw Arthur Baguette and the Van der Loaf gang as they navigate the decline of the Wild West, facing federal agents, bounty hunters, and internal conflicts.");
+      } else {
+        Game.Loader.RenameAchievement(413, "Self-contained", "Have <b>1 fractal engine</b>.");
+        Game.Loader.RenameAchievement(414, "Threw you for a loop", "Have <b>50 fractal engines</b>.");
+        Game.Loader.RenameAchievement(415, "The sum of its parts", "Have <b>100 fractal engines</b>.");
+        Game.Loader.RenameAchievement(416, "Bears repeating", "Have <b>150 fractal engines</b>.");
+      }
     }
 
-    Game.toggleCookieValleyAchievements = function () {
+    Game.toggleRedBreadCrossoverAchievements = function () {
       Game.customAchievementsEnabled = !Game.customAchievementsEnabled;
       localStorage.setItem('RedBreadAchivements', JSON.stringify(Game.customAchievementsEnabled));
       if (Game.customAchievementsEnabled) {
@@ -56,7 +78,7 @@ Game.registerMod("CookieValley", {
     }
 
 
-    if (!document.getElementById('CookieValleyAchivements')) {
+    if (!document.getElementById('RedBreadCrossoverAchivements')) {
       const originalUpdateMenu = Game.UpdateMenu;
       Game.UpdateMenu = function () {
         originalUpdateMenu();
@@ -71,7 +93,7 @@ Game.registerMod("CookieValley", {
             section.innerHTML = `
               <div class="subsection">
                 <div class="title">Cookie Valley</div>
-                <div id="CookieValleyAchivements" class="listing">` + '<a class="option ' + (Game.customAchievementsEnabled ? 'CookieValleyDisabled' : 'CookieValleyEnabled') + '" onclick="Game.toggleCookieValleyAchievements();">' +
+                <div id="RedBreadCrossoverAchivements" class="listing">` + '<a class="option ' + (Game.customAchievementsEnabled ? 'RedBreadCrossoverDisabled' : 'RedBreadCrossoverEnabled') + '" onclick="Game.toggleRedBreadCrossoverAchievements();">' +
               (Game.customAchievementsEnabled ? 'Disable' : 'Enable') + ' Cookie Valley Achievements</a>' + `
                 </div>
               </div>`;
@@ -84,26 +106,26 @@ Game.registerMod("CookieValley", {
 
     var style = document.createElement('style');
     style.innerHTML = `
-    .CookieValleyEnabled, a.option.CookieValleyEnabled {
+    .RedBreadCrossoverEnabled, a.option.RedBreadCrossoverEnabled {
       color: #0c0;
       border-color: #0c0;
     }
-    a.option.CookieValleyEnabled:hover {
+    a.option.RedBreadCrossoverEnabled:hover {
       border-color: #3f3;
       color: #3f3;
     }
-    a.option.CookieValleyEnabled:active {
+    a.option.RedBreadCrossoverEnabled:active {
       background-color: #300;
     }
-    .CookieValleyDisabled, a.option.CookieValleyDisabled {
+    .RedBreadCrossoverDisabled, a.option.RedBreadCrossoverDisabled {
       color: #c00;
       border-color: #c00;
     }
-    a.option.CookieValleyDisabled:hover {
+    a.option.RedBreadCrossoverDisabled:hover {
       border-color: #f33;
       color: #f33;
     }
-    a.option.CookieValleyDisabled:active {
+    a.option.RedBreadCrossoverDisabled:active {
       background-color: #300;
     }`;
     document.getElementsByTagName('head')[0].appendChild(style);
