@@ -178,7 +178,7 @@ Game.registerMod("CookieValley", {
     var greetingName = Game.grandmaNames[Math.floor(Math.random() * Game.grandmaNames.length)];
     var greeting = greetingName + ' was waiting for you.';
 
-    Game.Notify(`Welcome to Cookie Valley!`, greeting, [16, 5, 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/modicon.png']);
+    Game.Notify(`Welcome to Cookie Valley!`, greeting, [16, 5, 'https://voltacceptyt.github.io/cookievalley/img/modicon.png']);
 
     Game.Loader.RenameBuilding(0, 'Junimo', "Look at them. They're just little guys.")
     Game.Loader.RenameBuilding(1, 'Villager', "A stand-up citizen to stand up and bake some cookies.")
@@ -200,91 +200,91 @@ Game.registerMod("CookieValley", {
     Game.Loader.RenameBuilding(17, 'C# console', "Wait...this game isn't even written in C#.")
     Game.Loader.RenameBuilding(18, 'Crossoverer', "Hybridizes universes to produce cookies from other IPs.")
 
-    Game.Loader.Replace('icons.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/icons.png');
-    Game.Loader.Replace('cursor.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/cursor.png');
+    Game.Loader.Replace('icons.png', 'https://voltacceptyt.github.io/cookievalley/img/icons.png');
+    Game.Loader.Replace('cursor.png', 'https://voltacceptyt.github.io/cookievalley/img/cursor.png');
 
-    Game.Loader.Replace('sugarLump.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/stardrop.png');
-    Game.Loader.Replace('heavenlyMoney.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/golden_walnut.png');
-    Game.Loader.Replace('buildings.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/buildings.png');
+    Game.Loader.Replace('sugarLump.png', 'https://voltacceptyt.github.io/cookievalley/img/stardrop.png');
+    Game.Loader.Replace('heavenlyMoney.png', 'https://voltacceptyt.github.io/cookievalley/img/golden_walnut.png');
+    Game.Loader.Replace('buildings.png', 'https://voltacceptyt.github.io/cookievalley/img/buildings.png');
 
-    Game.Loader.Replace('farm.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/farm_new.png');
-    Game.Loader.Replace('farmBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_farm.png');
-    Game.Loader.Replace('mine.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/mine_new.png');
-    Game.Loader.Replace('mineBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_mine.png');
-    Game.Loader.Replace('factory.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/coop.png');
-    Game.Loader.Replace('factoryBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_coop.png');
-    Game.Loader.Replace('bank.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/barn.png');
-    Game.Loader.Replace('bankBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_barn.png');
-    Game.Loader.Replace('temple.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/skullcavern.png');
-    Game.Loader.Replace('templeBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_skullcavern.png');
-    Game.Loader.Replace('wizardtower.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/wizardtower_new.png');
-    Game.Loader.Replace('wizardtowerBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_wizardtower.png');
-    Game.Loader.Replace('alchemylab.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/greenhouse.png');
-    Game.Loader.Replace('alchemylabBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_greenhouse.png');
-    Game.Loader.Replace('shipment.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/fishpond.png');
-    Game.Loader.Replace('shipmentBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_fishpond.png');
-    Game.Loader.Replace('portal.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/obelisk.png');
-    Game.Loader.Replace('portalBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_obelisk.png');
-    Game.Loader.Replace('timemachine.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/goldenclock.png');
-    Game.Loader.Replace('timemachineBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_goldenclock.png');
-    Game.Loader.Replace('prism.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/museum.png');
-    Game.Loader.Replace('prismBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_museum.png');
-    Game.Loader.Replace('antimattercondenser.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/sewer.png');
-    Game.Loader.Replace('antimattercondenserBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_sewer.png');
-    Game.Loader.Replace('chancemaker.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/communitycentre.png');
-    Game.Loader.Replace('chancemakerBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_communitycentre.png');
-    Game.Loader.Replace('fractalEngine.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/cabin.png');
-    Game.Loader.Replace('fractalEngineBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_cabin.png');
-    Game.Loader.Replace('javascriptconsole.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/island.png');
-    Game.Loader.Replace('javascriptconsoleBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_island.png');
-    Game.Loader.Replace('idleverse.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/csharpconsole.png');
-    Game.Loader.Replace('idleverseBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_csharpconsole.png');
-    Game.Loader.Replace('cortex.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/crossoverer.png');
-    Game.Loader.Replace('cortexBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_crossoverer.png');
-    Game.Loader.Replace('you.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/you_new.png');
-    Game.Loader.Replace('youBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_you.png');
+    Game.Loader.Replace('farm.png', 'https://voltacceptyt.github.io/cookievalley/img/farm_new.png');
+    Game.Loader.Replace('farmBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_farm.png');
+    Game.Loader.Replace('mine.png', 'https://voltacceptyt.github.io/cookievalley/img/mine_new.png');
+    Game.Loader.Replace('mineBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_mine.png');
+    Game.Loader.Replace('factory.png', 'https://voltacceptyt.github.io/cookievalley/img/coop.png');
+    Game.Loader.Replace('factoryBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_coop.png');
+    Game.Loader.Replace('bank.png', 'https://voltacceptyt.github.io/cookievalley/img/barn.png');
+    Game.Loader.Replace('bankBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_barn.png');
+    Game.Loader.Replace('temple.png', 'https://voltacceptyt.github.io/cookievalley/img/skullcavern.png');
+    Game.Loader.Replace('templeBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_skullcavern.png');
+    Game.Loader.Replace('wizardtower.png', 'https://voltacceptyt.github.io/cookievalley/img/wizardtower_new.png');
+    Game.Loader.Replace('wizardtowerBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_wizardtower.png');
+    Game.Loader.Replace('alchemylab.png', 'https://voltacceptyt.github.io/cookievalley/img/greenhouse.png');
+    Game.Loader.Replace('alchemylabBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_greenhouse.png');
+    Game.Loader.Replace('shipment.png', 'https://voltacceptyt.github.io/cookievalley/img/fishpond.png');
+    Game.Loader.Replace('shipmentBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_fishpond.png');
+    Game.Loader.Replace('portal.png', 'https://voltacceptyt.github.io/cookievalley/img/obelisk.png');
+    Game.Loader.Replace('portalBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_obelisk.png');
+    Game.Loader.Replace('timemachine.png', 'https://voltacceptyt.github.io/cookievalley/img/goldenclock.png');
+    Game.Loader.Replace('timemachineBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_goldenclock.png');
+    Game.Loader.Replace('prism.png', 'https://voltacceptyt.github.io/cookievalley/img/museum.png');
+    Game.Loader.Replace('prismBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_museum.png');
+    Game.Loader.Replace('antimattercondenser.png', 'https://voltacceptyt.github.io/cookievalley/img/sewer.png');
+    Game.Loader.Replace('antimattercondenserBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_sewer.png');
+    Game.Loader.Replace('chancemaker.png', 'https://voltacceptyt.github.io/cookievalley/img/communitycentre.png');
+    Game.Loader.Replace('chancemakerBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_communitycentre.png');
+    Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/cookievalley/img/cabin.png');
+    Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_cabin.png');
+    Game.Loader.Replace('javascriptconsole.png', 'https://voltacceptyt.github.io/cookievalley/img/island.png');
+    Game.Loader.Replace('javascriptconsoleBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_island.png');
+    Game.Loader.Replace('idleverse.png', 'https://voltacceptyt.github.io/cookievalley/img/csharpconsole.png');
+    Game.Loader.Replace('idleverseBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_csharpconsole.png');
+    Game.Loader.Replace('cortex.png', 'https://voltacceptyt.github.io/cookievalley/img/crossoverer.png');
+    Game.Loader.Replace('cortexBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_crossoverer.png');
+    Game.Loader.Replace('you.png', 'https://voltacceptyt.github.io/cookievalley/img/you_new.png');
+    Game.Loader.Replace('youBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_you.png');
 
-    Game.Loader.Replace('grandmaBackground.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/bg_villager.png');
-    Game.Loader.Replace('grandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager.png');
+    Game.Loader.Replace('grandmaBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_villager.png');
+    Game.Loader.Replace('grandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager.png');
 
-    Game.Loader.Replace('farmerGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_farm.png');
-    Game.Loader.Replace('minerGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_mine.png');
-    Game.Loader.Replace('workerGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_coop.png');
-    Game.Loader.Replace('bankGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_barn.png');
-    Game.Loader.Replace('templeGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_skullcavern.png');
-    Game.Loader.Replace('witchGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_wizardtower.png');
-    Game.Loader.Replace('transmutedGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_greenhouse.png');
-    Game.Loader.Replace('cosmicGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_fishpond.png');
-    Game.Loader.Replace('alteredGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_obelisk.png');
-    Game.Loader.Replace('grandmasGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_goldenclock.png');
-    Game.Loader.Replace('rainbowGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_museum.png');
-    Game.Loader.Replace('antiGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_sewer.png');
-    Game.Loader.Replace('luckyGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_communitycentre.png');
-    Game.Loader.Replace('metaGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_cabin.png');
-    Game.Loader.Replace('scriptGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_island.png');
-    Game.Loader.Replace('alternateGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_csharpconsole.png');
-    Game.Loader.Replace('brainyGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_crossoverer.png');
-    Game.Loader.Replace('cloneGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_you.png');
-    Game.Loader.Replace('bunnyGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_easter.png');
-    Game.Loader.Replace('elfGrandma.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/villager_christmas.png');
+    Game.Loader.Replace('farmerGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_farm.png');
+    Game.Loader.Replace('minerGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_mine.png');
+    Game.Loader.Replace('workerGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_coop.png');
+    Game.Loader.Replace('bankGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_barn.png');
+    Game.Loader.Replace('templeGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_skullcavern.png');
+    Game.Loader.Replace('witchGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_wizardtower.png');
+    Game.Loader.Replace('transmutedGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_greenhouse.png');
+    Game.Loader.Replace('cosmicGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_fishpond.png');
+    Game.Loader.Replace('alteredGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_obelisk.png');
+    Game.Loader.Replace('grandmasGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_goldenclock.png');
+    Game.Loader.Replace('rainbowGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_museum.png');
+    Game.Loader.Replace('antiGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_sewer.png');
+    Game.Loader.Replace('luckyGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_communitycentre.png');
+    Game.Loader.Replace('metaGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_cabin.png');
+    Game.Loader.Replace('scriptGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_island.png');
+    Game.Loader.Replace('alternateGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_csharpconsole.png');
+    Game.Loader.Replace('brainyGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_crossoverer.png');
+    Game.Loader.Replace('cloneGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_you.png');
+    Game.Loader.Replace('bunnyGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_easter.png');
+    Game.Loader.Replace('elfGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_christmas.png');
 
-    Game.Loader.Replace('grandmas1.jpg', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/joja1.jpg');
-    Game.Loader.Replace('grandmas2.jpg', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/joja2.jpg');
-    Game.Loader.Replace('grandmas3.jpg', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/joja3.jpg');
+    Game.Loader.Replace('grandmas1.jpg', 'https://voltacceptyt.github.io/cookievalley/img/joja1.jpg');
+    Game.Loader.Replace('grandmas2.jpg', 'https://voltacceptyt.github.io/cookievalley/img/joja2.jpg');
+    Game.Loader.Replace('grandmas3.jpg', 'https://voltacceptyt.github.io/cookievalley/img/joja3.jpg');
 
-    Game.Loader.Replace('wrinkler.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/serpent.png');
-    Game.Loader.Replace('wrinklerBits.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/serpent_gibs.png');
-    Game.Loader.Replace('winkler.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/serpentito.png');
-    Game.Loader.Replace('winterWrinkler.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/serpent_winter.png');
-    Game.Loader.Replace('winterWinkler.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/serpentito_winter.png');
-    Game.Loader.Replace('shinyWrinkler.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/serpent_gold.png');
-    Game.Loader.Replace('shinyWrinklerBits.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/serpent_gibs_gold.png');
-    Game.Loader.Replace('shinyWinkler.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/serpentito_gold.png');
-    Game.Loader.Replace('wrinklerShadow.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/serpent_shadow.png');
+    Game.Loader.Replace('wrinkler.png', 'https://voltacceptyt.github.io/cookievalley/img/serpent.png');
+    Game.Loader.Replace('wrinklerBits.png', 'https://voltacceptyt.github.io/cookievalley/img/serpent_gibs.png');
+    Game.Loader.Replace('winkler.png', 'https://voltacceptyt.github.io/cookievalley/img/serpentito.png');
+    Game.Loader.Replace('winterWrinkler.png', 'https://voltacceptyt.github.io/cookievalley/img/serpent_winter.png');
+    Game.Loader.Replace('winterWinkler.png', 'https://voltacceptyt.github.io/cookievalley/img/serpentito_winter.png');
+    Game.Loader.Replace('shinyWrinkler.png', 'https://voltacceptyt.github.io/cookievalley/img/serpent_gold.png');
+    Game.Loader.Replace('shinyWrinklerBits.png', 'https://voltacceptyt.github.io/cookievalley/img/serpent_gibs_gold.png');
+    Game.Loader.Replace('shinyWinkler.png', 'https://voltacceptyt.github.io/cookievalley/img/serpentito_gold.png');
+    Game.Loader.Replace('wrinklerShadow.png', 'https://voltacceptyt.github.io/cookievalley/img/serpent_shadow.png');
 
-    Game.Loader.Replace('wrinklerBlink.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/blank.png');
-    Game.Loader.Replace('wrinklerGooglies.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/blank.png');
-    Game.Loader.Replace('youLight.png', 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/blank.png');
+    Game.Loader.Replace('wrinklerBlink.png', 'https://voltacceptyt.github.io/cookievalley/img/blank.png');
+    Game.Loader.Replace('wrinklerGooglies.png', 'https://voltacceptyt.github.io/cookievalley/img/blank.png');
+    Game.Loader.Replace('youLight.png', 'https://voltacceptyt.github.io/cookievalley/img/blank.png');
 
     Game.storeToRefresh = 1
 
@@ -436,12 +436,12 @@ Game.registerMod("CookieValley", {
 
     for (var i in Game.Upgrades) {
       var it = Game.Upgrades[i];
-      it.icon = [it.icon[0], it.icon[1], 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/icons.png'];
+      it.icon = [it.icon[0], it.icon[1], 'https://voltacceptyt.github.io/cookievalley/img/icons.png'];
     }
 
     for (var i in Game.Achievements) {
       var it = Game.Achievements[i];
-      it.icon = [it.icon[0], it.icon[1], 'https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/icons.png'];
+      it.icon = [it.icon[0], it.icon[1], 'https://voltacceptyt.github.io/cookievalley/img/icons.png'];
     }
 
     //Manually update golden cookie icon indices to reflect new tiers.
@@ -958,15 +958,15 @@ Game.registerMod("CookieValley", {
     }
 
     var css_prompt = document.createElement('style');
-    css_prompt.innerHTML = `#promptContentSpendLump .icon {background-image:url('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/icons.png')!important;}`;
+    css_prompt.innerHTML = `#promptContentSpendLump .icon {background-image:url('https://voltacceptyt.github.io/cookievalley/img/icons.png')!important;}`;
     document.head.appendChild(css_prompt);
 
     var css_new = document.createElement('style');
-    css_new.innerText = `body .icon,body .crate,body .usesIcon{background-image:url('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/icons.png');}.product .icon,.product .icon.off,.tinyProductIcon{background-image:url('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/buildings.png');}`;
+    css_new.innerText = `body .icon,body .crate,body .usesIcon{background-image:url('https://voltacceptyt.github.io/cookievalley/img/icons.png');}.product .icon,.product .icon.off,.tinyProductIcon{background-image:url('https://voltacceptyt.github.io/cookievalley/img/buildings.png');}`;
     document.head.appendChild(css_new);
 
     var css_currency = document.createElement('style');
-    css_currency.innerHTML = `.heavenly.price:before{background:url('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/golden_walnut.png');}` + `.lump.price:before{background:url('https://raw.githubusercontent.com/voltacceptyt/cookievalley/refs/heads/main/img/stardrop.png');}`;
+    css_currency.innerHTML = `.heavenly.price:before{background:url('https://voltacceptyt.github.io/cookievalley/img/golden_walnut.png');}` + `.lump.price:before{background:url('https://voltacceptyt.github.io/cookievalley/img/stardrop.png');}`;
     document.body.appendChild(css_currency);
 
     Game.registerHook('create', function () {
