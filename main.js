@@ -39,7 +39,7 @@ Game.registerMod("CookieValley Web", {
       Game.customAchievementsEnabled = true;
     }
 
-     Game.updateAchievements = function () {
+    Game.updateAchievements = function () {
       if (Game.customAchievementsEnabled) {
         Game.Loader.RenameAchievement(413, "Red Bread Revolver", "A western-themed third-person shooter game set in the 1880s. Follow bounty hunter Bread Harlow on his quest for revenge after the murder of his parents.");
         Game.Loader.RenameAchievement(414, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.");
@@ -53,14 +53,14 @@ Game.registerMod("CookieValley Web", {
       }
     }
 
-    Game.toggleCookieValleyAchievements  = function () {
+    Game.toggleCookieValleyAchievements = function () {
       Game.customAchievementsEnabled = !Game.customAchievementsEnabled;
       Game.SaveModData('CookieValley Web', Game.customAchievementsEnabled);
       Game.updateAchievements();
       Game.UpdateMenu();
     }
 
-    
+
 
     Game.CookieValleyAchievementsMenu = function () {
       var str = '<div class="listing">';
