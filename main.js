@@ -84,10 +84,8 @@ Game.registerMod("CookieValley Web", {
       var prefsButton = l('prefsButton');
       if (Game.onMenu == 'prefs') {
         prefsButton.className = 'panelButton selected';
-        if (prefsButton.classList.contains('selected')) {
-          Game.CookieValleyAchievementsHook();
-          Game.UpdateMenu();
-        }
+        Game.CookieValleyAchievementsHook();
+        Game.UpdateMenu();
       } else {
         prefsButton.className = 'panelButton';
       }
