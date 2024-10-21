@@ -56,7 +56,7 @@ Game.registerMod("CookieValley Web", {
       Game.UpdateMenu();
     }
 
-
+    Game.ButtonAddedCookieValley = false
 
     Game.CookieValleyAchievementsMenu = function () {
       var str = '<div class="listing" id="CookieValleyAchivements">';
@@ -3550,15 +3550,12 @@ ModLanguage('EN', {
 });
 
 
-function infiniteLoop() {
-  while (true) {
+  while (Game.ButtonAddedCookieValley == false) {
       if (Game.onMenu == 'prefs') {
           if (!document.querySelector('#CookieValleyAchivements')) {
               Game.CookieValleyAchievementsHook();
               Game.UpdateMenu();
+              Game.ButtonAddedCookieValley = true
           }
       }
   }
-}
-
-infiniteLoop();
