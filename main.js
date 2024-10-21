@@ -53,25 +53,34 @@ Game.registerMod("CookieValley Web", {
         Game.Loader.RenameAchievement(415, "The sum of its parts", "Have <b>100 fractal engines</b>.");
         Game.Loader.RenameAchievement(416, "Bears repeating", "Have <b>150 fractal engines</b>.");
       }
-      Game.UpdateMenu();
     }
 
-    Game.CookieValleyAchievementsMenu = function () {
-      var str = '<div class="listing" id="CookieValleyAchivements">';
-      str += '<a class="option ' + (Game.customAchievementsEnabled ? 'CookieValleyEnabled' : 'CookieValleyDisabled') + '" onclick="Game.toggleCookieValleyAchievements();">' +
-        (Game.customAchievementsEnabled ? 'Disable' : 'Enable') + ' Cookie Valley Achievements</a>';
-      str += '</div>';
-      return str;
-    };
 
-    Game.CookieValleyAchievementsHook = function () {
-      var menu = Game.CookieValleyAchievementsMenu();
-      var menuElement = l('menu');
-      if (menuElement && !menuElement.innerHTML.includes(menu)) {
-        menuElement.innerHTML += menu;
+    if (!document.getElementById('CookieValleyAchivements')) {
+      const originalUpdateMenu = Game.UpdateMenu;
+      Game.UpdateMenu = function () {
+        originalUpdateMenu();
+        if (Game.onMenu === 'prefs') {
+          const menu = document.getElementById('menu');
+          let section = Array.from(menu.getElementsByClassName('subsection')).find(subsection => subsection.innerText.includes('Cookie Valley Web'));
+          if (!section) {
+            section = document.createElement('div');
+            section.className = 'block';
+            section.style.padding = '0px';
+            section.style.margin = '8px 4px';
+            section.innerHTML = `
+              <div class="subsection">
+                <div class="title">Cookie Valley Web</div>
+                <div id="CookieValleyAchivements" class="listing">` + '<a class="option ' + (Game.customAchievementsEnabled ? 'CookieValleyEnabled' : 'CookieValleyDisabled') + '" onclick="Game.toggleCookieValleyAchievements();">' +
+              (Game.customAchievementsEnabled ? 'Disable' : 'Enable') + ' Cookie Valley Achievements</a>' + `
+                </div>
+              </div>`;
+            const heightDiv = menu.querySelector('div[style="height:128px;"]');
+            heightDiv.insertAdjacentElement('beforebegin', section);
+          }
+        }
       }
-    };
-
+    }
 
     Game.ShowMenu = function (what) {
       if (!what || what == '') what = Game.onMenu;
