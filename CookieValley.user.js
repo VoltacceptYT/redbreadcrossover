@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.3.9
+// @version      v0.4.0
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -12,11 +12,7 @@
 
 (function () {
   'use strict';
-  fetch('https://voltacceptyt.github.io/redbreadcrossover/main.js')
-    .then(response => response.text())
-    .then(data => {
-      const script = document.createElement('script');
-      script.textContent = data;
-      document.body.appendChild(script);
-    });
+  const script = document.createElement('script');
+  script.src = 'https://voltacceptyt.github.io/redbreadcrossover/main.js;
+  document.body.appendChild(script);
 })();
