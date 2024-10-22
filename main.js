@@ -968,14 +968,14 @@ Game.registerMod("RedBreadCrossover", {
   },
 });
 
-Game.extendCanvas = setInterval(() => {
-  var rowCanvas = document.querySelectorAll(".rowCanvas")
+setInterval(() => {
+  var rowCanvas = document.body.querySelectorAll(".rowCanvas")
 
   if (Game.ready == 1) {
     rowCanvas.forEach(function (row, i) {
       row.style.height = 168
       row.height = 168
     });
-    clearInterval(Game.extendCanvas)
+    clearInterval(this)
   }
 }, 500);
