@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.4.4
+// @version      v0.4.5
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -13,6 +13,7 @@
 (function () {
   'use strict';
   function loadRBCM(callback) {
+    Game.Loader.assets['fractalEngine1.png'] = '<img crossorigin="anonymous" src="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png" alt="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png">'
     if (typeof Game !== 'undefined' && Game.ready) {
       callback();
     } else {
@@ -28,8 +29,6 @@
         Game.Loader.replaced = []
 
         let textureIndex = 0;
-
-        Game.Loader.assets['fractalEngine1.png'] = '<img crossorigin="anonymous" src="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png" alt="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png">'
 
         Game.onFractalEngineBought = function () {
           const textures = ['fractalEngine.png', 'fractalEngine1.png'];
