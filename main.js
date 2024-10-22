@@ -1,11 +1,14 @@
 Game.registerMod("RedBreadCrossover", {
   init: function () {
     Game.Loader.replaced = []
+    
+    let textureIndex = 0
 
     function onFractalEngineBought() {
-      const textures = ['fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png'];
-      const selectedTexture = textures[Math.floor(Math.random() * textures.length)];
+      const textures = ['fractalEngine.png', 'fractalEngine1.png'];
+      const selectedTexture = textures[textureIndex];
       this.sprite = selectedTexture;
+      textureIndex = (textureIndex + 1) % textures.length;
   }
   
   Game.Objects['Fractal engine'].buy = (function(originalBuy) {
