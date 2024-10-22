@@ -81,7 +81,6 @@ Game.registerMod("RedBreadCrossover", {
       Game.customBuildingsEnabled = JSON.parse(localStorage.getItem('RedBreadBuildings'));
       if (Game.customBuildingsEnabled) {
         Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
-        Game.Loader.Replace('https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
@@ -93,7 +92,6 @@ Game.registerMod("RedBreadCrossover", {
       Game.customBuildingsEnabled = true;
       if (Game.customBuildingsEnabled) {
         Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
-        Game.Loader.Replace('https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
@@ -124,7 +122,6 @@ Game.registerMod("RedBreadCrossover", {
       localStorage.setItem('RedBreadBuildings', JSON.stringify(Game.customBuildingsEnabled));
       if (Game.customBuildingsEnabled) {
         Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
-        Game.Loader.Replace('https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
