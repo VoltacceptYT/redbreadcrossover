@@ -3,7 +3,7 @@ Game.registerMod("RedBreadCrossover", {
     Game.Loader.replaced = []
 
     function onFractalEngineBought() {
-      const textures = ['fractalEngine.png', 'fractalEngine1.png'];
+      const textures = ['fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png'];
       const selectedTexture = textures[Math.floor(Math.random() * textures.length)];
       this.sprite = selectedTexture;
   }
@@ -83,6 +83,7 @@ Game.registerMod("RedBreadCrossover", {
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
         Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
+        Game.Loader.Replace('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
         Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
       }
@@ -95,6 +96,7 @@ Game.registerMod("RedBreadCrossover", {
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
         Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
+        Game.Loader.Replace('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
         Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
       }
@@ -126,6 +128,7 @@ Game.registerMod("RedBreadCrossover", {
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
         Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
+        Game.Loader.Replace('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
         Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
       }
