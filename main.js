@@ -7,7 +7,7 @@ Game.registerMod("RedBreadCrossover", {
     Game.Loader.assets['fractalEngine1.png'] = '<img crossorigin="anonymous" src="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png" alt="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png">'
 
     Game.onFractalEngineBought = function() {
-      const textures = ['fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png'];
+      const textures = ['fractalEngine.png', 'fractalEngine1.png'];
       const selectedTexture = textures[textureIndex];
       this.icon = selectedTexture; // Use 'icon' instead of 'sprite'
       textureIndex = (textureIndex + 1) % textures.length;
