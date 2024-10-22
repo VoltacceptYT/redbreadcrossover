@@ -1,5 +1,27 @@
 Game.registerMod("RedBreadCrossover", {
   init: function () {
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      function checkGameLoaded() {
+        if (Game.ready) {
+          if (Game.customBuildingsEnabled) {
+            var canvas = document.getElementById('rowCanvas15');
+            if (canvas) {
+              canvas.height = 168;
+              console.log('The Building\'s Canvas height has been extended!');
+            } else {
+              console.error('The Building hasn\'t been unlocked!');
+            }
+          } else {
+            console.error('The use of Custom Buildings isn\'t enabled!')
+          }
+        } else {
+          setTimeout(checkGameLoaded, 100);
+        }
+      }
+
+      checkGameLoaded();
+    });
 
     Game.Loader.replaced = []
 
@@ -175,7 +197,7 @@ Game.registerMod("RedBreadCrossover", {
     `;
 
     document.getElementsByTagName('head')[0].appendChild(style);
-    
+
     Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
       if (Game.ObjectsById[buildingIndex]) {
         Game.ObjectsById[buildingIndex].dname = newName;
@@ -967,26 +989,4 @@ Game.registerMod("RedBreadCrossover", {
   },
   load: function (str) {
   },
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-  function checkGameLoaded() {
-      if (typeof Game !== 'undefined' && Game.ready == 1) {
-        if (Game.customBuildingsEnabled) {
-          var canvas = document.getElementById('rowCanvas15');
-          if (canvas) {
-              canvas.height = 168;
-              console.log('The Building\'s Canvas height has been extended!');
-          } else {
-              console.error('The Building hasn\'t been unlocked!');
-          }
-        } else {
-          console.error('The use of Custom Buildings isn\'t enabled!')
-        }
-      } else {
-          setTimeout(checkGameLoaded, 100);
-      }
-  }
-
-  checkGameLoaded();
 });
