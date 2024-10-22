@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.3.6
+// @version      v0.3.7
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -19,27 +19,19 @@
 			script.textContent = data;
 			document.body.appendChild(script);
 		});
-	function checkGameLoaded() {
-		if (typeof Game !== 'undefined' && Game.ready) {
-			var canvases = document.querySelectorAll('.rowCanvas');
-			canvases.forEach(function (canvas) {
-				var newCanvas = document.createElement('canvas');
-				newCanvas.className = canvas.className;
-				newCanvas.id = canvas.id;
-				newCanvas.width = canvas.width;
-				newCanvas.height = canvas.height + 40;
-
-				var context = newCanvas.getContext('2d');
-				context.drawImage(canvas, 0, 0);
-
-				canvas.replaceWith(newCanvas);
-			});
-			console.log('All building row canvases have been replaced with taller canvases and redrawn.');
-		} else {
-			setTimeout(checkGameLoaded, 100);
-		}
-	}
-
-	checkGameLoaded();
-
+    function checkGameLoaded() {
+      if (typeof Game !== 'undefined' && Game.ready && Game.customBuildingsEnabled) {
+          var canvases = document.querySelectorAll('.rowCanvas');
+          canvases.forEach(function (canvas) {
+              canvas.className = canvas.className;
+              canvas.id = canvas.id;
+              canvas.width = canvas.width;
+              canvas.height = canvas.height  * 2;
+          });
+      } else {
+          setTimeout(checkGameLoaded, 100);
+      }
+  }
+  
+  checkGameLoaded();
 })();
