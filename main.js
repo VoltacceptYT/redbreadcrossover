@@ -9,14 +9,14 @@ Game.registerMod("RedBreadCrossover", {
     Game.onFractalEngineBought = function() {
       const textures = ['fractalEngine.png', 'fractalEngine1.png'];
       const selectedTexture = textures[textureIndex];
-      this.icon = selectedTexture; // Use 'icon' instead of 'sprite'
+      this.art.pic= selectedTexture; // Use 'icon' instead of 'sprite'
       textureIndex = (textureIndex + 1) % textures.length;
     }
 
     Game.Objects['Fractal engine'].buy = (function (originalBuy) {
       return function () {
-        originalBuy.call(this);
         Game.onFractalEngineBought.call(this);
+        originalBuy.call(this);
       };
     })(Game.Objects['Fractal engine'].buy);
 
