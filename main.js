@@ -64,8 +64,8 @@ Game.registerMod("RedBreadCrossover", {
     try {
       Game.customBuildingsEnabled = JSON.parse(localStorage.getItem('RedBreadBuildings'));
       if (Game.customBuildingsEnabled) {
-        Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/cookievalley/img/cabin.png');
-        Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_wildwest.png');
+        Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/cabin.png');
+        Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
         Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
@@ -75,8 +75,8 @@ Game.registerMod("RedBreadCrossover", {
     } catch (e) {
       Game.customBuildingsEnabled = true;
       if (Game.customBuildingsEnabled) {
-        Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/cookievalley/img/cabin.png');
-        Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_wildwest.png');
+        Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/cabin.png');
+        Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
         Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
@@ -105,8 +105,8 @@ Game.registerMod("RedBreadCrossover", {
       Game.customBuildingsEnabled = !Game.customBuildingsEnabled;
       localStorage.setItem('RedBreadBuildings', JSON.stringify(Game.customBuildingsEnabled));
       if (Game.customBuildingsEnabled) {
-        Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/cookievalley/img/cabin.png');
-        Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_wildwest.png');
+        Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/cabin.png');
+        Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
         Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
@@ -240,8 +240,8 @@ Game.registerMod("RedBreadCrossover", {
     var greetingName = Game.grandmaNames[Math.floor(Math.random() * Game.grandmaNames.length)];
     var greeting = greetingName + ' was waiting for you.';
 
-    Game.Notify(`Welcome to Red Bread Crossover!`, greeting, [16, 5, 'https://voltacceptyt.github.io/cookievalley/img/modicon.png']);
-    Game.Loader.Replace('icons.png', 'https://voltacceptyt.github.io/cookievalley/img/icons.png');
+    Game.Notify(`Welcome to Red Bread Crossover!`, greeting, [16, 5, 'https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png']);
+    Game.Loader.Replace('icons.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/icons.png');
 
     Game.storeToRefresh = 1
 
@@ -286,12 +286,12 @@ Game.registerMod("RedBreadCrossover", {
 
     for (var i in Game.Upgrades) {
       var it = Game.Upgrades[i];
-      it.icon = [it.icon[0], it.icon[1], 'https://voltacceptyt.github.io/cookievalley/img/icons.png'];
+      it.icon = [it.icon[0], it.icon[1], 'https://voltacceptyt.github.io/redbreadcrossover/img/icons.png'];
     }
 
     for (var i in Game.Achievements) {
       var it = Game.Achievements[i];
-      it.icon = [it.icon[0], it.icon[1], 'https://voltacceptyt.github.io/cookievalley/img/icons.png'];
+      it.icon = [it.icon[0], it.icon[1], 'https://voltacceptyt.github.io/redbreadcrossover/img/icons.png'];
     }
 
     //Manually update golden cookie icon indices to reflect new tiers.
@@ -808,15 +808,15 @@ Game.registerMod("RedBreadCrossover", {
     }
 
     var css_prompt = document.createElement('style');
-    css_prompt.innerHTML = `#promptContentSpendLump .icon {background-image:url('https://voltacceptyt.github.io/cookievalley/img/icons.png')!important;}`;
+    css_prompt.innerHTML = `#promptContentSpendLump .icon {background-image:url('https://voltacceptyt.github.io/redbreadcrossover/img/icons.png')!important;}`;
     document.head.appendChild(css_prompt);
 
     var css_new = document.createElement('style');
-    css_new.innerText = `body .icon,body .crate,body .usesIcon{background-image:url('https://voltacceptyt.github.io/cookievalley/img/icons.png');}.product .icon,.product .icon.off,.tinyProductIcon{background-image:url('https://voltacceptyt.github.io/cookievalley/img/buildings.png');}`;
+    css_new.innerText = `body .icon,body .crate,body .usesIcon{background-image:url('https://voltacceptyt.github.io/redbreadcrossover/img/icons.png');}.product .icon,.product .icon.off,.tinyProductIcon{background-image:url('https://voltacceptyt.github.io/redbreadcrossover/img/buildings.png');}`;
     document.head.appendChild(css_new);
 
     var css_currency = document.createElement('style');
-    css_currency.innerHTML = `.heavenly.price:before{background:url('https://voltacceptyt.github.io/cookievalley/img/golden_walnut.png');}` + `.lump.price:before{background:url('https://voltacceptyt.github.io/cookievalley/img/stardrop.png');}`;
+    css_currency.innerHTML = `.heavenly.price:before{background:url('https://voltacceptyt.github.io/redbreadcrossover/img/golden_walnut.png');}` + `.lump.price:before{background:url('https://voltacceptyt.github.io/redbreadcrossover/img/stardrop.png');}`;
     document.body.appendChild(css_currency);
 
     Game.registerHook('create', function () {
