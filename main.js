@@ -2,6 +2,20 @@ Game.registerMod("RedBreadCrossover", {
   init: function () {
     Game.Loader.replaced = []
 
+    function onFractalEngineBought() {
+      const textures = ['fractalEngine.png', 'fractalEngine1.png'];
+      const selectedTexture = textures[Math.floor(Math.random() * textures.length)];
+      this.sprite = selectedTexture;
+  }
+  
+  Game.Objects['Fractal engine'].buy = (function(originalBuy) {
+      return function() {
+          originalBuy.call(this);
+          onFractalEngineBought.call(this);
+      };
+  })(Game.Objects['Fractal engine'].buy);
+  
+
     Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
       if (Game.ObjectsById[buildingIndex]) {
         Game.ObjectsById[buildingIndex].dname = newName;
@@ -64,6 +78,7 @@ Game.registerMod("RedBreadCrossover", {
       Game.customBuildingsEnabled = JSON.parse(localStorage.getItem('RedBreadBuildings'));
       if (Game.customBuildingsEnabled) {
         Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
+        Game.Loader.Replace('fractalEngine1.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
@@ -75,6 +90,7 @@ Game.registerMod("RedBreadCrossover", {
       Game.customBuildingsEnabled = true;
       if (Game.customBuildingsEnabled) {
         Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
+        Game.Loader.Replace('fractalEngine1.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
@@ -105,6 +121,7 @@ Game.registerMod("RedBreadCrossover", {
       localStorage.setItem('RedBreadBuildings', JSON.stringify(Game.customBuildingsEnabled));
       if (Game.customBuildingsEnabled) {
         Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
+        Game.Loader.Replace('fractalEngine1.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
