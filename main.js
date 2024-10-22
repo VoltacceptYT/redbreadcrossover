@@ -1,6 +1,6 @@
 Game.registerMod("RedBreadCrossover", {
   init: function () {
-    new Game.Object('Crusty Creek','Crusty Creek Shop|Crusty Creek Shops|Owned By ' + Game.bakeryName + '|[X] vistor in Crusty Creek|[X] vistors in Crusty Creek','Generates Cookies from business profits.',17,32,{base:'crustyCreek',xV:0,yV:0,w:162,rows:1,x:0,y:0,frames:2},500,function(me){
+    new Game.Object('Crusty Creek','Crusty Creek Shop|Crusty Creek Shops|Owned By ' + Game.bakeryName + '|[X] vistor in Crusty Creek|[X] vistors in Crusty Creek','Generates Cookies from business profits.', 16, 20,{base:'crustyCreek',xV:0,yV:0,w:162,rows:1,x:0,y:0,frames:2},500,function(me){
 			var mult=1;
 			mult*=Game.GetTieredCpsMult(me);
 			mult*=Game.magicCpS(me.name);
