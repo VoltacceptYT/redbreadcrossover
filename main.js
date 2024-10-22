@@ -171,16 +171,26 @@ Game.registerMod("RedBreadCrossover", {
     }`;
     document.getElementsByTagName('head')[0].appendChild(style);
 
+    function waitForElement(id, callback) {
+      var checkExist = setInterval(function () {
+        if (document.getElementById(id)) {
+          clearInterval(checkExist);
+          callback();
+        }
+      }, 100);
+    }
+
     const oldCanvas = document.getElementById('rowCanvas15');
     const newCanvas = document.createElement('canvas');
 
-    if (oldCanvas) {
+    waitForElement('rowCanvas15', function () {
       newCanvas.className = 'rowCanvas';
       newCanvas.id = 'rowCanvas15';
       newCanvas.width = 434;
       newCanvas.height = 148;
       oldCanvas.replaceWith(newCanvas);
-    }
+    });
+
 
     Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
       if (Game.ObjectsById[buildingIndex]) {
