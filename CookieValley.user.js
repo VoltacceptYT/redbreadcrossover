@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.3.4
+// @version      v0.3.5
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -19,8 +19,6 @@
 			script.textContent = data;
 			document.body.appendChild(script);
 		});
-	document.addEventListener('DOMContentLoaded', function () {
-		// Function to check if Cookie Clicker has loaded completely
 		function checkGameLoaded() {
 			if (typeof Game !== 'undefined' && Game.ready) {
 				// Get all canvas elements with the class 'rowCanvas'
@@ -45,5 +43,4 @@
 
 		// Start checking if the game has loaded
 		checkGameLoaded();
-	});
 })();
