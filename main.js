@@ -968,24 +968,14 @@ Game.registerMod("RedBreadCrossover", {
   },
 });
 
-document.addEventListener('load', function () {
-  function checkGameLoaded() {
-    if (Game.ready) {
-      if (Game.customBuildingsEnabled) {
-        var canvas = document.getElementById('rowCanvas15');
-        if (canvas) {
-          canvas.height = 168;
-          console.log('The Building\'s Canvas height has been extended!');
-        } else {
-          console.error('The Building hasn\'t been unlocked!');
-        }
-      } else {
-        console.error('The use of Custom Buildings isn\'t enabled!')
-      }
-    } else {
-      setTimeout(checkGameLoaded, 100);
-    }
-  }
+Game.extendCanvas = setInterval(() => {
+  var rowCanvas = this.querySelectorAll(".rowCanvas");
 
-  checkGameLoaded();
-});
+  if (Game.ready == 1) {
+    rowCanvas.forEach(function (row, i) {
+      row.style.height = 168
+      row.height = 168
+    });
+    clearInterval(Game.extendCanvas)
+  }
+}, 500);
