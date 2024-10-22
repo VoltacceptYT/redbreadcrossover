@@ -252,7 +252,7 @@ Game.registerMod("RedBreadCrossover", {
     var cabinObj = Game.Objects["Fractal engine"];
     cabinObj.art.w = 162;
     cabinObj.art.xV = 0;
-    cabinObj.art.y = 8;
+    cabinObj.art.y = -8;
     cabinObj.art.yV = 0;
 
     //Gently used
@@ -967,15 +967,3 @@ Game.registerMod("RedBreadCrossover", {
   load: function (str) {
   },
 });
-
-setInterval(() => {
-  var rowCanvas = document.body.querySelectorAll(".rowCanvas")
-
-  if (Game.ready == 1) {
-    rowCanvas.forEach(function (row, i) {
-      row.style.height = 168
-      row.height = 168
-    });
-    clearInterval(this)
-  }
-}, 500);
