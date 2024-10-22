@@ -231,7 +231,7 @@ Game.registerMod("RedBreadCrossover", {
     Game.Loader.Replace('icons.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/icons.png');
 
     Game.Loader.Replace('crustyCreek.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/crustyCreek.png');
-    Game.Loader.Replace('crustyCreekBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_crustyCreek.png');
+    Game.Loader.Replace('crustyCreekBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/crustyCreekBackground.png');
     Game.storeToRefresh = 1
 
     var cabinObj = Game.Objects["Fractal engine"];
