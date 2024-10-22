@@ -1,12 +1,11 @@
 Game.registerMod("RedBreadCrossover", {
   init: function () {
     Game.Loader.replaced = []
-    
-    Game.Loader.Replace('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');    
+
     let textureIndex = 0
 
     function onFractalEngineBought() {
-      const textures = ['fractalEngine.png', 'fractalEngine1.png'];
+      const textures = ['fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png'];
       const selectedTexture = textures[textureIndex];
       this.sprite = selectedTexture;
       textureIndex = (textureIndex + 1) % textures.length;
@@ -82,12 +81,11 @@ Game.registerMod("RedBreadCrossover", {
       Game.customBuildingsEnabled = JSON.parse(localStorage.getItem('RedBreadBuildings'));
       if (Game.customBuildingsEnabled) {
         Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
-        Game.Loader.Replace('fractalEngine1.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png');
+        Game.Loader.Replace('https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
         Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
-        Game.Loader.Replace('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
         Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
       }
@@ -95,12 +93,11 @@ Game.registerMod("RedBreadCrossover", {
       Game.customBuildingsEnabled = true;
       if (Game.customBuildingsEnabled) {
         Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
-        Game.Loader.Replace('fractalEngine1.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png');
+        Game.Loader.Replace('https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
         Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
-        Game.Loader.Replace('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
         Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
       }
@@ -127,12 +124,11 @@ Game.registerMod("RedBreadCrossover", {
       localStorage.setItem('RedBreadBuildings', JSON.stringify(Game.customBuildingsEnabled));
       if (Game.customBuildingsEnabled) {
         Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
-        Game.Loader.Replace('fractalEngine1.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png');
+        Game.Loader.Replace('https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
         Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
-        Game.Loader.Replace('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
         Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
       }
