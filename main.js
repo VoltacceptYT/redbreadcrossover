@@ -2,6 +2,7 @@ Game.registerMod("RedBreadCrossover", {
   init: function () {
     Game.Loader.replaced = []
     
+    Game.Loader.Replace('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');    
     let textureIndex = 0
 
     function onFractalEngineBought() {
