@@ -246,10 +246,10 @@ Game.registerMod("RedBreadCrossover", {
     Game.storeToRefresh = 1
 
     var cabinObj = Game.Objects["Fractal engine"];
-    cabinObj.art.w = 64;
+    cabinObj.art.w = 162;
     cabinObj.art.xV = 0;
-    cabinObj.art.y = 24;
-    cabinObj.art.yV = 16;
+    cabinObj.art.y = 0;
+    cabinObj.art.yV = 0;
 
     //Gently used
     Game.Tiers[1].color = '#c27823';
