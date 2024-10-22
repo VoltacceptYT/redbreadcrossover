@@ -995,7 +995,7 @@
   if (typeof Game !== 'undefined' && Game.ready) {
     setInterval(() => {
       var style = document.getElementById('RedBreadStyle');
-      style.textContent += `
+      style.textContent = `
     .RedBreadCrossoverEnabled, a.option.RedBreadCrossoverEnabled {
       color: #0c0;
       border-color: #0c0;
