@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.4.8
+// @version      v0.4.9
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -28,6 +28,7 @@
         Game.Loader.replaced = []
 
         Game.Loader.Load = function (assets) {
+          Game.Loader.assets['fractalEngine1.png'] = '<img crossorigin="anonymous" src="https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png" alt="https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png">'
           for (var i in assets) {
             this.loadingN++;
             this.assetsN++;
@@ -61,19 +62,6 @@
           this.replaced[old] = newer;
         };
 
-        Game.Loader.addNewAsset = function (assetName, assetUrl) {
-          var img = new Image();
-          if (!Game.local) img.crossOrigin = 'anonymous';
-          img.src = assetUrl;
-          img.alt = assetUrl;
-          img.onload = bind(this, this.onLoad);
-          this.assets[assetName] = img;
-          this.assetsLoading.push(assetName);
-          this.loadingN++;
-          this.assetsN++;
-        };
-
-        Game.Loader.addNewAsset('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
         let textureIndex = 0;
 
         Game.onFractalEngineBought = function () {
