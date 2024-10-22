@@ -169,7 +169,7 @@ Game.registerMod("RedBreadCrossover", {
       background-color: #300;
     }
     #rowCanvas15 {
-      height:` + 200 + `px;
+      height:` + 208 + `px;
     }  
     `;
 
