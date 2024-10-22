@@ -17,11 +17,9 @@
 
       function enableHorizontalScroll() {
         const buildingContainer = document.getElementById('row15');
-        const rowCanvas = document.getElementById('rowCanvas15');
         const scrollSpeed = 5;
-        rowCanvas.style.width = '2000px'
 
-        var scrollInterval
+        var scrollInterval;
 
         const leftScrollZone = document.createElement('div');
         const rightScrollZone = document.createElement('div');
@@ -230,6 +228,7 @@
     }
     #rowCanvas15 {
       height:` + 200 + `px;
+      width:` + 500 + `%;
     }  
     `;
 
