@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.6.2
+// @version      v0.6.3
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -991,19 +991,17 @@
       },
     });
   });
-
-  if (typeof Game !== 'undefined' && Game.ready) {
-    var img = new Image();
-    var imgHeight;
-    img.src = 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png';
-    img.onload = function () {
-      imgHeight = img.height;
-      img.hidden = true;
-    };
-    setInterval(() => {
-      if (img.hidden == true) {
-        var style = document.getElementById('RedBreadStyle');
-        style.textContent = `
+  var img = new Image();
+  var imgHeight;
+  img.src = 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png';
+  img.onload = function () {
+    imgHeight = img.height;
+    img.hidden = true;
+  };
+  setInterval(() => {
+    if (img.hidden == true) {
+      var style = document.getElementById('RedBreadStyle');
+      style.textContent = `
     .RedBreadCrossoverEnabled, a.option.RedBreadCrossoverEnabled {
       color: #0c0;
       border-color: #0c0;
@@ -1030,9 +1028,8 @@
         width:` + (document.getElementById('rowCanvas15').width + 200) + `px;
         height:` + 200 + `px;
       }`
-      }
-    }, 100);
-  }
+    }
+  }, 100);
 })();
 
 //Your Not Supposed to be Here...
