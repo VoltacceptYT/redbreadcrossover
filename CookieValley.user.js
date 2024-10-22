@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.6.3
+// @version      v0.6.4
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -21,11 +21,26 @@
       }, 100);
     }
   }
+  setInterval( () => {
+    if (typeof Game !== 'undefined' && Game.ready) {
+      Game.X2TexturedFractEngine()
+    }
+  }, 100)
 
   loadRBCM(function () {
     Game.registerMod("RedBreadCrossover", {
       init: function () {
+        Game.Loader.assets['fractalEngine1.png'] = '<img crossorigin="anonymous" src="https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png" alt="https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png">'
         Game.Loader.replaced = []
+
+        Game.X2TexturedFractEngine = function () {
+          var pics = Game.Objects['Fractal engine'].pics;
+          for (var i = 0; i < pics.length; i++) {
+            if (pics[i] === "fractalEngine.png" && i % 2 === 0) {
+              pics[i] = "fractalEngine1.png";
+            }
+          }
+        }
 
         Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
           if (Game.ObjectsById[buildingIndex]) {
@@ -168,7 +183,6 @@
           }
         }
 
-
         var style = document.createElement('style');
         style.innerHTML = `
     .RedBreadCrossoverEnabled, a.option.RedBreadCrossoverEnabled {
@@ -193,7 +207,9 @@
     a.option.RedBreadCrossoverDisabled:active {
       background-color: #300;
     } 
-    `;
+    #rowCanvas15 {
+      height:` + 200 + `px;
+    }`;
         style.id = 'RedBreadStyle'
 
         document.getElementsByTagName('head')[0].appendChild(style);
@@ -998,38 +1014,6 @@
     imgHeight = img.height;
     img.hidden = true;
   };
-  setInterval(() => {
-    if (img.hidden == true) {
-      var style = document.getElementById('RedBreadStyle');
-      style.textContent = `
-    .RedBreadCrossoverEnabled, a.option.RedBreadCrossoverEnabled {
-      color: #0c0;
-      border-color: #0c0;
-    }
-    a.option.RedBreadCrossoverEnabled:hover {
-      border-color: #3f3;
-      color: #3f3;
-    }
-    a.option.RedBreadCrossoverEnabled:active {
-      background-color: #300;
-    }
-    .RedBreadCrossoverDisabled, a.option.RedBreadCrossoverDisabled {
-      color: #c00;
-      border-color: #c00;
-    }
-    a.option.RedBreadCrossoverDisabled:hover {
-      border-color: #f33;
-      color: #f33;
-    }
-    a.option.RedBreadCrossoverDisabled:active {
-      background-color: #300;
-    } 
-      #rowCanvas15 {
-        width:` + (document.getElementById('rowCanvas15').width + 200) + `px;
-        height:` + 200 + `px;
-      }`
-    }
-  }, 100);
 })();
 
 //Your Not Supposed to be Here...
