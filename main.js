@@ -1,28 +1,5 @@
 Game.registerMod("RedBreadCrossover", {
   init: function () {
-    
-    document.addEventListener('DOMContentLoaded', function () {
-      function checkGameLoaded() {
-        if (Game.ready) {
-          if (Game.customBuildingsEnabled) {
-            var canvas = document.getElementById('rowCanvas15');
-            if (canvas) {
-              canvas.height = 168;
-              console.log('The Building\'s Canvas height has been extended!');
-            } else {
-              console.error('The Building hasn\'t been unlocked!');
-            }
-          } else {
-            console.error('The use of Custom Buildings isn\'t enabled!')
-          }
-        } else {
-          setTimeout(checkGameLoaded, 100);
-        }
-      }
-
-      checkGameLoaded();
-    });
-
     Game.Loader.replaced = []
 
     Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
@@ -989,4 +966,26 @@ Game.registerMod("RedBreadCrossover", {
   },
   load: function (str) {
   },
+});
+
+document.getElementById('rowCanvas15').addEventListener('load', function () {
+  function checkGameLoaded() {
+    if (Game.ready) {
+      if (Game.customBuildingsEnabled) {
+        var canvas = document.getElementById('rowCanvas15');
+        if (canvas) {
+          canvas.height = 168;
+          console.log('The Building\'s Canvas height has been extended!');
+        } else {
+          console.error('The Building hasn\'t been unlocked!');
+        }
+      } else {
+        console.error('The use of Custom Buildings isn\'t enabled!')
+      }
+    } else {
+      setTimeout(checkGameLoaded, 100);
+    }
+  }
+
+  checkGameLoaded();
 });
