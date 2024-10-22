@@ -169,7 +169,7 @@ Game.registerMod("RedBreadCrossover", {
     a.option.RedBreadCrossoverDisabled:active {
       background-color: #300;
     }
-    #rowCanvas15.rowCanvas {
+    #rowCanvas15.row.rowCanvas {
       height: 170px;
     }  
     `;
@@ -967,4 +967,22 @@ Game.registerMod("RedBreadCrossover", {
   },
   load: function (str) {
   },
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  function checkGameLoaded() {
+      if (typeof Game !== 'undefined' && Game.ready && Game.customBuildingsEnabled) {
+          var canvas = document.getElementById('rowCanvas15');
+          if (canvas) {
+              canvas.height = 168;
+              console.log('The Building\'s Canvas height has been extended!');
+          } else {
+              console.error('The Building hasn\'t benn unlocked!');
+          }
+      } else {
+          setTimeout(checkGameLoaded, 100);
+      }
+  }
+
+  checkGameLoaded();
 });
