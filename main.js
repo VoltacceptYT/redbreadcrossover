@@ -2,22 +2,21 @@ Game.registerMod("RedBreadCrossover", {
   init: function () {
     Game.Loader.replaced = []
 
-    let textureIndex = 0
+    let textureIndex = 0;
 
     function onFractalEngineBought() {
       const textures = ['fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png'];
       const selectedTexture = textures[textureIndex];
-      this.sprite = selectedTexture;
+      this.icon = selectedTexture; // Use 'icon' instead of 'sprite'
       textureIndex = (textureIndex + 1) % textures.length;
-  }
-  
-  Game.Objects['Fractal engine'].buy = (function(originalBuy) {
-      return function() {
-          originalBuy.call(this);
-          onFractalEngineBought.call(this);
+    }
+
+    Game.Objects['Fractal engine'].buy = (function (originalBuy) {
+      return function () {
+        originalBuy.call(this);
+        onFractalEngineBought.call(this);
       };
-  })(Game.Objects['Fractal engine'].buy);
-  
+    })(Game.Objects['Fractal engine'].buy);
 
     Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
       if (Game.ObjectsById[buildingIndex]) {
