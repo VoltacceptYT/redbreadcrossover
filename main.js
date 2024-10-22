@@ -64,10 +64,12 @@ Game.registerMod("RedBreadCrossover", {
     try {
       Game.customBuildingsEnabled = JSON.parse(localStorage.getItem('RedBreadBuildings'));
       if (Game.customBuildingsEnabled) {
+        document.querySelector("#rowCanvas15").setAttribute("height", "148")
         Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
+        document.querySelector("#rowCanvas15").setAttribute("height", "128")
         Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
         Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
@@ -75,10 +77,12 @@ Game.registerMod("RedBreadCrossover", {
     } catch (e) {
       Game.customBuildingsEnabled = true;
       if (Game.customBuildingsEnabled) {
+        document.querySelector("#rowCanvas15").setAttribute("height", "148")
         Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
+        document.querySelector("#rowCanvas15").setAttribute("height", "128")
         Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
         Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
@@ -105,10 +109,12 @@ Game.registerMod("RedBreadCrossover", {
       Game.customBuildingsEnabled = !Game.customBuildingsEnabled;
       localStorage.setItem('RedBreadBuildings', JSON.stringify(Game.customBuildingsEnabled));
       if (Game.customBuildingsEnabled) {
+        document.querySelector("#rowCanvas15").setAttribute("height", "148")
         Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
+        document.querySelector("#rowCanvas15").setAttribute("height", "128")
         Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
         Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
@@ -169,29 +175,9 @@ Game.registerMod("RedBreadCrossover", {
     a.option.RedBreadCrossoverDisabled:active {
       background-color: #300;
     }`;
+
     document.getElementsByTagName('head')[0].appendChild(style);
-
-    Game.waitForElement = function (id, callback) {
-      var checkExist = setInterval(function () {
-        if (document.getElementById(id)) {
-          clearInterval(checkExist);
-          callback();
-        }
-      }, 100);
-    }
-
-    const oldCanvas = document.getElementById('rowCanvas15');
-    const newCanvas = document.createElement('canvas');
-    newCanvas.className = 'rowCanvas';
-    newCanvas.id = 'rowCanvas15';
-    newCanvas.width = 434;
-    newCanvas.height = 148;
-
-    Game.waitForElement('rowCanvas15', function () {
-      oldCanvas.replaceWith(newCanvas);
-    });
-
-
+    
     Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
       if (Game.ObjectsById[buildingIndex]) {
         Game.ObjectsById[buildingIndex].dname = newName;
