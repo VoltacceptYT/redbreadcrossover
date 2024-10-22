@@ -64,12 +64,10 @@ Game.registerMod("RedBreadCrossover", {
     try {
       Game.customBuildingsEnabled = JSON.parse(localStorage.getItem('RedBreadBuildings'));
       if (Game.customBuildingsEnabled) {
-        document.querySelector("#rowCanvas15").setAttribute("height", "148")
         Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
-        document.querySelector("#rowCanvas15").setAttribute("height", "128")
         Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
         Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
@@ -77,12 +75,10 @@ Game.registerMod("RedBreadCrossover", {
     } catch (e) {
       Game.customBuildingsEnabled = true;
       if (Game.customBuildingsEnabled) {
-        document.querySelector("#rowCanvas15").setAttribute("height", "148")
         Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
-        document.querySelector("#rowCanvas15").setAttribute("height", "128")
         Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
         Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
@@ -109,12 +105,10 @@ Game.registerMod("RedBreadCrossover", {
       Game.customBuildingsEnabled = !Game.customBuildingsEnabled;
       localStorage.setItem('RedBreadBuildings', JSON.stringify(Game.customBuildingsEnabled));
       if (Game.customBuildingsEnabled) {
-        document.querySelector("#rowCanvas15").setAttribute("height", "148")
         Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
         Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
       } else {
-        document.querySelector("#rowCanvas15").setAttribute("height", "128")
         Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
         Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
         Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
@@ -174,7 +168,11 @@ Game.registerMod("RedBreadCrossover", {
     }
     a.option.RedBreadCrossoverDisabled:active {
       background-color: #300;
-    }`;
+    }
+    #rowCanvas15.rowCanvas {
+      height: 162px;
+    }  
+    `;
 
     document.getElementsByTagName('head')[0].appendChild(style);
     
