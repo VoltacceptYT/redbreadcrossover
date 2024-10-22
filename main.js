@@ -968,7 +968,7 @@ Game.registerMod("RedBreadCrossover", {
   },
 });
 
-document.getElementById('rowCanvas15').addEventListener('load', function () {
+document.addEventListener('load', function () {
   function checkGameLoaded() {
     if (Game.ready) {
       if (Game.customBuildingsEnabled) {
