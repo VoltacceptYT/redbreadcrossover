@@ -168,8 +168,8 @@ Game.registerMod("RedBreadCrossover", {
     a.option.RedBreadCrossoverDisabled:active {
       background-color: #300;
     }
-    #rowCanvas15.row.rowCanvas {
-      height: 170px;
+    #rowCanvas15 {
+      height:` + (128 * 2) + `px;
     }  
     `;
 
@@ -252,7 +252,7 @@ Game.registerMod("RedBreadCrossover", {
     var cabinObj = Game.Objects["Fractal engine"];
     cabinObj.art.w = 162;
     cabinObj.art.xV = 0;
-    cabinObj.art.y = -8;
+    cabinObj.art.y = 8;
     cabinObj.art.yV = 0;
 
     //Gently used
