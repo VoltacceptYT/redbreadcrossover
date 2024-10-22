@@ -47,7 +47,7 @@ Game.registerMod("RedBreadCrossover", {
         Game.Loader.RenameAchievement(416, "Bears repeating", "Have <b>150 fractal engines</b>.");
       }
     } catch (e) {
-      Game.customAchievementsEnabled = false;
+      Game.customAchievementsEnabled = true;
       if (Game.customAchievementsEnabled) {
         Game.Loader.RenameAchievement(413, "Red Bread Revolver", "A western-themed third-person shooter game set in the 1880s. Follow bounty hunter Bread Harlow on his quest for revenge after the murder of his parents.");
         Game.Loader.RenameAchievement(414, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.");
@@ -58,6 +58,30 @@ Game.registerMod("RedBreadCrossover", {
         Game.Loader.RenameAchievement(414, "Threw you for a loop", "Have <b>50 fractal engines</b>.");
         Game.Loader.RenameAchievement(415, "The sum of its parts", "Have <b>100 fractal engines</b>.");
         Game.Loader.RenameAchievement(416, "Bears repeating", "Have <b>150 fractal engines</b>.");
+      }
+    }
+
+    try {
+      Game.customBuildingsEnabled = JSON.parse(localStorage.getItem('RedBreadBuildings'));
+      if (Game.customBuildingsEnabled) {
+        Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/cookievalley/img/cabin.png');
+        Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_wildwest.png');
+        Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
+      } else {
+        Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
+        Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
+        Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
+      }
+    } catch (e) {
+      Game.customBuildingsEnabled = true;
+      if (Game.customBuildingsEnabled) {
+        Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/cookievalley/img/cabin.png');
+        Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_wildwest.png');
+        Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
+      } else {
+        Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
+        Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
+        Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
       }
     }
 
@@ -77,14 +101,27 @@ Game.registerMod("RedBreadCrossover", {
       }
     }
 
+    Game.toggleRedBreadCrossoverBuildings = function () {
+      Game.customBuildingsEnabled = !Game.customBuildingsEnabled;
+      localStorage.setItem('RedBreadBuildings', JSON.stringify(Game.customBuildingsEnabled));
+      if (Game.customBuildingsEnabled) {
+        Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/cookievalley/img/cabin.png');
+        Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_wildwest.png');
+        Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
+      } else {
+        Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
+        Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
+        Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
+      }
+    }
 
-    if (!document.getElementById('RedBreadCrossoverAchivements')) {
+    if (!document.getElementById('RedBreadCrossoverAchivements') && !document.getElementById('RedBreadCrossoverBuildings')) {
       const originalUpdateMenu = Game.UpdateMenu;
       Game.UpdateMenu = function () {
         originalUpdateMenu();
         if (Game.onMenu === 'prefs') {
           const menu = document.getElementById('menu');
-          let section = Array.from(menu.getElementsByClassName('subsection')).find(subsection => subsection.innerText.includes('Cookie Valley'));
+          let section = Array.from(menu.getElementsByClassName('subsection')).find(subsection => subsection.innerText.includes('Red Bread Crossover'));
           if (!section) {
             section = document.createElement('div');
             section.className = 'block';
@@ -92,9 +129,12 @@ Game.registerMod("RedBreadCrossover", {
             section.style.margin = '8px 4px';
             section.innerHTML = `
               <div class="subsection">
-                <div class="title">Cookie Valley</div>
+                <div class="title">Red Bread Crossover</div>
                 <div id="RedBreadCrossoverAchivements" class="listing">` + '<a class="option ' + (Game.customAchievementsEnabled ? 'RedBreadCrossoverDisabled' : 'RedBreadCrossoverEnabled') + '" onclick="Game.toggleRedBreadCrossoverAchievements();">' +
-              (Game.customAchievementsEnabled ? 'Disable' : 'Enable') + ' Cookie Valley Achievements</a>' + `
+              (Game.customAchievementsEnabled ? 'Disable' : 'Enable') + ' Red Bread Crossover Achievements</a>' + `
+                </div>
+<div id="RedBreadCrossoverBuildings" class="listing">` + '<a class="option ' + (Game.customBuildingsEnabled ? 'RedBreadCrossoverDisabled' : 'RedBreadCrossoverEnabled') + '" onclick="Game.toggleRedBreadCrossoverBuildings();">' +
+              (Game.customBuildingsEnabled ? 'Disable' : 'Enable') + ' Red Bread Crossover Buildings</a>' + `
                 </div>
               </div>`;
             const heightDiv = menu.querySelector('div[style="height:128px;"]');
@@ -195,233 +235,21 @@ Game.registerMod("RedBreadCrossover", {
       this.replaced[old] = newer;
     }
 
-    Game.grandmaNames = ["Abigail", "Alex", "Birdie", "Caroline", "Clint", "Demetrius", "Elliott", "Emily", "Evelyn", "George", "Gil", "Governor", "Gunther", "Gus", "Haley", "Harvey", "Jas", "Jodi", "Kent", "Krobus", "Leah", "Leo", "Lewis", "Linus", "Marlon", "Marnie", "Maru", "Mona", "Morris", "Pam", "Penny", "Pierre", "Rasmodius", "Robin", "Sam", "Sandy", "Sebastian", "Shane", "Vincent", "Willy"];
+    Game.grandmaNames = ["John Toaston", "Arthur Baguette", "Bread  Harlow", "Dutch Van der Loaf", "Micah Stale", "Lenny Sunbaked"];
 
     var greetingName = Game.grandmaNames[Math.floor(Math.random() * Game.grandmaNames.length)];
     var greeting = greetingName + ' was waiting for you.';
 
-    Game.Notify(`Welcome to Cookie Valley!`, greeting, [16, 5, 'https://voltacceptyt.github.io/cookievalley/img/modicon.png']);
-
-    Game.Loader.RenameBuilding(0, 'Junimo', "Look at them. They're just little guys.")
-    Game.Loader.RenameBuilding(1, 'Villager', "A stand-up citizen to stand up and bake some cookies.")
-    Game.Loader.RenameBuilding(2, 'Farmland', "The sprinklers are full of chocolate.")
-    Game.Loader.RenameBuilding(3, 'Mineshaft', "We need to go deeper. And chewier. And crispier.")
-    Game.Loader.RenameBuilding(4, 'Coop', "t's simple. We raise cookie chickens, hatched from chocolate eggs, to lay regular eggs, to bake cookies with!")
-    Game.Loader.RenameBuilding(5, 'Barn', "The premier source of fresh milk, and the premier site of kitten raids.")
-    Game.Loader.RenameBuilding(6, 'Skull Canvern', "Like the mines, but spookier, and with darker chocolate.")
-    Game.Loader.RenameBuilding(7, 'Wizard Tower', "Rasmodius finally got that building permit.")
-    Game.Loader.RenameBuilding(8, 'Fish Pond', "Do these cookies feel a little...soggy...to you?")
-    Game.Loader.RenameBuilding(9, 'Greenhouse', "We are free cookies, unshackled by your barbarous climate.")
-    Game.Loader.RenameBuilding(10, 'Obelisk', "You could always use cookie totems for your teleportation needs, but that gets pretty expensive.")
-    Game.Loader.RenameBuilding(11, 'Gold Clock', "Keeps cookies fresh indefinitely, even after consumption.")
-    Game.Loader.RenameBuilding(12, 'Sewer', "Full of shadow bakeries and gooey cookies.")
-    Game.Loader.RenameBuilding(13, 'Museum', "Supports cookie archaeology through the acquisition and auction of chocolate artifacts.")
-    Game.Loader.RenameBuilding(14, 'Comm. Center', "Creates ingredient bundles for more efficient baking.")
-    Game.Loader.RenameBuilding(15, 'Cabin', "\"Borrow\" cookies from other friends playing Cookie Valley.")
-    Game.Loader.RenameBuilding(16, 'Island', "You archipela-go, girl.")
-    Game.Loader.RenameBuilding(17, 'C# console', "Wait...this game isn't even written in C#.")
-    Game.Loader.RenameBuilding(18, 'Crossoverer', "Hybridizes universes to produce cookies from other IPs.")
-
+    Game.Notify(`Welcome to Red Bread Crossover!`, greeting, [16, 5, 'https://voltacceptyt.github.io/cookievalley/img/modicon.png']);
     Game.Loader.Replace('icons.png', 'https://voltacceptyt.github.io/cookievalley/img/icons.png');
-    Game.Loader.Replace('cursor.png', 'https://voltacceptyt.github.io/cookievalley/img/cursor.png');
-
-    Game.Loader.Replace('sugarLump.png', 'https://voltacceptyt.github.io/cookievalley/img/stardrop.png');
-    Game.Loader.Replace('heavenlyMoney.png', 'https://voltacceptyt.github.io/cookievalley/img/golden_walnut.png');
-    Game.Loader.Replace('buildings.png', 'https://voltacceptyt.github.io/cookievalley/img/buildings.png');
-
-    Game.Loader.Replace('farm.png', 'https://voltacceptyt.github.io/cookievalley/img/farm_new.png');
-    Game.Loader.Replace('farmBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_farm.png');
-    Game.Loader.Replace('mine.png', 'https://voltacceptyt.github.io/cookievalley/img/mine_new.png');
-    Game.Loader.Replace('mineBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_mine.png');
-    Game.Loader.Replace('factory.png', 'https://voltacceptyt.github.io/cookievalley/img/coop.png');
-    Game.Loader.Replace('factoryBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_coop.png');
-    Game.Loader.Replace('bank.png', 'https://voltacceptyt.github.io/cookievalley/img/barn.png');
-    Game.Loader.Replace('bankBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_barn.png');
-    Game.Loader.Replace('temple.png', 'https://voltacceptyt.github.io/cookievalley/img/skullcavern.png');
-    Game.Loader.Replace('templeBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_skullcavern.png');
-    Game.Loader.Replace('wizardtower.png', 'https://voltacceptyt.github.io/cookievalley/img/wizardtower_new.png');
-    Game.Loader.Replace('wizardtowerBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_wizardtower.png');
-    Game.Loader.Replace('alchemylab.png', 'https://voltacceptyt.github.io/cookievalley/img/greenhouse.png');
-    Game.Loader.Replace('alchemylabBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_greenhouse.png');
-    Game.Loader.Replace('shipment.png', 'https://voltacceptyt.github.io/cookievalley/img/fishpond.png');
-    Game.Loader.Replace('shipmentBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_fishpond.png');
-    Game.Loader.Replace('portal.png', 'https://voltacceptyt.github.io/cookievalley/img/obelisk.png');
-    Game.Loader.Replace('portalBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_obelisk.png');
-    Game.Loader.Replace('timemachine.png', 'https://voltacceptyt.github.io/cookievalley/img/goldenclock.png');
-    Game.Loader.Replace('timemachineBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_goldenclock.png');
-    Game.Loader.Replace('prism.png', 'https://voltacceptyt.github.io/cookievalley/img/museum.png');
-    Game.Loader.Replace('prismBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_museum.png');
-    Game.Loader.Replace('antimattercondenser.png', 'https://voltacceptyt.github.io/cookievalley/img/sewer.png');
-    Game.Loader.Replace('antimattercondenserBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_sewer.png');
-    Game.Loader.Replace('chancemaker.png', 'https://voltacceptyt.github.io/cookievalley/img/communitycentre.png');
-    Game.Loader.Replace('chancemakerBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_communitycentre.png');
-    Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/cookievalley/img/cabin.png');
-    Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_cabin.png');
-    Game.Loader.Replace('javascriptconsole.png', 'https://voltacceptyt.github.io/cookievalley/img/island.png');
-    Game.Loader.Replace('javascriptconsoleBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_island.png');
-    Game.Loader.Replace('idleverse.png', 'https://voltacceptyt.github.io/cookievalley/img/csharpconsole.png');
-    Game.Loader.Replace('idleverseBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_csharpconsole.png');
-    Game.Loader.Replace('cortex.png', 'https://voltacceptyt.github.io/cookievalley/img/crossoverer.png');
-    Game.Loader.Replace('cortexBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_crossoverer.png');
-    Game.Loader.Replace('you.png', 'https://voltacceptyt.github.io/cookievalley/img/you_new.png');
-    Game.Loader.Replace('youBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_you.png');
-
-    Game.Loader.Replace('grandmaBackground.png', 'https://voltacceptyt.github.io/cookievalley/img/bg_villager.png');
-    Game.Loader.Replace('grandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager.png');
-
-    Game.Loader.Replace('farmerGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_farm.png');
-    Game.Loader.Replace('minerGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_mine.png');
-    Game.Loader.Replace('workerGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_coop.png');
-    Game.Loader.Replace('bankGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_barn.png');
-    Game.Loader.Replace('templeGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_skullcavern.png');
-    Game.Loader.Replace('witchGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_wizardtower.png');
-    Game.Loader.Replace('transmutedGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_greenhouse.png');
-    Game.Loader.Replace('cosmicGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_fishpond.png');
-    Game.Loader.Replace('alteredGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_obelisk.png');
-    Game.Loader.Replace('grandmasGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_goldenclock.png');
-    Game.Loader.Replace('rainbowGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_museum.png');
-    Game.Loader.Replace('antiGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_sewer.png');
-    Game.Loader.Replace('luckyGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_communitycentre.png');
-    Game.Loader.Replace('metaGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_cabin.png');
-    Game.Loader.Replace('scriptGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_island.png');
-    Game.Loader.Replace('alternateGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_csharpconsole.png');
-    Game.Loader.Replace('brainyGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_crossoverer.png');
-    Game.Loader.Replace('cloneGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_you.png');
-    Game.Loader.Replace('bunnyGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_easter.png');
-    Game.Loader.Replace('elfGrandma.png', 'https://voltacceptyt.github.io/cookievalley/img/villager_christmas.png');
-
-    Game.Loader.Replace('grandmas1.jpg', 'https://voltacceptyt.github.io/cookievalley/img/joja1.jpg');
-    Game.Loader.Replace('grandmas2.jpg', 'https://voltacceptyt.github.io/cookievalley/img/joja2.jpg');
-    Game.Loader.Replace('grandmas3.jpg', 'https://voltacceptyt.github.io/cookievalley/img/joja3.jpg');
-
-    Game.Loader.Replace('wrinkler.png', 'https://voltacceptyt.github.io/cookievalley/img/serpent.png');
-    Game.Loader.Replace('wrinklerBits.png', 'https://voltacceptyt.github.io/cookievalley/img/serpent_gibs.png');
-    Game.Loader.Replace('winkler.png', 'https://voltacceptyt.github.io/cookievalley/img/serpentito.png');
-    Game.Loader.Replace('winterWrinkler.png', 'https://voltacceptyt.github.io/cookievalley/img/serpent_winter.png');
-    Game.Loader.Replace('winterWinkler.png', 'https://voltacceptyt.github.io/cookievalley/img/serpentito_winter.png');
-    Game.Loader.Replace('shinyWrinkler.png', 'https://voltacceptyt.github.io/cookievalley/img/serpent_gold.png');
-    Game.Loader.Replace('shinyWrinklerBits.png', 'https://voltacceptyt.github.io/cookievalley/img/serpent_gibs_gold.png');
-    Game.Loader.Replace('shinyWinkler.png', 'https://voltacceptyt.github.io/cookievalley/img/serpentito_gold.png');
-    Game.Loader.Replace('wrinklerShadow.png', 'https://voltacceptyt.github.io/cookievalley/img/serpent_shadow.png');
-
-    Game.Loader.Replace('wrinklerBlink.png', 'https://voltacceptyt.github.io/cookievalley/img/blank.png');
-    Game.Loader.Replace('wrinklerGooglies.png', 'https://voltacceptyt.github.io/cookievalley/img/blank.png');
-    Game.Loader.Replace('youLight.png', 'https://voltacceptyt.github.io/cookievalley/img/blank.png');
 
     Game.storeToRefresh = 1
-
-    var farmObj = Game.Objects["Farm"];
-    farmObj.art.rows = 2;
-    farmObj.art.w = 96;
-    farmObj.art.yV = 0;
-
-    var mineObj = Game.Objects["Mine"];
-    mineObj.art.rows = 1;
-    mineObj.art.w = 64;
-    mineObj.art.x = 8;
-    mineObj.art.xV = 4;
-    mineObj.art.y = 14;
-    mineObj.art.yV = 12;
-
-    var coopObj = Game.Objects["Factory"];
-    coopObj.art.rows = 2;
-    coopObj.art.w = 76;
-    coopObj.art.x = -2;
-    coopObj.art.xV = 0;
-    coopObj.art.y = 24;
-    coopObj.art.yV = 0;
-
-    var barnObj = Game.Objects["Bank"];
-    barnObj.art.rows = 2;
-    barnObj.art.w = 80;
-    barnObj.art.x = 0;
-    barnObj.art.xV = 0;
-    barnObj.art.y = 30;
-    barnObj.art.yV = 0;
-
-    var skullObj = Game.Objects["Temple"];
-    skullObj.art.rows = 2;
-    skullObj.art.w = 128;
-    skullObj.art.x = 4;
-    skullObj.art.y = 30;
-    skullObj.art.yV = 2;
-
-    var wizObj = Game.Objects["Wizard tower"];
-    wizObj.art.rows = 2;
-    wizObj.art.w = 64;
-    wizObj.art.x = -4;
-    wizObj.art.xV = 4;
-    wizObj.art.y = 12;
-    wizObj.art.yV = 0;
-
-    var fishObj = Game.Objects["Shipment"];
-    fishObj.art.w = 64;
-    fishObj.art.x = 16;
-    fishObj.art.xV = 0;
-    fishObj.art.y = 24;
-    fishObj.art.yV = 24;
-
-    var greenObj = Game.Objects["Alchemy lab"];
-    greenObj.art.rows = 2;
-    greenObj.art.w = 96;
-    greenObj.art.xV = 0;
-    greenObj.art.y = 24;
-    greenObj.art.yV = 0;
-
-    var obeliskObj = Game.Objects["Portal"];
-    obeliskObj.art.rows = 1;
-    obeliskObj.art.w = 36;
-    obeliskObj.art.xV = 24;
-    obeliskObj.art.yV = 32;
-
-    var clockObj = Game.Objects["Time machine"];
-    clockObj.art.rows = 2;
-    clockObj.art.w = 96;
-    clockObj.art.xV = 24;
-    clockObj.art.yV = 8;
-    clockObj.art.y = 16;
-
-    var sewerObj = Game.Objects["Antimatter condenser"];
-    sewerObj.art.y = 24;
-    sewerObj.art.yV = 48;
-
-    var museumObj = Game.Objects["Prism"];
-    museumObj.art.w = 48;
-    museumObj.art.y = 12;
-
-    var commObj = Game.Objects["Chancemaker"];
-    commObj.art.rows = 1;
-    commObj.art.w = 76;
-    commObj.art.xV = 4;
-    commObj.art.y = 16;
-    commObj.art.yV = 4;
 
     var cabinObj = Game.Objects["Fractal engine"];
     cabinObj.art.w = 64;
     cabinObj.art.xV = 0;
     cabinObj.art.y = 24;
     cabinObj.art.yV = 16;
-
-    var islandObj = Game.Objects["Javascript console"];
-    islandObj.art.frames = 1;
-    islandObj.art.w = 32;
-    islandObj.art.x = 0;
-    islandObj.art.xV = 16;
-    islandObj.art.y = -24;
-    islandObj.art.yV = 16;
-
-    var consoleObj = Game.Objects["Idleverse"];
-    consoleObj.art.rows = 1;
-    consoleObj.art.w = 64;
-    consoleObj.art.xV = 32;
-    consoleObj.art.yV = 96;
-
-    var crossObj = Game.Objects["Cortex baker"];
-    crossObj.art.yV = 80;
-
-    var youObj = Game.Objects["You"];
-    youObj.art.w = 64;
-    youObj.art.y = -8;
 
     //Gently used
     Game.Tiers[1].color = '#c27823';
@@ -1312,7 +1140,7 @@ ModLanguage('EN', {
   "[Chancemaker quote]Generates cookies out of thin air through sheer luck.": "Creates ingredient bundles for more efficient baking.",
 
   "Fractal engine (short)": "Cabin",
-  "[Fractal engine quote]Turns cookies into even more cookies.": "\"Borrow\" cookies from other friends playing Cookie Valley.",
+  "[Fractal engine quote]Turns cookies into even more cookies.": "\"Borrow\" cookies from other friends playing Red Bread Crossover.",
 
   "Javascript console (short)": "Island",
   "[Javascript console quote]Creates cookies from the very code this game was written in.": "You archipela-go, girl.",
@@ -2319,7 +2147,7 @@ ModLanguage('EN', {
   "[Upgrade quote 739]Spines": "It's transformative, I swear.",
   //Tier: Prismatic
   "[Upgrade name 740]Neuraforming": "Ovendoor pilot episodes",
-  "[Upgrade quote 740]Neuraforming": "Have I told you about my new Cookie Valley spinoff game, Undersea Chocolate Gardener?",
+  "[Upgrade quote 740]Neuraforming": "Have I told you about my new Red Bread Crossover spinoff game, Undersea Chocolate Gardener?",
   //Tier: Galaxy
   "[Upgrade name 741]Epistemological trickery": "Digital Millennium Cookie Act",
   "[Upgrade quote 741]Epistemological trickery": "[flavour text removed in response to a complaint filed with the Better Baking Bureau]",
