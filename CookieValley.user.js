@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.4.5
+// @version      v0.4.6
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -13,7 +13,6 @@
 (function () {
   'use strict';
   function loadRBCM(callback) {
-    Game.Loader.assets['fractalEngine1.png'] = '<img crossorigin="anonymous" src="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png" alt="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png">'
     if (typeof Game !== 'undefined' && Game.ready) {
       callback();
     } else {
@@ -27,7 +26,8 @@
     Game.registerMod("RedBreadCrossover", {
       init: function () {
         Game.Loader.replaced = []
-
+        
+        Game.Loader.addNewAsset('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
         let textureIndex = 0;
 
         Game.onFractalEngineBought = function () {
@@ -255,37 +255,51 @@
 
         Game.Loader.Load = function (assets) {
           for (var i in assets) {
-            this.loadingN++;
-            this.assetsN++;
-            if (this.assetsLoading.indexOf(assets[i]) == -1 && this.assetsLoaded.indexOf(assets[i]) == -1) {
-              var imgSrc = assets[i];
-
-              if (this.replaced[assets[i]])
-                imgSrc = this.replaced[assets[i]];
-
-              var img = new Image();
-              if (!Game.local) img.crossOrigin = 'anonymous';
-              img.alt = imgSrc;
-              img.onload = bind(this, this.onLoad);
-              this.assets[assets[i]] = img;
-              this.assetsLoading.push(assets[i]);
-              if (imgSrc.indexOf('/') != -1) img.src = imgSrc;
-              else img.src = this.domain + imgSrc;
-            }
+              this.loadingN++;
+              this.assetsN++;
+              if (this.assetsLoading.indexOf(assets[i]) == -1 && this.assetsLoaded.indexOf(assets[i]) == -1) {
+                  var imgSrc = assets[i];
+      
+                  if (this.replaced[assets[i]])
+                      imgSrc = this.replaced[assets[i]];
+      
+                  var img = new Image();
+                  if (!Game.local) img.crossOrigin = 'anonymous';
+                  img.alt = imgSrc;
+                  img.onload = bind(this, this.onLoad);
+                  this.assets[assets[i]] = img;
+                  this.assetsLoading.push(assets[i]);
+                  if (imgSrc.indexOf('/') != -1) img.src = imgSrc;
+                  else img.src = this.domain + imgSrc;
+              }
           }
-        }
-
-        Game.Loader.Replace = function (old, newer) {
+      };
+      
+      Game.Loader.Replace = function (old, newer) {
           if (!this.assets[old]) this.Load([old]);
           var img = new Image();
           if (!Game.local) img.crossOrigin = 'anonymous';
-          if (newer.indexOf('/') != -1)/*newer.indexOf('http')!=-1 || newer.indexOf('https')!=-1)*/ img.src = newer;
+          if (newer.indexOf('/') != -1) img.src = newer;
           else img.src = this.domain + newer;
           img.alt = newer;
           img.onload = bind(this, this.onLoad);
           this.assets[old] = img;
           this.replaced[old] = newer;
-        }
+      };
+      
+      // Function to dynamically add new assets after the game has loaded
+      Game.Loader.addNewAsset = function (assetName, assetUrl) {
+          var img = new Image();
+          if (!Game.local) img.crossOrigin = 'anonymous';
+          img.src = assetUrl;
+          img.alt = assetUrl;
+          img.onload = bind(this, this.onLoad);
+          this.assets[assetName] = img;
+          this.assetsLoading.push(assetName);
+          this.loadingN++;
+          this.assetsN++;
+      };
+      
 
         Game.grandmaNames = ["John Toaston", "Arthur Baguette", "Bread  Harlow", "Dutch Van der Loaf", "Micah Stale", "Lenny Sunbaked"];
 
