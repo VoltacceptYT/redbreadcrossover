@@ -1,12 +1,5 @@
 Game.registerMod("RedBreadCrossover", {
   init: function () {
-    new Game.Object('Crusty Creek','Crusty Creek Shop|Crusty Creek Shops|Owned By ' + Game.bakeryName + '|[X] vistor in Crusty Creek|[X] vistors in Crusty Creek','Generates Cookies from business profits.', 16, 20,{base:'crustyCreek',xV:0,yV:0,w:162,rows:1,x:0,y:0,frames:2},500,function(me){
-			var mult=1;
-			mult*=Game.GetTieredCpsMult(me);
-			mult*=Game.magicCpS(me.name);
-			return me.baseCps*mult;
-		});
-
     Game.Loader.replaced = []
 
     Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
@@ -69,10 +62,26 @@ Game.registerMod("RedBreadCrossover", {
 
     try {
       Game.customBuildingsEnabled = JSON.parse(localStorage.getItem('RedBreadBuildings'));
-      if (Game.customBuildingsEnabled) {} else {}
+      if (Game.customBuildingsEnabled) {
+        Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
+        Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
+        Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
+      } else {
+        Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
+        Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
+        Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
+      }
     } catch (e) {
       Game.customBuildingsEnabled = true;
-      if (Game.customBuildingsEnabled) {} else {}
+      if (Game.customBuildingsEnabled) {
+        Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
+        Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
+        Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
+      } else {
+        Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
+        Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
+        Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
+      }
     }
 
     Game.toggleRedBreadCrossoverAchievements = function () {
@@ -94,7 +103,15 @@ Game.registerMod("RedBreadCrossover", {
     Game.toggleRedBreadCrossoverBuildings = function () {
       Game.customBuildingsEnabled = !Game.customBuildingsEnabled;
       localStorage.setItem('RedBreadBuildings', JSON.stringify(Game.customBuildingsEnabled));
-      if (Game.customBuildingsEnabled) {} else {}
+      if (Game.customBuildingsEnabled) {
+        Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
+        Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
+        Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
+      } else {
+        Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
+        Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
+        Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
+      }
     }
 
     if (!document.getElementById('RedBreadCrossoverAchivements') && !document.getElementById('RedBreadCrossoverBuildings')) {
@@ -230,8 +247,6 @@ Game.registerMod("RedBreadCrossover", {
     Game.Notify(`Welcome to Red Bread Crossover!`, greeting, [16, 5, 'https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png']);
     Game.Loader.Replace('icons.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/icons.png');
 
-    Game.Loader.Replace('crustyCreek.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/crustyCreek.png');
-    Game.Loader.Replace('crustyCreekBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/crustyCreekBackground.png');
     Game.storeToRefresh = 1
 
     var cabinObj = Game.Objects["Fractal engine"];
