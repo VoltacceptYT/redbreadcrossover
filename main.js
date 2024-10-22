@@ -253,7 +253,7 @@ Game.registerMod("RedBreadCrossover", {
     var cabinObj = Game.Objects["Fractal engine"];
     cabinObj.art.w = 162;
     cabinObj.art.xV = 0;
-    cabinObj.art.y = 0;
+    cabinObj.art.y = 8;
     cabinObj.art.yV = 0;
 
     //Gently used
