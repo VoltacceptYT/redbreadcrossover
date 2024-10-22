@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.6.5
+// @version      v0.6.6
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -14,6 +14,49 @@
   'use strict'; Game.registerMod("RedBreadCrossover", {
     init: function () {
       Game.Loader.replaced = []
+
+      function enableHorizontalScroll() {
+        const buildingContainer = document.getElementById('rowCanvas15');
+        const scrollSpeed = 5;
+
+        const leftScrollZone = document.createElement('div');
+        const rightScrollZone = document.createElement('div');
+
+        leftScrollZone.style.position = rightScrollZone.style.position = 'absolute';
+        leftScrollZone.style.top = rightScrollZone.style.top = '0';
+        leftScrollZone.style.bottom = rightScrollZone.style.bottom = '0';
+        leftScrollZone.style.width = rightScrollZone.style.width = '50px';
+        leftScrollZone.style.left = '0';
+        rightScrollZone.style.right = '0';
+        leftScrollZone.style.zIndex = rightScrollZone.style.zIndex = '1000';
+        leftScrollZone.style.cursor = rightScrollZone.style.cursor = 'pointer';
+
+        buildingContainer.appendChild(leftScrollZone);
+        buildingContainer.appendChild(rightScrollZone);
+
+        leftScrollZone.addEventListener('mouseenter', () => {
+          scrollInterval = setInterval(() => {
+            buildingContainer.scrollLeft -= scrollSpeed;
+          }, 10);
+        });
+
+        rightScrollZone.addEventListener('mouseenter', () => {
+          scrollInterval = setInterval(() => {
+            buildingContainer.scrollLeft += scrollSpeed;
+          }, 10);
+        });
+
+        leftScrollZone.addEventListener('mouseleave', () => {
+          clearInterval(scrollInterval);
+        });
+
+        rightScrollZone.addEventListener('mouseleave', () => {
+          clearInterval(scrollInterval);
+        });
+      }
+
+      enableHorizontalScroll();
+
 
       Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
         if (Game.ObjectsById[buildingIndex]) {
