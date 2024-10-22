@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.5.0
+// @version      v0.5.1
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -28,6 +28,8 @@
         Game.Loader.replaced = []
 
         let textureIndex = 0;
+
+        Game.Loader.assets['fractalEngine1.png'] = '<img crossorigin="anonymous" src="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png" alt="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png">'
 
         Game.onFractalEngineBought = function () {
           const textures = ['fractalEngine.png', 'fractalEngine1.png'];
@@ -105,15 +107,12 @@
           Game.customBuildingsEnabled = JSON.parse(localStorage.getItem('RedBreadBuildings'));
           if (Game.customBuildingsEnabled) {
             Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
-            Game.Loader.Replace('fractalEngine1.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png');
+            Game.Loader.assets['fractalEngine1.png'] = '<img crossorigin="anonymous" src="https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png" alt="https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png">'
             Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
             Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
           } else {
-            if (!Game.Loader.assets['fractalEngine1.png']) {
-              Game.Loader.addNewAsset('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
-            }
             Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
-            Game.Loader.Replace('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
+            Game.Loader.assets['fractalEngine1.png'] = '<img crossorigin="anonymous" src="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png" alt="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png">'
             Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
             Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
           }
@@ -121,15 +120,12 @@
           Game.customBuildingsEnabled = true;
           if (Game.customBuildingsEnabled) {
             Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
-            Game.Loader.Replace('fractalEngine1.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png');
+            Game.Loader.assets['fractalEngine1.png'] = '<img crossorigin="anonymous" src="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png" alt="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png">'
             Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
             Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
           } else {
-            if (!Game.Loader.assets['fractalEngine1.png']) {
-              Game.Loader.addNewAsset('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
-            }
             Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
-            Game.Loader.Replace('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
+            Game.Loader.assets['fractalEngine1.png'] = '<img crossorigin="anonymous" src="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png" alt="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png">'
             Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
             Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
           }
@@ -156,15 +152,12 @@
           localStorage.setItem('RedBreadBuildings', JSON.stringify(Game.customBuildingsEnabled));
           if (Game.customBuildingsEnabled) {
             Game.Loader.Replace('fractalEngine.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest.png');
-            Game.Loader.Replace('fractalEngine1.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/wildwest1.png');
+            Game.Loader.assets['fractalEngine1.png'] = '<img crossorigin="anonymous" src="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png" alt="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png">'
             Game.Loader.Replace('fractalEngineBackground.png', 'https://voltacceptyt.github.io/redbreadcrossover/img/bg_wildwest.png');
             Game.Loader.RenameBuilding(15, 'Wild West', "Hybridizes the Red Bread Universe to more produce cookies.")
           } else {
-            if (!Game.Loader.assets['fractalEngine1.png']) {
-              Game.Loader.addNewAsset('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
-            }
             Game.Loader.Replace('fractalEngine.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
-            Game.Loader.Replace('fractalEngine1.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png');
+            Game.Loader.assets['fractalEngine1.png'] = '<img crossorigin="anonymous" src="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png" alt="https://cdn.dashnet.org/cookieclicker/img/fractalEngine.png">'
             Game.Loader.Replace('fractalEngineBackground.png', 'https://cdn.dashnet.org/cookieclicker/img/fractalEngineBackground.png');
             Game.Loader.RenameBuilding(15, "Fractal engine", "Turns cookies into even more cookies.")
           }
@@ -281,32 +274,19 @@
               else img.src = this.domain + imgSrc;
             }
           }
-        };
+        }
 
         Game.Loader.Replace = function (old, newer) {
           if (!this.assets[old]) this.Load([old]);
           var img = new Image();
           if (!Game.local) img.crossOrigin = 'anonymous';
-          if (newer.indexOf('/') != -1) img.src = newer;
+          if (newer.indexOf('/') != -1)/*newer.indexOf('http')!=-1 || newer.indexOf('https')!=-1)*/ img.src = newer;
           else img.src = this.domain + newer;
           img.alt = newer;
           img.onload = bind(this, this.onLoad);
           this.assets[old] = img;
           this.replaced[old] = newer;
-        };
-
-        Game.Loader.addNewAsset = function (assetName, assetUrl) {
-          var img = new Image();
-          if (!Game.local) img.crossOrigin = 'anonymous';
-          img.src = assetUrl;
-          img.alt = assetUrl;
-          img.onload = bind(this, this.onLoad);
-          this.assets[assetName] = img;
-          this.assetsLoading.push(assetName);
-          this.loadingN++;
-          this.assetsN++;
-        };
-
+        }
 
         Game.grandmaNames = ["John Toaston", "Arthur Baguette", "Bread  Harlow", "Dutch Van der Loaf", "Micah Stale", "Lenny Sunbaked"];
 
