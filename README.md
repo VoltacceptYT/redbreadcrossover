@@ -24,3 +24,4 @@ You install the [Red Bread Crossover Userscript](https://voltacceptyt.github.io/
 Eventually, I'd like to add even more custom Stardew-themed content to Red Bread Crossover, including reskins for building minigames and custom flavoured cookie upgrades. Until then, happy baking!
 
 ![banner-end](https://github.com/samanthastahlke/cookievalley/assets/10996959/90fc11d2-2e21-4c70-b8dc-5f62a286e091)
+ 
