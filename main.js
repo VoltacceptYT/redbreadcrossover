@@ -969,7 +969,7 @@ Game.registerMod("RedBreadCrossover", {
 });
 
 Game.extendCanvas = setInterval(() => {
-  var rowCanvas = this.querySelectorAll(".rowCanvas");
+  var rowCanvas = document.querySelectorAll(".rowCanvas")
 
   if (Game.ready == 1) {
     rowCanvas.forEach(function (row, i) {
