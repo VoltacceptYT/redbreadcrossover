@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.8.3
+// @version      v0.8.4
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -17,7 +17,7 @@
 
       function enableHorizontalScroll() {
         const buildingContainer = document.getElementById('rows');
-        const buildings = document.getElementById('rowCanvas15')
+        const buildings = document.getElementById('row15')
         const scrollSpeed = 5;
     
         var scrollInterval;
@@ -42,14 +42,14 @@
         leftScrollZone.addEventListener('mouseenter', () => {
             scrollInterval = setInterval(() => {
                 buildings.scrollLeft -= scrollSpeed;
-                Game.Objects['Fractal engine'].refresh()
+                Game.Objects['Fractal engine'].rebuild()
             }, 10);
         });
     
         rightScrollZone.addEventListener('mouseenter', () => {
             scrollInterval = setInterval(() => {
                 buildings.scrollLeft += scrollSpeed;
-                Game.Objects['Fractal engine'].refresh()
+                Game.Objects['Fractal engine'].rebuild()
             }, 10);
         });
     
@@ -238,7 +238,7 @@
     }
     #row15 {
       width: fit-content;
-      overflow: scroll;
+      overflowX: auto;
     }  
     `;
 
