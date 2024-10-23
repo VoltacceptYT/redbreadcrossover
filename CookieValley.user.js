@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.7.7
+// @version      v0.7.8
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -17,6 +17,8 @@
 
       function enableHorizontalScroll() {
         const buildingContainer = document.getElementById('row15');
+        const buildingContainerContainer = document.getElementById('rows');
+        const Left_Right = buildingContainerContainer.getBoundingClientRect();        
         const scrollSpeed = 5;
 
         var scrollInterval;
@@ -24,26 +26,21 @@
         const leftScrollZone = document.createElement('div');
         const rightScrollZone = document.createElement('div');
 
-        // Style the scroll zones to be fixed relative to the viewport
-        leftScrollZone.style.position = rightScrollZone.style.position = 'fixed';
-        leftScrollZone.style.left = '50%';
-        rightScrollZone.style.right = '-50%';
-        leftScrollZone.style.transform = 'translatex(-50%)';
-        rightScrollZone.style.transform = 'translatex(50%)';
+        leftScrollZone.style.position = rightScrollZone.style.position = 'absolute';
+        leftScrollZone.style.top = rightScrollZone.style.top = '0';
+        leftScrollZone.style.bottom = rightScrollZone.style.bottom = '0';
         leftScrollZone.style.width = rightScrollZone.style.width = '50px';
-        leftScrollZone.style.top = '0';
-        rightScrollZone.style.top = '0';
+        leftScrollZone.style.left = Left_Right.left;
+        rightScrollZone.style.right = Left_Right.right;
         leftScrollZone.style.zIndex = rightScrollZone.style.zIndex = '1000';
         leftScrollZone.style.cursor = rightScrollZone.style.cursor = 'pointer';
 
-        // Append scroll zones to the body
         buildingContainer.appendChild(leftScrollZone);
         buildingContainer.appendChild(rightScrollZone);
 
-        // Add event listeners for scrolling
         leftScrollZone.addEventListener('mouseenter', () => {
           scrollInterval = setInterval(() => {
-            buildingContainer.scrollLeft -= scrollSpeed;
+            buildingContainer.scrollLeft = scrollSpeed;
           }, 10);
         });
 
@@ -60,17 +57,9 @@
         rightScrollZone.addEventListener('mouseleave', () => {
           clearInterval(scrollInterval);
         });
-
-        // Update scroll zones position on window scroll
-        window.addEventListener('scroll', () => {
-          const scrollTop = window.scrollX;
-          leftScrollZone.style.left = `${scrollTop + window.innerWidth / 2}px`;
-          rightScrollZone.style.left = `${scrollTop + window.innerWidth / 2}px`;
-        });
       }
 
       enableHorizontalScroll();
-
 
 
       Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
