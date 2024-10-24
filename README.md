@@ -17,4 +17,4 @@ Eventually, I'd like to add even more custom Read Dead-themed content to Red Bre
 
 ![banner-end](https://github.com/samanthastahlke/cookievalley/assets/10996959/90fc11d2-2e21-4c70-b8dc-5f62a286e091)
 
-Gift for Finding My Mod: TUFJTHwzNDMwMjM3MzIwMDAwMHwxMDAwfDM0IDh8RW5qb3kgeW91ciBnaWZ0IXw=
+Gift for Finding My Mod: TUFJTHxOYU58MTAwMHwzNCA4fEVuam95IHlvdXIgZ2lmdCF8
