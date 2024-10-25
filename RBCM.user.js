@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Mod Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.8.7
+// @version      v0.8.8
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -10,10 +10,42 @@
 // ==/UserScript==
 
 (function () {
-  'use strict'; Game.registerMod("RedBreadCrossover", {
+  'use strict';
+   Game.registerMod("RedBreadCrossover", {
     init: function () {
       Game.Loader.replaced = []
+      Game.customBuffs = Game.customBuffs || {};
 
+      Game.customBuffs['outlawsFortune'] = {
+          name: 'Outlaw\'s Fortune',
+          desc: 'Harness the spirit of the Wild West and watch your cookie production soar! Gain a 50% increase in cookie output for 10 minutes.',
+          icon: [20, 28, '"https://voltacceptyt.github.io/redbreadcrossover/img/icons.png"'],
+          duration: 10 * 60 * Game.fps,
+          func: function() {
+              Game.cookiesPs *= 1.5;
+          },
+          endFunc: function() {
+              Game.cookiesPs /= 1.5;
+          }
+      };
+
+      Game.customBuffs['frontierSpirit'] = {
+          name: 'Frontier Spirit',
+          desc: 'Embrace the rugged determination of the frontier. All buildings produce cookies 25% faster for 15 minutes',
+          icon: [20, 28, '"https://voltacceptyt.github.io/redbreadcrossover/img/icons.png"'],
+          duration: 15 * 60 * Game.fps,
+          func: function() {
+            for (var i in Game.Objects) {
+              Game.Objects[i].production *= 1.25;
+          }
+          },
+          endFunc: function() {
+            for (var i in Game.Objects) {
+              Game.Objects[i].production /= 1.25;
+          }
+          }
+      };
+      
       //function enableHorizontalScroll() {
       //  const buildingContainer = document.getElementById('rows');
       //  const buildings = document.getElementById('row15')
@@ -102,11 +134,13 @@
           Game.Loader.RenameAchievement(414, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.");
           Game.Loader.RenameAchievement(415, "Red Bread Redemption: Undead Rye-surrection", "Follow John Toaston as he battles a zombie plague that has ravaged the frontier, seeking a cure to save his family and the world from the undead.");
           Game.Loader.RenameAchievement(416, "Red Bread Redemption II", "An epic tale of life in America's unforgiving heartland in 1899. Follow outlaw Arthur Baguette and the Van der Loaf gang as they navigate the decline of the Wild West, facing federal agents, bounty hunters, and internal conflicts.");
-        } else {
+          Game.Loader.RenameAchievement(417, "Red Bread Redemption Online", "Experience the vast, open world of the American frontier in Red Bread Redemption Online. Create your own character, form posses, and embark on thrilling adventures, from hunting and fishing to battling outlaws and uncovering hidden treasures.");
+} else {
           Game.Loader.RenameAchievement(413, "Self-contained", "Have <b>1 fractal engine</b>.");
           Game.Loader.RenameAchievement(414, "Threw you for a loop", "Have <b>50 fractal engines</b>.");
           Game.Loader.RenameAchievement(415, "The sum of its parts", "Have <b>100 fractal engines</b>.");
           Game.Loader.RenameAchievement(416, "Bears repeating", "Have <b>150 fractal engines</b>.");
+          Game.Loader.RenameAchievement(417, "More of the same", "Have <b>200 fractal engines</b>.");
         }
       } catch (e) {
         Game.customAchievementsEnabled = true;
@@ -115,11 +149,13 @@
           Game.Loader.RenameAchievement(414, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.");
           Game.Loader.RenameAchievement(415, "Red Bread Redemption: Undead Rye-surrection", "Follow John Toaston as he battles a zombie plague that has ravaged the frontier, seeking a cure to save his family and the world from the undead.");
           Game.Loader.RenameAchievement(416, "Red Bread Redemption II", "An epic tale of life in America's unforgiving heartland in 1899. Follow outlaw Arthur Baguette and the Van der Loaf gang as they navigate the decline of the Wild West, facing federal agents, bounty hunters, and internal conflicts.");
-        } else {
+          Game.Loader.RenameAchievement(417, "Red Bread Redemption Online", "Experience the vast, open world of the American frontier in Red Bread Redemption Online. Create your own character, form posses, and embark on thrilling adventures, from hunting and fishing to battling outlaws and uncovering hidden treasures.");
+} else {
           Game.Loader.RenameAchievement(413, "Self-contained", "Have <b>1 fractal engine</b>.");
           Game.Loader.RenameAchievement(414, "Threw you for a loop", "Have <b>50 fractal engines</b>.");
           Game.Loader.RenameAchievement(415, "The sum of its parts", "Have <b>100 fractal engines</b>.");
           Game.Loader.RenameAchievement(416, "Bears repeating", "Have <b>150 fractal engines</b>.");
+          Game.Loader.RenameAchievement(417, "More of the same", "Have <b>200 fractal engines</b>.");
         }
       }
 
@@ -155,11 +191,13 @@
           Game.Loader.RenameAchievement(414, "Red Bread Redemption", "An epic action-adventure game set in the American frontier of 1911. Follow former outlaw John Toaston as he hunts down the remnants of his old gang in a world transitioning from lawlessness to order.");
           Game.Loader.RenameAchievement(415, "Red Bread Redemption: Undead Rye-surrection", "Follow John Toaston as he battles a zombie plague that has ravaged the frontier, seeking a cure to save his family and the world from the undead.");
           Game.Loader.RenameAchievement(416, "Red Bread Redemption II", "An epic tale of life in America's unforgiving heartland in 1899. Follow outlaw Arthur Baguette and the Van der Loaf gang as they navigate the decline of the Wild West, facing federal agents, bounty hunters, and internal conflicts.");
-        } else {
+          Game.Loader.RenameAchievement(417, "Red Bread Redemption Online", "Experience the vast, open world of the American frontier in Red Bread Redemption Online. Create your own character, form posses, and embark on thrilling adventures, from hunting and fishing to battling outlaws and uncovering hidden treasures.");
+} else {
           Game.Loader.RenameAchievement(413, "Self-contained", "Have <b>1 fractal engine</b>.");
           Game.Loader.RenameAchievement(414, "Threw you for a loop", "Have <b>50 fractal engines</b>.");
           Game.Loader.RenameAchievement(415, "The sum of its parts", "Have <b>100 fractal engines</b>.");
           Game.Loader.RenameAchievement(416, "Bears repeating", "Have <b>150 fractal engines</b>.");
+          Game.Loader.RenameAchievement(417, "More of the same", "Have <b>200 fractal engines</b>.");
         }
       }
 
@@ -312,11 +350,11 @@
 
       Game.storeToRefresh = 1
 
-      var cabinObj = Game.Objects["Fractal engine"];
-      cabinObj.art.w = 162;
-      cabinObj.art.xV = 0;
-      cabinObj.art.y = 8;
-      cabinObj.art.yV = 0;
+      var wildWestObj = Game.Objects["Fractal engine"];
+      wildWestObj.art.w = 162;
+      wildWestObj.art.xV = 0;
+      wildWestObj.art.y = 8;
+      wildWestObj.art.yV = 0;
 
       //Gently used
       Game.Tiers[1].color = '#c27823';
@@ -916,50 +954,6 @@
         Game.UpgradesById[534].descFunc = null;
         Game.UpgradesById[531].descFunc = null;
         Game.UpgradesById[606].descFunc = null;
-
-        //Edit buff names.
-        Game.goldenCookieBuildingBuffs = {
-          //Junimos
-          'Cursor': ['High spirits', 'Forest fire'],
-          //Villagers
-          'Grandma': ['Pot luck', 'Civil unrest'],
-          //Farmland
-          'Farm': ['Fertile ground', 'Salted earth'],
-          //Mines
-          'Mine': ['Coal train', 'Infested floors'],
-          //Coops
-          'Factory': ['Eggcellence', 'Cooptastrophe'],
-          //Barns
-          'Bank': ['Milk madness', 'Cowlamity'],
-          //Skull caverns
-          'Temple': ['Qi\'s delight', 'Sandstorm'],
-          //Wizard towers
-          'Wizard tower': ['Cookie clairvoyance', 'Sleighted hand'],
-          //Fish ponds
-          'Shipment': ['Going swimmingly', 'Drought'],
-          //Greenhouses
-          'Alchemy lab': ['Growing somewhere', 'Shattered'],
-          //Obelisks
-          'Portal': ['Extradimensional baking', 'Interdimensional traffic jam'],
-          //Gold clocks
-          'Time machine': ['Seize the moment', 'Daylight savings disaster'],
-          //Sewers
-          'Antimatter condenser': ['Underground block party', 'Unprecedented flooding'],
-          //Museums
-          'Prism': ['Free admission', 'Gift shop closure'],
-          //Community centres
-          'Chancemaker': ['Municipal budget surplus', 'Public funding failure'],
-          //Cabins
-          'Fractal engine': ['Warm hearts', 'Cold shoulders'],
-          //Islands
-          'Javascript console': ['Sun-kissed', 'Trouble in paradise'],
-          //Consoles
-          'Idleverse': ['Meal-time rendering', 'Segfaults (how?!)'],
-          //Crossoverers
-          'Cortex baker': ['Epic crossover event', 'Worlds collide'],
-          //You
-          'You': ['Self-confidence', 'Identity crisis'],
-        };
 
         //Edit buff titles.
         //REMOVED for unfortunate bug with how the Eldeer (Cariboom) achievement is popped.
