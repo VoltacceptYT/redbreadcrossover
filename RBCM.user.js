@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Mod Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.8.8
+// @version      v0.8.9
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -11,90 +11,68 @@
 
 (function () {
   'use strict';
-   Game.registerMod("RedBreadCrossover", {
+  Game.registerMod("RedBreadCrossover", {
     init: function () {
       Game.Loader.replaced = []
       Game.customBuffs = Game.customBuffs || {};
 
       Game.customBuffs['outlawsFortune'] = {
-          name: 'Outlaw\'s Fortune',
-          desc: 'Harness the spirit of the Wild West and watch your cookie production soar! Gain a 50% increase in cookie output for 10 minutes.',
-          icon: [20, 28, '"https://voltacceptyt.github.io/redbreadcrossover/img/icons.png"'],
-          duration: 10 * 60 * Game.fps,
-          func: function() {
-              Game.cookiesPs *= 1.5;
-          },
-          endFunc: function() {
-              Game.cookiesPs /= 1.5;
-          }
+        name: 'Outlaw\'s Fortune',
+        desc: 'Harness the spirit of the Wild West and watch your cookie production soar! Gain a 50% increase in cookie output for 10 minutes.',
+        icon: [20, 28, '"https://voltacceptyt.github.io/redbreadcrossover/img/icons.png"'],
+        duration: 10 * 60 * Game.fps,
+        func: function () {
+          Game.cookiesPs *= 1.5;
+        },
+        endFunc: function () {
+          Game.cookiesPs /= 1.5;
+        }
       };
 
       Game.customBuffs['frontierSpirit'] = {
-          name: 'Frontier Spirit',
-          desc: 'Embrace the rugged determination of the frontier. All buildings produce cookies 25% faster for 15 minutes',
-          icon: [20, 28, '"https://voltacceptyt.github.io/redbreadcrossover/img/icons.png"'],
-          duration: 15 * 60 * Game.fps,
-          func: function() {
-            for (var i in Game.Objects) {
-              Game.Objects[i].production *= 1.25;
+        name: 'Frontier Spirit',
+        desc: 'Embrace the rugged determination of the frontier. All buildings produce cookies 25% faster for 15 minutes',
+        icon: [20, 28, '"https://voltacceptyt.github.io/redbreadcrossover/img/icons.png"'],
+        duration: 15 * 60 * Game.fps,
+        func: function () {
+          for (var i in Game.Objects) {
+            Game.Objects[i].production *= 1.25;
           }
-          },
-          endFunc: function() {
-            for (var i in Game.Objects) {
-              Game.Objects[i].production /= 1.25;
+        },
+        endFunc: function () {
+          for (var i in Game.Objects) {
+            Game.Objects[i].production /= 1.25;
           }
-          }
+        }
       };
-      
-      //function enableHorizontalScroll() {
-      //  const buildingContainer = document.getElementById('rows');
-      //  const buildings = document.getElementById('row15')
-      //  const scrollSpeed = 5;
-    
-      // var scrollInterval;
-    
-      //  const leftScrollZone = document.createElement('div');
-      //  const rightScrollZone = document.createElement('div');
-    
-      //  leftScrollZone.style.position = rightScrollZone.style.position = 'absolute';
-      //  leftScrollZone.style.top = rightScrollZone.style.top = '0';
-      //  leftScrollZone.style.bottom = rightScrollZone.style.bottom = '0';
-      //  leftScrollZone.style.width = rightScrollZone.style.width = '50px';
-      //  leftScrollZone.style.left = '0';
-      //  rightScrollZone.style.right = '0';
-      //  leftScrollZone.style.height = rightScrollZone.style.height = '200px'
-      //  leftScrollZone.style.zIndex = rightScrollZone.style.zIndex = '1000';
-      //  leftScrollZone.style.cursor = rightScrollZone.style.cursor = 'pointer';
-        
-    
-      //  buildingContainer.appendChild(leftScrollZone);
-      //  buildingContainer.appendChild(rightScrollZone);
-    
-      //  leftScrollZone.addEventListener('mouseenter', () => {
-      //      scrollInterval = setInterval(() => {
-      //          buildings.scrollLeft -= scrollSpeed;
-      //          Game.Objects['Fractal engine'].refresh()
-      //      }, 10);
-      //  });
-    
-      //  rightScrollZone.addEventListener('mouseenter', () => {
-      //      scrollInterval = setInterval(() => {
-      //          buildings.scrollLeft += scrollSpeed;
-      //          Game.Objects['Fractal engine'].rebuild()
-      //      }, 10);
-      //  });
-    
-      //  leftScrollZone.addEventListener('mouseleave', () => {
-       //     clearInterval(scrollInterval);
-      //  });
-    
-      //  rightScrollZone.addEventListener('mouseleave', () => {
-      //      clearInterval(scrollInterval);
-      //  });
-      //}
-    
-      //enableHorizontalScroll();
-    
+
+      let canvas = document.getElementById('rowCanvas15');
+      let ctx = canvas.getContext('2d');
+      let scrollOffsetX = 0;
+      let scrollSpeed = 20;
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.save();
+        ctx.translate(-scrollOffsetX, 0);
+        // Your drawing code here
+        ctx.restore();
+        requestAnimationFrame(draw);
+      }
+
+      canvas.addEventListener('mousemove', function (event) {
+        let mouseX = event.clientX - canvas.getBoundingClientRect().left;
+        if (mouseX >= canvas.width - 100) {
+          scrollOffsetX += scrollSpeed * ((mouseX - (canvas.width - 100)) / 100);
+        } else if (mouseX <= 100) {
+          scrollOffsetX -= scrollSpeed * (1 - mouseX / 100);
+        }
+        if (scrollOffsetX < 0) scrollOffsetX = 0;
+      });
+
+      draw();
+
+
 
 
       Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
@@ -135,7 +113,7 @@
           Game.Loader.RenameAchievement(415, "Red Bread Redemption: Undead Rye-surrection", "Follow John Toaston as he battles a zombie plague that has ravaged the frontier, seeking a cure to save his family and the world from the undead.");
           Game.Loader.RenameAchievement(416, "Red Bread Redemption II", "An epic tale of life in America's unforgiving heartland in 1899. Follow outlaw Arthur Baguette and the Van der Loaf gang as they navigate the decline of the Wild West, facing federal agents, bounty hunters, and internal conflicts.");
           Game.Loader.RenameAchievement(417, "Red Bread Redemption Online", "Experience the vast, open world of the American frontier in Red Bread Redemption Online. Create your own character, form posses, and embark on thrilling adventures, from hunting and fishing to battling outlaws and uncovering hidden treasures.");
-} else {
+        } else {
           Game.Loader.RenameAchievement(413, "Self-contained", "Have <b>1 fractal engine</b>.");
           Game.Loader.RenameAchievement(414, "Threw you for a loop", "Have <b>50 fractal engines</b>.");
           Game.Loader.RenameAchievement(415, "The sum of its parts", "Have <b>100 fractal engines</b>.");
@@ -150,7 +128,7 @@
           Game.Loader.RenameAchievement(415, "Red Bread Redemption: Undead Rye-surrection", "Follow John Toaston as he battles a zombie plague that has ravaged the frontier, seeking a cure to save his family and the world from the undead.");
           Game.Loader.RenameAchievement(416, "Red Bread Redemption II", "An epic tale of life in America's unforgiving heartland in 1899. Follow outlaw Arthur Baguette and the Van der Loaf gang as they navigate the decline of the Wild West, facing federal agents, bounty hunters, and internal conflicts.");
           Game.Loader.RenameAchievement(417, "Red Bread Redemption Online", "Experience the vast, open world of the American frontier in Red Bread Redemption Online. Create your own character, form posses, and embark on thrilling adventures, from hunting and fishing to battling outlaws and uncovering hidden treasures.");
-} else {
+        } else {
           Game.Loader.RenameAchievement(413, "Self-contained", "Have <b>1 fractal engine</b>.");
           Game.Loader.RenameAchievement(414, "Threw you for a loop", "Have <b>50 fractal engines</b>.");
           Game.Loader.RenameAchievement(415, "The sum of its parts", "Have <b>100 fractal engines</b>.");
@@ -192,7 +170,7 @@
           Game.Loader.RenameAchievement(415, "Red Bread Redemption: Undead Rye-surrection", "Follow John Toaston as he battles a zombie plague that has ravaged the frontier, seeking a cure to save his family and the world from the undead.");
           Game.Loader.RenameAchievement(416, "Red Bread Redemption II", "An epic tale of life in America's unforgiving heartland in 1899. Follow outlaw Arthur Baguette and the Van der Loaf gang as they navigate the decline of the Wild West, facing federal agents, bounty hunters, and internal conflicts.");
           Game.Loader.RenameAchievement(417, "Red Bread Redemption Online", "Experience the vast, open world of the American frontier in Red Bread Redemption Online. Create your own character, form posses, and embark on thrilling adventures, from hunting and fishing to battling outlaws and uncovering hidden treasures.");
-} else {
+        } else {
           Game.Loader.RenameAchievement(413, "Self-contained", "Have <b>1 fractal engine</b>.");
           Game.Loader.RenameAchievement(414, "Threw you for a loop", "Have <b>50 fractal engines</b>.");
           Game.Loader.RenameAchievement(415, "The sum of its parts", "Have <b>100 fractal engines</b>.");
