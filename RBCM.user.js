@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Mod Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.8.9
+// @version      v0.9.0
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -46,31 +46,34 @@
         }
       };
 
-      let canvas = document.getElementById('rowCanvas15');
-      let ctx = canvas.getContext('2d');
-      let scrollOffsetX = 0;
-      let scrollSpeed = 20;
 
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.save();
-        ctx.translate(-scrollOffsetX, 0);
-        // Your drawing code here
-        ctx.restore();
-        requestAnimationFrame(draw);
+      let scrollSpeed = 20; // Adjust the scroll speed as needed
+
+      function updateScroll() {
+        let canvas = document.getElementById('buildingsCanvas');
+        if (!canvas) return;
+
+        let ctx = canvas.getContext('2d');
+        let scrollOffset = 0;
+
+        canvas.addEventListener('mousemove', function (event) {
+          let rect = canvas.getBoundingClientRect();
+          let mouseX = event.clientX - rect.left;
+
+          if (mouseX >= canvas.width - 100 && scrollOffset <= canvas.width) {
+            scrollOffset += scrollSpeed;
+          } else if (mouseX <= 100 && scrollOffset >= 0) {
+            scrollOffset -= scrollSpeed;
+          }
+
+          ctx.translate(-scrollOffset, 0);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          Game.DrawBuildings();
+          ctx.translate(scrollOffset, 0);
+        });
       }
 
-      canvas.addEventListener('mousemove', function (event) {
-        let mouseX = event.clientX - canvas.getBoundingClientRect().left;
-        if (mouseX >= canvas.width - 100) {
-          scrollOffsetX += scrollSpeed * ((mouseX - (canvas.width - 100)) / 100);
-        } else if (mouseX <= 100) {
-          scrollOffsetX -= scrollSpeed * (1 - mouseX / 100);
-        }
-        if (scrollOffsetX < 0) scrollOffsetX = 0;
-      });
-
-      draw();
+      Game.registerHook('draw', updateScroll);
 
 
 
