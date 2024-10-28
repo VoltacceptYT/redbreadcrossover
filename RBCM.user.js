@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Mod Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.9.1
+// @version      v0.9.2
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -46,37 +46,34 @@
         }
       };
 
-      //        REMOVED
-      // Delayed Until Complete
-      //let scrollSpeed = 20; // Adjust the scroll speed as needed
+      const container = document.getElementById('rowCanvas15');
+      const scrollSpeed = 2;
+      let scrollInterval = null;
+      const startScrolling = (direction) => {
+        if (scrollInterval) return;
+        scrollInterval = setInterval(() => {
+          container.scrollLeft += direction * scrollSpeed;
+        }, 16);
+      };
 
-      //function updateScroll() {
-      //  let canvas = document.getElementById('buildingsCanvas');
-      //  if (!canvas) return;
+      const stopScrolling = () => {
+        clearInterval(scrollInterval);
+        scrollInterval = null;
+      };
 
-      //  let ctx = canvas.getContext('2d');
-      //  let scrollOffset = 0;
+      container.addEventListener('mousemove', (event) => {
+        const rect = container.getBoundingClientRect();
+        const buffer = 50;
 
-      //  canvas.addEventListener('mousemove', function (event) {
-      //    let rect = canvas.getBoundingClientRect();
-      //    let mouseX = event.clientX - rect.left;
-
-      //    if (mouseX >= canvas.width - 100 && scrollOffset <= canvas.width) {
-      //      scrollOffset += scrollSpeed;
-      //    } else if (mouseX <= 100 && scrollOffset >= 0) {
-      //      scrollOffset -= scrollSpeed;
-      //    }
-
-      //    ctx.translate(-scrollOffset, 0);
-      //    ctx.clearRect(0, 0, canvas.width, canvas.height);
-      //    Game.DrawBuildings();
-      //    ctx.translate(scrollOffset, 0);
-      //  });
-      //}
-
-     // Game.registerHook('draw', updateScroll);
-
-
+        if (event.clientX < rect.left + buffer) {
+          startScrolling(-1);
+        } else if (event.clientX > rect.right - buffer) {
+          startScrolling(1);
+        } else {
+          stopScrolling();
+        }
+      });
+      container.addEventListener('mouseleave', stopScrolling);
 
 
       Game.Loader.RenameBuilding = function (buildingIndex, newName, newDesc) {
