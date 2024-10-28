@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Mod Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.9.0
+// @version      v0.9.1
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -46,34 +46,35 @@
         }
       };
 
+      //        REMOVED
+      // Delayed Until Complete
+      //let scrollSpeed = 20; // Adjust the scroll speed as needed
 
-      let scrollSpeed = 20; // Adjust the scroll speed as needed
+      //function updateScroll() {
+      //  let canvas = document.getElementById('buildingsCanvas');
+      //  if (!canvas) return;
 
-      function updateScroll() {
-        let canvas = document.getElementById('buildingsCanvas');
-        if (!canvas) return;
+      //  let ctx = canvas.getContext('2d');
+      //  let scrollOffset = 0;
 
-        let ctx = canvas.getContext('2d');
-        let scrollOffset = 0;
+      //  canvas.addEventListener('mousemove', function (event) {
+      //    let rect = canvas.getBoundingClientRect();
+      //    let mouseX = event.clientX - rect.left;
 
-        canvas.addEventListener('mousemove', function (event) {
-          let rect = canvas.getBoundingClientRect();
-          let mouseX = event.clientX - rect.left;
+      //    if (mouseX >= canvas.width - 100 && scrollOffset <= canvas.width) {
+      //      scrollOffset += scrollSpeed;
+      //    } else if (mouseX <= 100 && scrollOffset >= 0) {
+      //      scrollOffset -= scrollSpeed;
+      //    }
 
-          if (mouseX >= canvas.width - 100 && scrollOffset <= canvas.width) {
-            scrollOffset += scrollSpeed;
-          } else if (mouseX <= 100 && scrollOffset >= 0) {
-            scrollOffset -= scrollSpeed;
-          }
+      //    ctx.translate(-scrollOffset, 0);
+      //    ctx.clearRect(0, 0, canvas.width, canvas.height);
+      //    Game.DrawBuildings();
+      //    ctx.translate(scrollOffset, 0);
+      //  });
+      //}
 
-          ctx.translate(-scrollOffset, 0);
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          Game.DrawBuildings();
-          ctx.translate(scrollOffset, 0);
-        });
-      }
-
-      Game.registerHook('draw', updateScroll);
+     // Game.registerHook('draw', updateScroll);
 
 
 
