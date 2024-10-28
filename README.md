@@ -1,4 +1,4 @@
-![banner-about](https://github.com/samanthastahlke/cookievalley/assets/10996959/76bcb4b0-a446-42ef-a8bd-5ad40ded85df)
+![banner-about](https://github.com/user-attachments/assets/671d53e5-b70b-4b03-858a-e7806781fc67)
 Red Bread Crossover Mod is a Red Dead-themed crossover mod for Cookie Clicker.
 
 RBCM is currently only available in English, and may conflict with other mods that modify the news ticker or texture replacement functionality. If you have another mod that replaces any building sprites or the icons.png file, you may experience some inconsistencies or undesired graphical behaviour. Depending on the conflict, these issues might be fixable by adjusting the loading order of mods in the game's settings.
