@@ -6,6 +6,7 @@
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
 // @match        *://orteil.dashnet.org/cookieclicker/*
+// @match        file:///*/PC/Cookie%20Clicker/index.html
 // @grant        none
 // ==/UserScript==
 
