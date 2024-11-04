@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Mod Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.9.5
+// @version      v0.9.6
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -19,7 +19,7 @@
         return {
           name: 'Outlaw\'s Fortune',
           desc: 'Harness the spirit of the Wild West and watch your cookie production soar! Gain a 50% increase in cookie output for 10 minutes.',
-          icon: [20, 28, '"https://voltacceptyt.github.io/redbreadcrossover/img/icons.png"'],
+          icon: [20, 28, 'https://voltacceptyt.github.io/redbreadcrossover/img/icons.png'],
           time: (10 * 60) * Game.fps,
           multCpS: 1.5
         };
@@ -29,12 +29,12 @@
         return {
           name: 'Frontier Spirit',
           desc: 'Embrace the rugged determination of the frontier. All buildings produce cookies 25% faster for 15 minutes',
-          icon: [20, 28, '"https://voltacceptyt.github.io/redbreadcrossover/img/icons.png"'],
+          icon: [20, 28, 'https://voltacceptyt.github.io/redbreadcrossover/img/icons.png'],
           time: (15 * 60) * Game.fps,
           power: 1.25
         };
       });
-      
+
       const container = document.getElementById('rowCanvas15');
       const scrollSpeed = 2;
       let scrollInterval = null;
