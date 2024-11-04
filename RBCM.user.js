@@ -1,12 +1,11 @@
 // ==UserScript==
 // @name         Red Bread Crossover Mod Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v0.9.4
+// @version      v0.9.5
 // @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
 // @match        *://orteil.dashnet.org/cookieclicker/*
-// @match        file:///*/Online/CookieClicker/index.html
 // @grant        none
 // ==/UserScript==
 
@@ -15,38 +14,27 @@
   Game.registerMod("RedBreadCrossover", {
     init: function () {
       Game.Loader.replaced = []
-      Game.customBuffs = Game.customBuffs || {};
 
-      Game.customBuffs['outlawsFortune'] = {
-        name: 'Outlaw\'s Fortune',
-        desc: 'Harness the spirit of the Wild West and watch your cookie production soar! Gain a 50% increase in cookie output for 10 minutes.',
-        icon: [20, 28, '"https://voltacceptyt.github.io/redbreadcrossover/img/icons.png"'],
-        duration: 10 * 60 * Game.fps,
-        func: function () {
-          Game.cookiesPs *= 1.5;
-        },
-        endFunc: function () {
-          Game.cookiesPs /= 1.5;
-        }
-      };
+      new Game.buffType('outlawsFortune', function () {
+        return {
+          name: 'Outlaw\'s Fortune',
+          desc: 'Harness the spirit of the Wild West and watch your cookie production soar! Gain a 50% increase in cookie output for 10 minutes.',
+          icon: [20, 28, '"https://voltacceptyt.github.io/redbreadcrossover/img/icons.png"'],
+          time: (10 * 60) * Game.fps,
+          multCpS: 1.5
+        };
+      });
 
-      Game.customBuffs['frontierSpirit'] = {
-        name: 'Frontier Spirit',
-        desc: 'Embrace the rugged determination of the frontier. All buildings produce cookies 25% faster for 15 minutes',
-        icon: [20, 28, '"https://voltacceptyt.github.io/redbreadcrossover/img/icons.png"'],
-        duration: 15 * 60 * Game.fps,
-        func: function () {
-          for (var i in Game.Objects) {
-            Game.Objects[i].production *= 1.25;
-          }
-        },
-        endFunc: function () {
-          for (var i in Game.Objects) {
-            Game.Objects[i].production /= 1.25;
-          }
-        }
-      };
-
+      new Game.buffType('frontierSpirit', function () {
+        return {
+          name: 'Frontier Spirit',
+          desc: 'Embrace the rugged determination of the frontier. All buildings produce cookies 25% faster for 15 minutes',
+          icon: [20, 28, '"https://voltacceptyt.github.io/redbreadcrossover/img/icons.png"'],
+          time: (15 * 60) * Game.fps,
+          power: 1.25
+        };
+      });
+      
       const container = document.getElementById('rowCanvas15');
       const scrollSpeed = 2;
       let scrollInterval = null;
