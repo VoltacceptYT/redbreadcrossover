@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Mod Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v1.0.1
+// @version      v1.0.2
 // @description  Install RBCM on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -239,9 +239,6 @@
     a.option.RedBreadCrossoverDisabled:active {
       background-color: #300;
     }
-    #rowCanvas15 {
-      height:` + 200 + `px;
-    } 
     `;
 
       document.getElementsByTagName('head')[0].appendChild(style);
@@ -321,9 +318,9 @@
       Game.storeToRefresh = 1
 
       var wildWestObj = Game.Objects["Fractal engine"];
-      wildWestObj.art.w = 162;
+      wildWestObj.art.w = 64;
       wildWestObj.art.xV = 0;
-      wildWestObj.art.y = 8;
+      wildWestObj.art.y = 0;
       wildWestObj.art.yV = 0;
 
       for (var i in Game.Achievements) {
@@ -332,6 +329,9 @@
           it.icon = [it.icon[0], it.icon[1], 'https://voltacceptyt.github.io/redbreadcrossover/img/icons.png'];
         }
       }
+      var css_new = document.createElement('style');
+      css_new.innerHTML = `#productIcon15 .icon, #productIcon15 .icon.off, #mutedProduct15 .tinyProductIcon{background-image:url(https://voltacceptyt.github.io/redbreadcrossover/img/buildings.png)}`;
+      document.head.appendChild(css_new);
 
     },
     save: function () {
