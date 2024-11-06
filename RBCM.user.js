@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name         Red Bread Crossover Mod Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v1.0.0
-// @description  Install the Cookie Valley Mod on the Cookie Clicker Web!
+// @version      v1.0.1
+// @description  Install RBCM on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
+// @updateURL    https://voltacceptyt.github.io/redbreadcrossover/RBCM.user.js
+// @downloadURL  https://voltacceptyt.github.io/redbreadcrossover/RBCM.user.js
 // @match        *://orteil.dashnet.org/cookieclicker/*
 // @grant        none
 // ==/UserScript==
@@ -18,20 +20,20 @@
       new Game.buffType('outlawsFortune', function () {
         return {
           name: 'Outlaw\'s Fortune',
-          desc: 'Harness the spirit of the Wild West and watch your cookie production soar! Gain a 50% increase in cookie output for 10 minutes.',
+          desc: 'Harness the spirit of the Wild West and watch your cookie production soar! Gain a 36.7% increase in cookie output for 4.17 minutes.',
           icon: [20, 18, 'https://voltacceptyt.github.io/redbreadcrossover/img/icons.png'],
-          time: (10 * 60) * Game.fps,
-          multCpS: 1.5
+          time: (4.17 * 60) * Game.fps,
+          multCpS: 1.367
         };
       });
 
       new Game.buffType('frontierSpirit', function () {
         return {
           name: 'Frontier Spirit',
-          desc: 'Embrace the rugged determination of the frontier. All buildings produce cookies 25% faster for 15 minutes',
+          desc: 'Embrace the rugged determination of the frontier. All buildings produce cookies 22.5% faster for 6.25 minutes',
           icon: [20, 18, 'https://voltacceptyt.github.io/redbreadcrossover/img/icons.png'],
-          time: (15 * 60) * Game.fps,
-          power: 1.25
+          time: (6.25 * 60) * Game.fps,
+          power: 1.225
         };
       });
 
