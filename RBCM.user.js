@@ -330,7 +330,7 @@
         }
       }
       var css_new = document.createElement('style');
-      css_new.innerHTML = `#productIcon15 .icon, #productIcon15 .icon.off, #mutedProduct15 .tinyProductIcon{background-image:url(https://voltacceptyt.github.io/redbreadcrossover/img/buildings.png)}`;
+      css_new.innerHTML = `.product .icon, .product .icon.off, .tinyProductIcon{background-image:url(https://voltacceptyt.github.io/redbreadcrossover/img/buildings.png)}`;
       document.head.appendChild(css_new);
 
     },
