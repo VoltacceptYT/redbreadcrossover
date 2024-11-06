@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Mod Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v1.0.3
+// @version      v1.0.4
 // @description  Install RBCM on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -198,8 +198,8 @@
               section.style.padding = '0px';
               section.style.margin = '8px 4px';
               section.innerHTML = `
-              <div class="subsection">
-                <div class="title">Red Bread Crossover</div>
+              <div class="subsection RedBreadCrossover">
+                <div class="title">Red Bread Crossover (RBCM)</div>
                 <div id="RedBreadCrossoverAchivements" class="listing">` + '<a class="option ' + (Game.customAchievementsEnabled ? 'RedBreadCrossoverDisabled' : 'RedBreadCrossoverEnabled') + '" onclick="Game.toggleRedBreadCrossoverAchievements();">' +
                 (Game.customAchievementsEnabled ? 'Disable' : 'Enable') + ' Red Bread Crossover Achievements</a>' + `
                 </div>
@@ -217,27 +217,43 @@
 
       var style = document.createElement('style');
       style.innerHTML = `
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,900;1,900&display=swap');
+    
+    .RedBreadCrossover {
+      font-family: "Merriweather", serif;
+      font-weight: 900;
+    }
+
     .RedBreadCrossoverEnabled, a.option.RedBreadCrossoverEnabled {
       color: #0c0;
       border-color: #0c0;
     }
+
     a.option.RedBreadCrossoverEnabled:hover {
       border-color: #3f3;
       color: #3f3;
     }
+
     a.option.RedBreadCrossoverEnabled:active {
       background-color: #300;
     }
+
     .RedBreadCrossoverDisabled, a.option.RedBreadCrossoverDisabled {
       color: #c00;
       border-color: #c00;
     }
+
     a.option.RedBreadCrossoverDisabled:hover {
       border-color: #f33;
       color: #f33;
     }
+
     a.option.RedBreadCrossoverDisabled:active {
       background-color: #300;
+    }
+
+    .product .icon, .product .icon.off, .tinyProductIcon {
+      background-image: url(https://voltacceptyt.github.io/redbreadcrossover/img/buildings.png);
     }
     `;
 
@@ -320,7 +336,7 @@
       var wildWestObj = Game.Objects["Fractal engine"];
       wildWestObj.art.w = 64;
       wildWestObj.art.xV = 0;
-      wildWestObj.art.y = 0;
+      wildWestObj.art.y = 32;
       wildWestObj.art.yV = 0;
 
       for (var i in Game.Achievements) {
@@ -329,10 +345,6 @@
           it.icon = [it.icon[0], it.icon[1], 'https://voltacceptyt.github.io/redbreadcrossover/img/icons.png'];
         }
       }
-      var css_new = document.createElement('style');
-      css_new.innerHTML = `.product .icon, .product .icon.off, .tinyProductIcon{background-image:url(https://voltacceptyt.github.io/redbreadcrossover/img/buildings.png)}`;
-      document.head.appendChild(css_new);
-
     },
     save: function () {
     },
