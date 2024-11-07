@@ -8,7 +8,6 @@
 // @updateURL    https://voltacceptyt.github.io/redbreadcrossover/RBCM.user.js
 // @downloadURL  https://voltacceptyt.github.io/redbreadcrossover/RBCM.user.js
 // @match        *://orteil.dashnet.org/cookieclicker/*
-// @match        *://ozh.github.io/cookieclicker/*
 // @grant        none
 // ==/UserScript==
 
