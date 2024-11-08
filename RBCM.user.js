@@ -21,7 +21,7 @@
         return {
           name: 'Outlaw\'s Fortune',
           desc: 'Harness the spirit of the Wild West and watch your cookie production soar! Gain a 36.7% increase in cookie output for 4.17 minutes.',
-          icon: [20, 18, 'https://voltacceptyt.github.io/redbreadcrossover/img/icons.png'],
+          icon: [1, 0, 'https://voltacceptyt.github.io/redbreadcrossover/img/BuffIcons.png'],
           time: (4.17 * 60) * Game.fps,
           multCpS: 1.367
         };
@@ -31,11 +31,21 @@
         return {
           name: 'Frontier Spirit',
           desc: 'Embrace the rugged determination of the frontier. All buildings produce cookies 22.5% faster for 6.25 minutes',
-          icon: [20, 18, 'https://voltacceptyt.github.io/redbreadcrossover/img/icons.png'],
+          icon: [2, 0, 'https://voltacceptyt.github.io/redbreadcrossover/img/buffIcons.png'],
           time: (6.25 * 60) * Game.fps,
           power: 1.225
         };
       });
+
+      new Game.buffType('goldenSaddle', function () {
+        return {
+          name: 'Golden Saddle',
+          desc: 'Ride into the sunset with a golden saddle. Doubles the cookies earned from clicking for 3.14 minutes.',
+          icon: [0, 0, 'https://voltacceptyt.github.io/redbreadcrossover/img/buffIcons.png'],
+          time: (3.14 * 60) * Game.fps,
+          multClick: 2
+        };
+      });s
 
       const container = document.getElementById('rowCanvas15');
       const scrollSpeed = 2;

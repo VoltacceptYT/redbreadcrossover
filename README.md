@@ -9,8 +9,10 @@ You install the [Red Bread Crossover Userscript](https://voltacceptyt.github.io/
 ![banner-features](https://github.com/samanthastahlke/cookievalley/assets/10996959/866a7c2c-fcd3-429a-9efa-b0a8264d93ff)
 - **Toggle Buttons**
   - Used to Toggle Active Mod Elements
-- **Custom Achievements**
-  - Adds 4 Custom Achievements to The Game
+- **Modified Achievements**
+  - Modifies 5 of the **Fractal Engine** Achievements into Read Dead-Themed Achivements
+- **Custom Buffs**
+  - Adds 3 Custom Buffs to The Game
 - **Modified Buildings**
   - Modifies the **Fractal Engine** and Turns it into The Wild West
 
