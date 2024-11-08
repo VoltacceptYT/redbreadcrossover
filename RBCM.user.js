@@ -332,7 +332,7 @@
       Game.storeToRefresh = 1
 
       var wildWestObj = Game.Objects["Fractal engine"];
-      wildWestObj.art.w = 128;
+      wildWestObj.art.w = 64;
       wildWestObj.art.xV = 0;
       wildWestObj.art.y = 32;
       wildWestObj.art.yV = 0;
