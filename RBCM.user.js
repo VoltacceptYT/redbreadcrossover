@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Mod Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v1.0.8
+// @version      v1.0.9
 // @description  Install RBCM on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -45,7 +45,7 @@
           time: (3.14 * 60) * Game.fps,
           multClick: 2
         };
-      });s
+      });
 
       const container = document.getElementById('rowCanvas15');
       const scrollSpeed = 2;
