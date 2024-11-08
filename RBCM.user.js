@@ -21,7 +21,7 @@
         return {
           name: 'Outlaw\'s Fortune',
           desc: 'Harness the spirit of the Wild West and watch your cookie production soar! Gain a 36.7% increase in cookie output for 4.17 minutes.',
-          icon: [1, 0, 'https://voltacceptyt.github.io/redbreadcrossover/img/BuffIcons.png'],
+          icon: [0, 1, 'https://voltacceptyt.github.io/redbreadcrossover/img/BuffIcons.png'],
           time: (4.17 * 60) * Game.fps,
           multCpS: 1.367
         };
@@ -31,7 +31,7 @@
         return {
           name: 'Frontier Spirit',
           desc: 'Embrace the rugged determination of the frontier. All buildings produce cookies 22.5% faster for 6.25 minutes',
-          icon: [2, 0, 'https://voltacceptyt.github.io/redbreadcrossover/img/buffIcons.png'],
+          icon: [0, 2, 'https://voltacceptyt.github.io/redbreadcrossover/img/buffIcons.png'],
           time: (6.25 * 60) * Game.fps,
           power: 1.225
         };
