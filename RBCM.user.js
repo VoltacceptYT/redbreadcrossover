@@ -21,7 +21,7 @@
         return {
           name: 'Outlaw\'s Fortune',
           desc: 'Harness the spirit of the Wild West and watch your cookie production soar! Gain a 36.7% increase in cookie output for 4.17 minutes.',
-          icon: [0, 1, 'https://voltacceptyt.github.io/redbreadcrossover/img/BuffIcons.png'],
+          icon: [0, 3, 'https://voltacceptyt.github.io/redbreadcrossover/img/BuffIcons.png'],
           time: (4.17 * 60) * Game.fps,
           multCpS: 1.367
         };
