@@ -269,7 +269,6 @@
           Game.ObjectsById[buildingIndex].plural = newName + 's';
           Game.ObjectsById[buildingIndex].bplural = newName + 's';
           Game.ObjectsById[buildingIndex].desc = newDesc;
-          console.log(`Building name changed to ${newName}`);
         } else {
           console.log('Invalid building index');
         }
@@ -283,7 +282,6 @@
           Game.AchievementsById[AchievementIndex].ddesc = newDesc;
           Game.AchievementsById[AchievementIndex].desc = newDesc;
           Game.AchievementsById[AchievementIndex].baseDesc = newDesc;
-          console.log(`Achievement name changed to ${newName}`);
         } else {
           console.log('Invalid Achievement index');
         }
@@ -334,7 +332,7 @@
       Game.storeToRefresh = 1
 
       var wildWestObj = Game.Objects["Fractal engine"];
-      wildWestObj.art.w = 64;
+      wildWestObj.art.w = 128;
       wildWestObj.art.xV = 0;
       wildWestObj.art.y = 32;
       wildWestObj.art.yV = 0;
