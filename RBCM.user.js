@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Mod Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v1.1.1
+// @version      v1.1.2
 // @description  Install RBCM on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -17,26 +17,6 @@
     init: function () {
       Game.Loader.replaced = []
 
-      new Game.buffType('outlawsFortune', function () {
-        return {
-          name: 'Outlaw\'s Fortune',
-          desc: 'Harness the spirit of the Wild West and watch your cookie production soar! Gain a 36.7% increase in cookie output for 4.17 minutes.',
-          icon: [1, 0, 'https://voltacceptyt.github.io/redbreadcrossover/img/BuffIcons.png'],
-          time: (4.17 * 60) * Game.fps,
-          multCpS: 1.367
-        };
-      });
-
-      new Game.buffType('frontierSpirit', function () {
-        return {
-          name: 'Frontier Spirit',
-          desc: 'Embrace the rugged determination of the frontier. All buildings produce cookies 22.5% faster for 6.25 minutes',
-          icon: [2, 0, 'https://voltacceptyt.github.io/redbreadcrossover/img/buffIcons.png'],
-          time: (6.25 * 60) * Game.fps,
-          power: 1.225
-        };
-      });
-
       new Game.buffType('goldenSaddle', function () {
         return {
           name: 'Golden Saddle',
@@ -44,6 +24,26 @@
           icon: [0, 0, 'https://voltacceptyt.github.io/redbreadcrossover/img/buffIcons.png'],
           time: (3.14 * 60) * Game.fps,
           multClick: 2
+        };
+      });
+
+      new Game.buffType('frontierSpirit', function () {
+        return {
+          name: 'Frontier Spirit',
+          desc: 'Embrace the rugged determination of the frontier. All buildings produce cookies 22.5% faster for 6.25 minutes',
+          icon: [0, 1, 'https://voltacceptyt.github.io/redbreadcrossover/img/buffIcons.png'],
+          time: (6.25 * 60) * Game.fps,
+          power: 1.225
+        };
+      });
+
+      new Game.buffType('outlawsFortune', function () {
+        return {
+          name: 'Outlaw\'s Fortune',
+          desc: 'Harness the spirit of the Wild West and watch your cookie production soar! Gain a 36.7% increase in cookie output for 4.17 minutes.',
+          icon: [0, 2, 'https://voltacceptyt.github.io/redbreadcrossover/img/BuffIcons.png'],
+          time: (4.17 * 60) * Game.fps,
+          multCpS: 1.367
         };
       });
 
