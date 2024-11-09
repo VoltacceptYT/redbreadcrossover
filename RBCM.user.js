@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Red Bread Crossover Mod Userscript
 // @namespace    https://github.com/VoltacceptYT/redbreadcrossover
-// @version      v1.1.2
+// @version      v1.1.3
 // @description  Install RBCM on the Cookie Clicker Web!
 // @author       Void Drifter, Samantha Stahlke
 // @icon         https://voltacceptyt.github.io/redbreadcrossover/img/modicon.png
@@ -41,7 +41,7 @@
         return {
           name: 'Outlaw\'s Fortune',
           desc: 'Harness the spirit of the Wild West and watch your cookie production soar! Gain a 36.7% increase in cookie output for 4.17 minutes.',
-          icon: [0, 2, 'https://voltacceptyt.github.io/redbreadcrossover/img/BuffIcons.png'],
+          icon: [0, 2, 'https://voltacceptyt.github.io/redbreadcrossover/img/buffIcons.png'],
           time: (4.17 * 60) * Game.fps,
           multCpS: 1.367
         };
